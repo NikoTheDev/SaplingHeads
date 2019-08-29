@@ -1,0 +1,25 @@
+name: SaplingHeads
+version: 1.0.1
+main: com.vervedev.saplingheads.Main
+description: Custom gamemode for SaplingMC
+api-version: 1.14
+softdepend: [HolographicDisplays, Citizens, Vault]
+author: VerveDev
+
+commands:
+  rankup:
+    description: Open the rankup menu!
+  setvaultnpc:
+    description: Set the main NPC for the Skull vault!
+  spawn:
+    description: Teleport to the server spawn
+  setspawn:
+    description: Set the main server spawn point!
+  spawnershopnpc:
+    description: Place a main spawner npc!
+  skullvault:
+    aliases: [sv]
+    descroiption: Open your skull vault!
+  setrank:
+    description: Set a players rank!
+    

@@ -1,0 +1,225 @@
+server_motd: "                      &aSaplingMC &e(1.14.4)           \n          &6&lCUSTOM GAMEMODE &8- &7&lCOMING SOON"
+spawner_configuration:
+  panda_owner_skull_drop_percent: 1
+messages:
+  spawn:
+    set_spawn_message: "&a&lSaplingMC &8> &7You have successfully &eset spawn&7!"
+    spawn_message: "&8(&a*&8) &7You have teleported to &6server spawn&7!"
+  rankup:
+    chicken: "&a&lSaplingMC &8> &7You have successfully ranked up to &f&lChicken Skulls&7!"
+    chicken_broadcast: "&a&lSaplingMC &8> <playername> &ehas successfully ranked up to &f&lChicken Skulls&7!"
+    pig: "&a&lSaplingMC &8> &7You have successfully ranked up to &d&lPig Skulls&7!"
+    pig_broadcast: "&a&lSaplingMC &8> <playername> &ehas successfully ranked up to &d&lPig Skulls&7!"
+    sheep: "&a&lSaplingMC &8> &7You have successfully ranked up to &8&lSheep Skulls&7!"
+    sheep_broadcast: "&a&lSaplingMC &8> <playername> &ehas successfully ranked up to &8&lSheep Skulls&7!"
+    cow: "&a&lSaplingMC &8> &7You have successfully ranked up to &8&lCow Skulls&7!"
+    cow_broadcast: "&a&lSaplingMC &8> <playername> &ehas successfully ranked up to &8&lCow Skulls&7!"
+    zombie: "&a&lSaplingMC &8> &7You have successfully ranked up to &2&lZombie Skulls&7!"
+    zombie_broadcast: "&a&lSaplingMC &8> <playername> &ehas successfully ranked up to &2&lZombie Skulls&7!"
+    skeleton: "&a&lSaplingMC &8> &7You have successfully ranked up to &3&lSkeleton Skulls&7!"
+    skeleton_broadcast: "&a&lSaplingMC &8> <playername> &ehas successfully ranked up to &3&lSkeleton Skulls&7!"
+    pigzombie: "&a&lSaplingMC &8> &7You have successfully ranked up to &c&lZombie Pigman Skulls&7!"
+    pigzombie_broadcast: "&a&lSaplingMC &8> <playername> &ehas successfully ranked up to &c&lZombie Pigman Skulls&7!"
+    slime: "&a&lSaplingMC &8> &7You have successfully ranked up to &a&lSlime Skulls&7!"
+    slime_broadcast: "&a&lSaplingMC &8> <playername> &ehas successfully ranked up to &a&lSlime Skulls&7!"
+    creeper: "&a&lSaplingMC &8> &7You have successfully ranked up to &a&lCreeper Skulls&7!"
+    creeper_broadcast: "&a&lSaplingMC &8> <playername> &ehas successfully ranked up to &a&lCreeper Skulls&7!"
+    panda: "&a&lSaplingMC &8> &7You have successfully ranked up to &f&lPan&8&lda &7&lSkulls&7!"
+    panda_broadcast: "&a&lSaplingMC &8> <playername> &ehas successfully ranked up to &f&lPan&8&lda &7&lSkulls&7!"
+    max_rank: "&a&lSaplingMC &8> &aYou have reached the max rank! &eCongrats!"
+  vault:
+    chicken: "&6&lSkull Vault &8> &7You have successfully vaulted &6<amount> &f&lChicken Skull&r&7!"
+    pig: "&6&lSkull Vault &8> &7You have successfully vaulted &6<amount> &d&lPig Skull&r&7!"
+    sheep: "&6&lSkull Vault &8> &7You have successfully vaulted &6<amount> &7&lSheep Skull&r&7!"
+    cow: "&6&lSkull Vault &8> &7You have successfully vaulted &6<amount> &8&lCow Skull&r&7!"
+    zombie: "&6&lSkull Vault &8> &7You have successfully vaulted &6<amount> &2&lZombie Skull&r&7!"
+    skeleton: "&6&lSkull Vault &8> &7You have successfully vaulted &6<amount> &3&lSkeleton Skull&r&7!"
+    zpigman: "&6&lSkull Vault &8> &7You have successfully vaulted &6<amount> &c&lZombie Pigman Skull&r&7!"
+    slime: "&6&lSkull Vault &8> &7You have successfully vaulted &6<amount> &a&lSlime Skull&r&7!"
+    creeper: "&6&lSkull Vault &8> &7You have successfully vaulted &6<amount> &a&lCreeper Skull&r&7!"
+    panda: "&6&lSkull Vault &8> &7You have successfully vaulted &6<amount> &f&lPan&7&lda &f&lSkull&r&7!"
+    no_skull_in_hand: "&6&lSkull Vault &8> &7You must have a valid &askull &7in your hand to trade with me!"
+  sneakvault:
+    chicken: "&6&lSkull Vault &8> &7You have successfully vaulted &6<amount> &f&lChicken Skull&r&7!"
+    pig: "&6&lSkull Vault &8> &7You have successfully vaulted &6<amount> &d&lPig Skull&r&7!"
+    sheep: "&6&lSkull Vault &8> &7You have successfully vaulted &6<amount> &7&lSheep Skull&r&7!"
+    cow: "&6&lSkull Vault &8> &7You have successfully vaulted &6<amount> &8&lCow Skull&r&7!"
+    zombie: "&6&lSkull Vault &8> &7You have successfully vaulted &6<amount> &2&lZombie Skull&r&7!"
+    skeleton: "&6&lSkull Vault &8> &7You have successfully vaulted &6<amount> &3&lSkeleton Skull&r&7!"
+    zpigman: "&6&lSkull Vault &8> &7You have successfully vaulted &6<amount> &c&lZombie Pigman Skull&r&7!"
+    slime: "&6&lSkull Vault &8> &7You have successfully vaulted &6<amount> &a&lSlime Skull&r&7!"
+    creeper: "&6&lSkull Vault &8> &7You have successfully vaulted &6<amount> &a&lCreeper Skull&r&7!"
+    panda: "&6&lSkull Vault &8> &7You have successfully vaulted &6<amount> &f&lPan&7&lda &f&lSkull&r&7!"
+  spawners:
+    blank: "&6&lSpawners &8> &7You must assign a mob type to this spawner! &7To craft your specified spawner &esurround this blank spawner with stacks of your desired mob type!"
+    punch_message: "&6&lSpawners &8> &7In order to break a spawner you must use your &6fist!"
+    low_rank: "&6&lSpawners &8> &7You are &cnot &7the required rank to &emine &7this spawner! &7You must have <needed_rank> &7unlocked! &7You may check if you are eligible with &e/rankup&7!"
+    low_rank_place: "&6&lSpawners &8> &7You are &cnot &7the required rank to &aplace &7this spawner! &7You must have <needed_rank> &7unlocked! &7You may check if you are eligible with &e/rankup&7!"
+  spawner_npc:
+    chicken: "&f&lChicken Spawner &8> &7You have successfully purchased this spawner for &f$<amount>"
+    pig: "&d&lPig Spawner &8> &7You have successfully purchased this spawner for &d$<amount>"
+    sheep: "&7&lSheep Spawner &8> &7You have successfully purchased this spawner for &7$<amount>"
+    cow: "&8&lCow Spawner &8> &7You have successfully purchased this spawner for &8$<amount>"
+    zombie: "&2&lZombie Spawner &8> &7You have successfully purchased this spawner for &2$<amount>"
+    skeleton: "&3&lSkeleton Spawner &8> &7You have successfully purchased this spawner for &3$<amount>"
+    pigzombie: "&c&lZombie Pigman Spawner &8> &7You have successfully purchased this spawner for &c$<amount>"
+    slime: "&a&lSlime Spawner &8> &7You have successfully purchased this spawner for &a$<amount>"
+    creeper: "&a&lCreeper Spawner &8> &7You have successfully purchased this spawner for &a$<amount>"
+    panda: "&f&lPan&7&lda &f&lSpawner &8> &7You have successfully purchased this spawner for &f$<amount>"
+    no_funds: "&a&lSaplingMC &8> &7You do &cnot &7have enough &6funds &7to make this spawner purchase!"
+    low_rank: "&6&lSpawners &8> &7You are &cnot &7the required rank to purchase this spawner! &7You must have <needed_rank> &7unlocked! &7You may check if you are eligible with &e/rankup&7!"
+Spawner_Item_Blacklist:
+  items:
+    - "DIAMOND_PICKAXE"
+    - "WOODEN_PICKAXE"
+    - "GOLDEN_PICKAXE"
+    - "STONE_PICKAXE"
+    - "IRON_PICKAXE"
+    - "DIAMOND_SWORD"
+    - "GOLDEN_SWORD"
+    - "IRON_SWORD"
+    - "STONE_SWORD"
+    - "WOODEN_SWORD"
+    - "DIAMOND_SPADE"
+    - "GOLDEN_SPADE"
+    - "IRON_SPADE"
+    - "WOODEN_SPADE"
+    - "STONE_SPADE"
+    - "DIAMOND_AXE"
+    - "GOLDEN_AXE"
+    - "IRON_AXE"
+    - "STONE_AXE"
+    - "WOODEN_AXE"
+SpawnerShop:
+  prices:
+    chicken: 10000
+    pig: 15000
+    sheep: 20000
+    cow: 30000
+    zombie: 40000
+    skeleton: 55000
+    pigzombie: 70000
+    slime: 90000
+    creeper: 120000
+    panda: 200000
+Rankup_Requirements:
+  chicken:
+    cash: 5000
+    chicken_skulls: 0
+    pig_skulls: 0
+    sheep_skulls: 0
+    cow_skulls: 0
+    zombie_skulls: 0
+    skeleton_skulls: 0
+    pigzombie_skulls: 0
+    slime_skulls: 0
+    creeper_skulls: 0
+    panda_skulls: 0
+  pig:
+    cash: 15000
+    chicken_skulls: 600
+    pig_skulls: 0
+    sheep_skulls: 0
+    cow_skulls: 0
+    zombie_skulls: 0
+    skeleton_skulls: 0
+    pigzombie_skulls: 0
+    slime_skulls: 0
+    creeper_skulls: 0
+    panda_skulls: 0
+  sheep:
+    cash: 20000
+    chicken_skulls: 700
+    pig_skulls: 900
+    sheep_skulls: 0
+    cow_skulls: 0
+    zombie_skulls: 0
+    skeleton_skulls: 0
+    pigzombie_skulls: 0
+    slime_skulls: 0
+    creeper_skulls: 0
+    panda_skulls: 0
+  cow:
+    cash: 30000
+    chicken_skulls: 800
+    pig_skulls: 1000
+    sheep_skulls: 1250
+    cow_skulls: 0
+    zombie_skulls: 0
+    skeleton_skulls: 0
+    pigzombie_skulls: 0
+    slime_skulls: 0
+    creeper_skulls: 0
+    panda_skulls: 0
+  zombie:
+    cash: 40000
+    chicken_skulls: 900
+    pig_skulls: 1250
+    sheep_skulls: 1500
+    cow_skulls: 1400
+    zombie_skulls: 0
+    skeleton_skulls: 0
+    pigzombie_skulls: 0
+    slime_skulls: 0
+    creeper_skulls: 0
+    panda_skulls: 0
+  skeleton:
+    cash: 55000
+    chicken_skulls: 1000
+    pig_skulls: 1400
+    sheep_skulls: 1600
+    cow_skulls: 1650
+    zombie_skulls: 1750
+    skeleton_skulls: 0
+    pigzombie_skulls: 0
+    slime_skulls: 0
+    creeper_skulls: 0
+    panda_skulls: 0
+  pigzombie:
+    cash: 70000
+    chicken_skulls: 1250
+    pig_skulls: 1500
+    sheep_skulls: 1700
+    cow_skulls: 1800
+    zombie_skulls: 1900
+    skeleton_skulls: 2100
+    pigzombie_skulls: 0
+    slime_skulls: 0
+    creeper_skulls: 0
+    panda_skulls: 0
+  slime:
+    cash: 90000
+    chicken_skulls: 1400
+    pig_skulls: 1650
+    sheep_skulls: 1850
+    cow_skulls: 2000
+    zombie_skulls: 2150
+    skeleton_skulls: 2300
+    pigzombie_skulls: 2600
+    slime_skulls: 0
+    creeper_skulls: 0
+    panda_skulls: 0  
+  creeper:
+    cash: 120000
+    chicken_skulls: 1550
+    pig_skulls: 1820
+    sheep_skulls: 1925
+    cow_skulls: 2125
+    zombie_skulls: 2300
+    skeleton_skulls: 2450
+    pigzombie_skulls: 2830
+    slime_skulls: 2950
+    creeper_skulls: 0
+    panda_skulls: 0
+  panda:
+    cash: 200000
+    chicken_skulls: 1800
+    pig_skulls: 2000
+    sheep_skulls: 2150
+    cow_skulls: 2450
+    zombie_skulls: 2600
+    skeleton_skulls: 2750
+    pigzombie_skulls: 3000
+    slime_skulls: 3250
+    creeper_skulls: 3500
+    panda_skulls: 75
