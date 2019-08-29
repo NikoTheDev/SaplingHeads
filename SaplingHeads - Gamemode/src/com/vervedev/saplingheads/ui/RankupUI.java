@@ -1,16 +1,12 @@
 package com.vervedev.saplingheads.ui;
 
-import java.text.DecimalFormat;
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import com.vervedev.saplingheads.managers.RankManager;
-import com.vervedev.saplingheads.managers.SkullManager;
 import com.vervedev.saplingheads.utils.Utils;
 
 public class RankupUI {
@@ -37,96 +33,93 @@ public class RankupUI {
 			Utils.createItemHead(inv, "thepoup", 1, 21, "&f&lChicken Rank", "&7You currently have access to all",
 					"&fChicken Perks &7To view your perks", "&7simply do &9/perks&7!");
 		} else {
-			if (!RankManager.eligibleToRankup(p)) {
-				Utils.createItemHead(
-						inv, "thepoup", 1, 21, "&f&lChicken Rank &8(&c&lLOCKED&8)", "&7This rank requires a total of &f"
-								+ RankManager.getRequiredChickenSkulls(p) + " chicken skulls to rankup!",
-						"", "&eCollect enough skulls in order to rankup!");
-			} else {
-				Utils.createItemHead(inv, "thepoup", 1, 21, "&f&lChicken Rank &8(&c&lLOCKED&8)",
-						"&7You currently have &f " + RankManager.getRequiredChickenSkulls(p) + " skulls!", "",
-						"&eCollect enough skulls in order to rankup!");
-			}
+			Utils.createItemHead(
+					inv, "thepoup", 1, 21, "&f&lChicken Rank &8(&c&lLOCKED&8)", "&7Your rank requires a total of &f"
+							+ RankManager.getRequiredChickenSkulls(p) + " chicken skulls to rankup!",
+					"", "&eCollect enough skulls in order to rankup!");
 		}
 
 		if (RankManager.getRank(p) >= 2) {
 			Utils.createItemHead(inv, "Pig", 1, 22, "&d&lPig Rank", "&7You currently have access to all",
 					"&dPig Perks &7To view your perks", "&7simply do &9perks&7!");
 		} else {
-			Utils.createItemHead(inv, "Pig", 1, 22, "&d&lPig Rank &8(&c&lLOCKED&8)",
-					"&7You currently have &f " + RankManager.getRequiredPigSkulls(p) + " skulls!", "",
-					"&eCollect enough skulls in order to rankup!");
+			Utils.createItemHead(
+					inv, "Pig", 1, 22, "&d&lPig Rank &8(&c&lLOCKED&8)", "&7Your rank requires a total of &d"
+							+ RankManager.getRequiredPigSkulls(p) + " pig skulls to rankup!",
+					"", "&eCollect enough skulls in order to rankup!");
 		}
 		if (RankManager.getRank(p) >= 3) {
 			Utils.createItemHead(inv, "mhf_sheep", 1, 23, "&7&lSheep Rank", "&7You currently have access to all",
 					"&7Sheep Perks &7To view your perks", "&7simply do &9/perks&7!");
 		} else {
-			Utils.createItemHead(inv, "mhf_sheep", 1, 23, "&7&lSheep Rank &8(&c&lLOCKED&8)",
-					"&7You currently have &f " + RankManager.getRequiredSheepSkulls(p) + " skulls!", "",
-					"&eCollect enough skulls in order to rankup!");
+			Utils.createItemHead(
+					inv, "mhf_sheep", 1, 23, "&7&lSheep Rank &8(&c&lLOCKED&8)", "&7Your rank requires a total of &7"
+							+ RankManager.getRequiredSheepSkulls(p) + " sheep skulls to rankup!",
+					"", "&eCollect enough skulls in order to rankup!");
 		}
 		if (RankManager.getRank(p) >= 4) {
-			Utils.createItemHead(inv, "mhf_cow", 1, 24, "&8&lCow Rank",
-					"&7You currently have &8" + SkullManager.getCowSkullAmount(p) + " skulls!", "",
-					"&7If you would like to redeem perk credits", "&7click &aRedeem Perk Credits&7!");
+			Utils.createItemHead(inv, "mhf_cow", 1, 24, "&8&lCow Rank", "&7You currently have access to all",
+					"&8Cow Perks &7To view your perks", "&7simply do &9/perks&7!");
 		} else {
-			Utils.createItemHead(inv, "mhf_cow", 1, 24, "&8&lCow Rank &8(&c&lLOCKED&8)",
-					"&7You currently have &8" + SkullManager.getCowSkullAmount(p) + " skulls!", "",
-					"&7If you would like to redeem perk credits", "&7click &aRedeem Perk Credits&7!");
+			Utils.createItemHead(
+					inv, "mhf_cow", 1, 24, "&8&lCow Rank &8(&c&lLOCKED&8)", "&7Your rank requires a total of &8"
+							+ RankManager.getRequiredCowSkulls(p) + " cow skulls to rankup!",
+					"", "&eCollect enough skulls in order to rankup!");
 		}
 		if (RankManager.getRank(p) >= 5) {
-			Utils.createItemHead(inv, "mhf_zombie", 1, 25, "&2&lZombie Rank",
-					"&7You currently have &2" + SkullManager.getZombieSkullAmount(p) + " skulls!", "",
-					"&7If you would like to redeem perk credits", "&7click &aRedeem Perk Credits&7!");
+			Utils.createItemHead(inv, "mhf_zombie", 1, 25, "&2&lZombie Rank", "&7You currently have access to all",
+					"&2Zombie Perks &7To view your perks", "&7simply do &9/perks&7!");
 		} else {
-			Utils.createItemHead(inv, "mhf_zombie", 1, 25, "&2&lZombie Rank &8(&c&lLOCKED&8)",
-					"&7You currently have &2" + SkullManager.getZombieSkullAmount(p) + " skulls!", "",
-					"&7If you would like to redeem perk credits", "&7click &aRedeem Perk Credits&7!");
+			Utils.createItemHead(
+					inv, "mhf_zombie", 1, 25, "&2&lZombie Rank &8(&c&lLOCKED&8)", "&7Your rank requires a total of &2"
+							+ RankManager.getRequiredZombieSkulls(p) + " zombie skulls to rankup!",
+					"", "&eCollect enough skulls in order to rankup!");
 		}
 		if (RankManager.getRank(p) >= 6) {
-			Utils.createItemHead(inv, "mhf_skeleton", 1, 30, "&3&lSkeleton Rank",
-					"&7You currently have &3" + SkullManager.getSkeletonSkullAmount(p) + " skulls!", "",
-					"&7If you would like to redeem perk credits", "&7click &aRedeem Perk Credits&7!");
+			Utils.createItemHead(inv, "mhf_skeleton", 1, 30, "&3&lSkeleton Rank", "&7You currently have access to all",
+					"&3Skeleton Perks &7To view your perks", "&7simply do &9/perks&7!");
 		} else {
 			Utils.createItemHead(inv, "mhf_skeleton", 1, 30, "&3&lSkeleton Rank &8(&c&lLOCKED&8)",
-					"&7You currently have &3" + SkullManager.getSkeletonSkullAmount(p) + " skulls!", "",
-					"&7If you would like to redeem perk credits", "&7click &aRedeem Perk Credits&7!");
+					"&7Your rank requires a total of &3" + RankManager.getRequiredSkeletonSkulls(p)
+							+ " skeleton skulls to rankup!",
+					"", "&eCollect enough skulls in order to rankup!");
 		}
 		if (RankManager.getRank(p) >= 7) {
 			Utils.createItemHead(inv, "mhf_pigzombie", 1, 31, "&c&lZombie Pigman Rank",
-					"&7You currently have &c" + SkullManager.getPigZombieSkullAmount(p) + " skulls!", "",
-					"&7If you would like to redeem perk credits", "&7click &aRedeem Perk Credits&7!");
+					"&7You currently have access to all", "&cZombie Pigman Perks &7To view your perks",
+					"&7simply do &9/perks&7!");
 		} else {
 			Utils.createItemHead(inv, "mhf_pigzombie", 1, 31, "&c&lZombie Pigman Rank &8(&c&lLOCKED&8)",
-					"&7You currently have &c" + SkullManager.getPigZombieSkullAmount(p) + " skulls!", "",
-					"&7If you would like to redeem perk credits", "&7click &aRedeem Perk Credits&7!");
+					"&7Your rank requires a total of &c" + RankManager.getRequiredPigZombieSkulls(p)
+							+ " zombie pigman skulls to rankup!",
+					"", "&eCollect enough skulls in order to rankup!");
 		}
 		if (RankManager.getRank(p) >= 8) {
-			Utils.createItemHead(inv, "mhf_slime", 1, 32, "&a&lSlime Rank",
-					"&7You currently have &a" + SkullManager.getSlimeSkullAmount(p) + " skulls!", "",
-					"&7If you would like to redeem perk credits", "&7click &aRedeem Perk Credits&7!");
+			Utils.createItemHead(inv, "mhf_slime", 1, 32, "&a&lSlime Rank", "&7You currently have access to all",
+					"&aSlime Perks &7To view your perks", "&7simply do &9/perks&7!");
 		} else {
-			Utils.createItemHead(inv, "mhf_slime", 1, 32, "&a&lSlime Rank &8(&c&lLOCKED&8)",
-					"&7You currently have &a" + SkullManager.getSlimeSkullAmount(p) + " skulls!", "",
-					"&7If you would like to redeem perk credits", "&7click &aRedeem Perk Credits&7!");
+			Utils.createItemHead(
+					inv, "mhf_slime", 1, 32, "&a&lSlime Rank &8(&c&lLOCKED&8)", "&7Your rank requires a total of &a"
+							+ RankManager.getRequiredSlimeSkulls(p) + " slime skulls to rankup!",
+					"", "&eCollect enough skulls in order to rankup!");
 		}
 		if (RankManager.getRank(p) >= 9) {
-			Utils.createItemHead(inv, "mhf_creeper", 1, 33, "&a&lCreeper Rank",
-					"&7You currently have &a" + SkullManager.getCreeperSkullAmount(p) + " skulls!", "",
-					"&7If you would like to redeem perk credits", "&7click &aRedeem Perk Credits&7!");
+			Utils.createItemHead(inv, "mhf_creeper", 1, 33, "&a&lCreeper Rank", "&7You currently have access to all",
+					"&aCreeper Perks &7To view your perks", "&7simply do &9/perks&7!");
 		} else {
-			Utils.createItemHead(inv, "mhf_creeper", 1, 33, "&a&lCreeper Rank &8(&c&lLOCKED&8)",
-					"&7You currently have &a" + SkullManager.getCreeperSkullAmount(p) + " skulls!", "",
-					"&7If you would like to redeem perk credits", "&7click &aRedeem Perk Credits&7!");
+			Utils.createItemHead(
+					inv, "mhf_creeper", 1, 33, "&a&lCreeper Rank &8(&c&lLOCKED&8)", "&7Your rank requires a total of &a"
+							+ RankManager.getRequiredCreeperSkulls(p) + " creeper skulls to rankup!",
+					"", "&eCollect enough skulls in order to rankup!");
 		}
 		if (RankManager.getRank(p) >= 10) {
-			Utils.createItemHead(inv, "can", 1, 34, "&f&lPan&8&lda &f&lRank",
-					"&7You currently have &f" + SkullManager.getPandaSkullAmount(p) + " skulls!", "",
-					"&7If you would like to redeem perk credits", "&7click &aRedeem Perk Credits&7!");
+			Utils.createItemHead(inv, "can", 1, 34, "&f&lPan&8&lda &f&lRank", "&7You currently have access to all",
+					"&fPan&7da &fPerks &7To view your perks", "&7simply do &9/perks&7!");
 		} else {
-			Utils.createItemHead(inv, "can", 1, 34, "&f&lPan&8&lda &f&lRank &8(&c&lLOCKED&8)",
-					"&7You currently have &f" + SkullManager.getPandaSkullAmount(p) + " skulls!", "",
-					"&7If you would like to redeem perk credits", "&7click &aRedeem Perk Credits&7!");
+			Utils.createItemHead(
+					inv, "can", 1, 34, "&f&lPan&8&lda &f&lRank &8(&c&lLOCKED&8)", "&7Your rank requires a total of &f"
+							+ RankManager.getRequiredPandaSkulls(p) + " pan&7da &fskulls to rankup!",
+					"", "&eCollect enough skulls in order to rankup!");
 		}
 		Utils.createItem(inv, "GRAY_STAINED_GLASS_PANE", 1, 1, "&7", "");
 		Utils.createItem(inv, "GRAY_STAINED_GLASS_PANE", 1, 2, "&7", "");
