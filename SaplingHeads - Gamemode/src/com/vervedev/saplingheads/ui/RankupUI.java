@@ -33,10 +33,9 @@ public class RankupUI {
 			Utils.createItemHead(inv, "thepoup", 1, 21, "&f&lChicken Rank", "&7You currently have access to all",
 					"&fChicken Perks &7To view your perks", "&7simply do &9/perks&7!");
 		} else {
-			Utils.createItemHead(
-					inv, "thepoup", 1, 21, "&f&lChicken Rank &8(&c&lLOCKED&8)", "&7Your rank requires a total of &f"
-							+ RankManager.getRequiredChickenSkulls(p) + " chicken skulls to rankup!",
-					"", "&eCollect enough skulls in order to rankup!");
+			Utils.createItemHead(inv, "thepoup", 1, 21, "&f&lChicken Rank &8(&c&lLOCKED&8)",
+					"",
+					"&eCollect enough skulls and cash in order to rankup!");
 		}
 
 		if (RankManager.getRank(p) >= 2) {
@@ -44,44 +43,42 @@ public class RankupUI {
 					"&dPig Perks &7To view your perks", "&7simply do &9perks&7!");
 		} else {
 			Utils.createItemHead(
-					inv, "Pig", 1, 22, "&d&lPig Rank &8(&c&lLOCKED&8)", "&7Your rank requires a total of &d"
-							+ RankManager.getRequiredPigSkulls(p) + " pig skulls to rankup!",
-					"", "&eCollect enough skulls in order to rankup!");
+					inv, "Pig", 1, 22, "&d&lPig Rank &8(&c&lLOCKED&8)",
+					"",
+					"&eCollect enough skulls and cash in order to rankup!");
 		}
 		if (RankManager.getRank(p) >= 3) {
 			Utils.createItemHead(inv, "mhf_sheep", 1, 23, "&7&lSheep Rank", "&7You currently have access to all",
 					"&7Sheep Perks &7To view your perks", "&7simply do &9/perks&7!");
 		} else {
 			Utils.createItemHead(
-					inv, "mhf_sheep", 1, 23, "&7&lSheep Rank &8(&c&lLOCKED&8)", "&7Your rank requires a total of &7"
-							+ RankManager.getRequiredSheepSkulls(p) + " sheep skulls to rankup!",
-					"", "&eCollect enough skulls in order to rankup!");
+					inv, "mhf_sheep", 1, 23, "&7&lSheep Rank &8(&c&lLOCKED&8)", 
+					"",
+					"&eCollect enough skulls and cash in order to rankup!");
 		}
 		if (RankManager.getRank(p) >= 4) {
 			Utils.createItemHead(inv, "mhf_cow", 1, 24, "&8&lCow Rank", "&7You currently have access to all",
 					"&8Cow Perks &7To view your perks", "&7simply do &9/perks&7!");
 		} else {
 			Utils.createItemHead(
-					inv, "mhf_cow", 1, 24, "&8&lCow Rank &8(&c&lLOCKED&8)", "&7Your rank requires a total of &8"
-							+ RankManager.getRequiredCowSkulls(p) + " cow skulls to rankup!",
-					"", "&eCollect enough skulls in order to rankup!");
+					inv, "mhf_cow", 1, 24, "&8&lCow Rank &8(&c&lLOCKED&8)", 
+					"",
+					"&eCollect enough skulls and cash in order to rankup!");
 		}
 		if (RankManager.getRank(p) >= 5) {
 			Utils.createItemHead(inv, "mhf_zombie", 1, 25, "&2&lZombie Rank", "&7You currently have access to all",
 					"&2Zombie Perks &7To view your perks", "&7simply do &9/perks&7!");
 		} else {
 			Utils.createItemHead(
-					inv, "mhf_zombie", 1, 25, "&2&lZombie Rank &8(&c&lLOCKED&8)", "&7Your rank requires a total of &2"
-							+ RankManager.getRequiredZombieSkulls(p) + " zombie skulls to rankup!",
-					"", "&eCollect enough skulls in order to rankup!");
+					inv, "mhf_zombie", 1, 25, "&2&lZombie Rank &8(&c&lLOCKED&8)", 
+					"",
+					"&eCollect enough skulls and cash in order to rankup!");
 		}
 		if (RankManager.getRank(p) >= 6) {
 			Utils.createItemHead(inv, "mhf_skeleton", 1, 30, "&3&lSkeleton Rank", "&7You currently have access to all",
 					"&3Skeleton Perks &7To view your perks", "&7simply do &9/perks&7!");
 		} else {
 			Utils.createItemHead(inv, "mhf_skeleton", 1, 30, "&3&lSkeleton Rank &8(&c&lLOCKED&8)",
-					"&7Your rank requires a total of &3" + RankManager.getRequiredSkeletonSkulls(p)
-							+ " skeleton skulls to rankup!",
 					"", "&eCollect enough skulls in order to rankup!");
 		}
 		if (RankManager.getRank(p) >= 7) {
@@ -90,8 +87,6 @@ public class RankupUI {
 					"&7simply do &9/perks&7!");
 		} else {
 			Utils.createItemHead(inv, "mhf_pigzombie", 1, 31, "&c&lZombie Pigman Rank &8(&c&lLOCKED&8)",
-					"&7Your rank requires a total of &c" + RankManager.getRequiredPigZombieSkulls(p)
-							+ " zombie pigman skulls to rankup!",
 					"", "&eCollect enough skulls in order to rankup!");
 		}
 		if (RankManager.getRank(p) >= 8) {
@@ -99,8 +94,7 @@ public class RankupUI {
 					"&aSlime Perks &7To view your perks", "&7simply do &9/perks&7!");
 		} else {
 			Utils.createItemHead(
-					inv, "mhf_slime", 1, 32, "&a&lSlime Rank &8(&c&lLOCKED&8)", "&7Your rank requires a total of &a"
-							+ RankManager.getRequiredSlimeSkulls(p) + " slime skulls to rankup!",
+					inv, "mhf_slime", 1, 32, "&a&lSlime Rank &8(&c&lLOCKED&8)", 
 					"", "&eCollect enough skulls in order to rankup!");
 		}
 		if (RankManager.getRank(p) >= 9) {
@@ -108,8 +102,7 @@ public class RankupUI {
 					"&aCreeper Perks &7To view your perks", "&7simply do &9/perks&7!");
 		} else {
 			Utils.createItemHead(
-					inv, "mhf_creeper", 1, 33, "&a&lCreeper Rank &8(&c&lLOCKED&8)", "&7Your rank requires a total of &a"
-							+ RankManager.getRequiredCreeperSkulls(p) + " creeper skulls to rankup!",
+					inv, "mhf_creeper", 1, 33, "&a&lCreeper Rank &8(&c&lLOCKED&8)", 
 					"", "&eCollect enough skulls in order to rankup!");
 		}
 		if (RankManager.getRank(p) >= 10) {
@@ -117,8 +110,7 @@ public class RankupUI {
 					"&fPan&7da &fPerks &7To view your perks", "&7simply do &9/perks&7!");
 		} else {
 			Utils.createItemHead(
-					inv, "can", 1, 34, "&f&lPan&8&lda &f&lRank &8(&c&lLOCKED&8)", "&7Your rank requires a total of &f"
-							+ RankManager.getRequiredPandaSkulls(p) + " pan&7da &fskulls to rankup!",
+					inv, "can", 1, 34, "&f&lPan&8&lda &f&lRank &8(&c&lLOCKED&8)",
 					"", "&eCollect enough skulls in order to rankup!");
 		}
 		Utils.createItem(inv, "GRAY_STAINED_GLASS_PANE", 1, 1, "&7", "");
@@ -149,9 +141,7 @@ public class RankupUI {
 				"&2&lRankup Menu&7!");
 
 		if (RankManager.eligibleToRankup(p) == true) {
-			Utils.createItem(inv, "GREEN_STAINED_GLASS_PANE", 1, 51, "&2&lRankup",
-					"&7You are currently eligible to &2&lRankup&7! Click this",
-					"&7button to advance to the next level!");
+			Utils.createGreenRankupItem(inv, "GREEN_STAINED_GLASS_PANE", 1, 51, "&2&lRankup", p);
 		} else {
 			Utils.createRankupItem(inv, "YELLOW_STAINED_GLASS_PANE", 1, 51, "&6&lRankup", p);
 		}

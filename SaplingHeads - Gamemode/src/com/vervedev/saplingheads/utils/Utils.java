@@ -95,6 +95,61 @@ public class Utils {
 		inv.setItem(invSlot - 1, item);
 		return item;
 	}
+	
+	public static ItemStack createGreenRankupItem(Inventory inv, String materialString, int amount, int invSlot,
+			String displayName, Player p) {
+
+		ItemStack item;
+		List<String> lore = new ArrayList();
+
+		item = new ItemStack(Material.matchMaterial(materialString), amount);
+
+		ItemMeta meta = item.getItemMeta();
+		meta.setDisplayName(Utils.chat(displayName));
+		lore.add(Utils.chat("&7You are currently eligible to &2rankup&7! The"));
+		lore.add(Utils.chat("&7following will be removed from your vault!"));
+		lore.add("");
+		if (RankManager.getRequiredCash(p) > 0) {
+			lore.add(Utils.chat("&e&l$" + Utils.formatter.format(RankManager.getRequiredCash(p)) + " Cash"));
+		}
+		if (RankManager.getRequiredChickenSkulls(p) > 0) {
+			lore.add(Utils.chat("&f&l" + Utils.formatter.format(RankManager.getRequiredChickenSkulls(p)) + " Chicken &r&fSkulls"));
+		}
+		if (RankManager.getRequiredPigSkulls(p) > 0) {
+			lore.add(Utils.chat("&d&l" + Utils.formatter.format(RankManager.getRequiredPigSkulls(p)) + " Pig &r&dSkulls"));
+		}
+		if (RankManager.getRequiredSheepSkulls(p) > 0) {
+			lore.add(Utils.chat("&7&l" + Utils.formatter.format(RankManager.getRequiredSheepSkulls(p)) + " Sheep &r&7Skulls"));
+		}
+		if (RankManager.getRequiredCowSkulls(p) > 0) {
+			lore.add(Utils.chat("&8&l" + Utils.formatter.format(RankManager.getRequiredCowSkulls(p)) + " Cow &r&8Skulls"));
+		}
+		if (RankManager.getRequiredZombieSkulls(p) > 0) {
+			lore.add(Utils.chat("&2&l" + Utils.formatter.format(RankManager.getRequiredZombieSkulls(p)) + " Zombie &r&2Skulls"));
+		}
+		if (RankManager.getRequiredSkeletonSkulls(p) > 0) {
+			lore.add(Utils.chat("&3&l" + Utils.formatter.format(RankManager.getRequiredSkeletonSkulls(p)) + " Skeleton &r&3Skulls"));
+		}
+		if (RankManager.getRequiredPigZombieSkulls(p) > 0) {
+			lore.add(Utils.chat("&c&l" + Utils.formatter.format(RankManager.getRequiredPigZombieSkulls(p)) + " Zombie Pigman &r&cSkulls"));
+		}
+		if (RankManager.getRequiredSlimeSkulls(p) > 0) {
+			lore.add(Utils.chat("&a&l" + Utils.formatter.format(RankManager.getRequiredSlimeSkulls(p)) + " Slime &r&aSkulls"));
+		}
+		if (RankManager.getRequiredCreeperSkulls(p) > 0) {
+			lore.add(Utils.chat("&a&l" + Utils.formatter.format(RankManager.getRequiredCreeperSkulls(p)) + " Creeper &r&aSkulls"));
+		}
+		if (RankManager.getRequiredPandaSkulls(p) > 0) {
+			lore.add(Utils.chat("&f&l" + Utils.formatter.format(RankManager.getRequiredPandaSkulls(p)) + " Pan&7&lda &r&aSkulls"));
+		}
+		lore.add("");
+		lore.add(Utils.chat("&aClick to Proceed to the Next Rank!"));
+		meta.setLore(lore);
+		item.setItemMeta(meta);
+
+		inv.setItem(invSlot - 1, item);
+		return item;
+	}
 
 	public static ItemStack createItemByte(Inventory inv, String materialString, int byteId, int amount, int invSlot,
 			String displayName, String... loreString) {
