@@ -37,7 +37,7 @@ public class Main extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-		saveDefaultConfig();		
+		saveDefaultConfig();	
 		try {
 			loadRanks();
 			loadChickens();
@@ -70,7 +70,7 @@ public class Main extends JavaPlugin {
 		registerUI();
 		registerCommands();
 		registerListeners();
-		
+		SpawnerShopNPC.loadHolograms();
 	}
 
 	@Override
@@ -87,7 +87,6 @@ public class Main extends JavaPlugin {
 			saveSlimes();
 			saveCreepers();
 			savePandas();
-			SpawnerShopNPC.loadHolograms();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

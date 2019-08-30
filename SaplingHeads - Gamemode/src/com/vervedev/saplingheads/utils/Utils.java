@@ -106,6 +106,7 @@ public class Utils {
 
 		ItemMeta meta = item.getItemMeta();
 		meta.setDisplayName(Utils.chat(displayName));
+		if (RankManager.getRank(p) != 10) {
 		lore.add(Utils.chat("&7You are currently eligible to &2rankup&7! The"));
 		lore.add(Utils.chat("&7following will be removed from your vault!"));
 		lore.add("");
@@ -144,6 +145,10 @@ public class Utils {
 		}
 		lore.add("");
 		lore.add(Utils.chat("&aClick to Proceed to the Next Rank!"));
+		} else {
+			lore.add(Utils.chat("&7You are currently the &eMAX RANK!"));
+			lore.add(Utils.chat("&7stay tuned for more ranks to come!!"));
+		}
 		meta.setLore(lore);
 		item.setItemMeta(meta);
 
