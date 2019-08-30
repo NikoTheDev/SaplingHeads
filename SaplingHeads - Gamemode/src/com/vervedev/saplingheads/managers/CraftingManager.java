@@ -41,6 +41,24 @@ public class CraftingManager implements Listener {
 
 	@EventHandler
 	public void onCraftEvent(PrepareItemCraftEvent e) {
+		
+		if (e.getRecipe() == null) {
+			return;
+		}
+		
+		if (e.getRecipe().getResult().hasItemMeta() != true) {
+			return;
+		}
+		if (e.getRecipe().getResult().getItemMeta() == null) {
+			return;
+		}
+		
+		if (e.getRecipe().getResult() == null) {
+			return;
+		}
+		
+		
+		
 		if (ChatColor.stripColor(e.getRecipe().getResult().getItemMeta().getDisplayName()).contains("Spawner")) {
 			ItemStack firstSlot = (ItemStack) e.getInventory().getMatrix()[0];
 			ItemStack secondSlot = (ItemStack) e.getInventory().getMatrix()[1];
@@ -63,6 +81,8 @@ public class CraftingManager implements Listener {
 					|| nineSlot.getAmount() != SkullManager.chickenSkull(64).getAmount()) {
 				e.getInventory().setResult(null);
 			}
+		} else {
+			return;
 		}
 	}
 
