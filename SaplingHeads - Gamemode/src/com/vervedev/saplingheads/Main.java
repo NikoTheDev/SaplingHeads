@@ -16,6 +16,7 @@ import com.vervedev.saplingheads.commands.SkullVaultNPC;
 import com.vervedev.saplingheads.commands.Spawn;
 import com.vervedev.saplingheads.commands.SpawnerShopNPC;
 import com.vervedev.saplingheads.commands.Spawners;
+import com.vervedev.saplingheads.listeners.CommandPreProcess;
 import com.vervedev.saplingheads.listeners.CreatureSpawn;
 import com.vervedev.saplingheads.listeners.EntityDeath;
 import com.vervedev.saplingheads.listeners.InventoryClick;
@@ -26,6 +27,7 @@ import com.vervedev.saplingheads.managers.PlayerManager;
 import com.vervedev.saplingheads.managers.RankManager;
 import com.vervedev.saplingheads.managers.SkullManager;
 import com.vervedev.saplingheads.managers.SpawnerManager;
+import com.vervedev.saplingheads.ui.BuyUI;
 import com.vervedev.saplingheads.ui.RankupUI;
 import com.vervedev.saplingheads.ui.SkullVaultUI;
 
@@ -300,12 +302,14 @@ public class Main extends JavaPlugin {
 		new EntityDeath(this);
 		new InventoryClick(this);
 		new NPCClick(this);
+		new CommandPreProcess(this);
 		new PingList(this);
 	}
 	
 	public void registerUI() {
 		RankupUI.initialize();
 		SkullVaultUI.initialize();
+		BuyUI.initialize();
 	}
 	
 	public void registerManagers() {
