@@ -813,7 +813,7 @@ public class SkullManager {
 		stack.setItemMeta(skull);
 		return stack;
 	}
-	
+
 	public static ItemStack sheepSkull(int amount) {
 		List<String> lore = new ArrayList<String>();
 
@@ -829,7 +829,7 @@ public class SkullManager {
 		stack.setItemMeta(skull);
 		return stack;
 	}
-	
+
 	public static ItemStack cowSkull(int amount) {
 		List<String> lore = new ArrayList<String>();
 
@@ -845,7 +845,7 @@ public class SkullManager {
 		stack.setItemMeta(skull);
 		return stack;
 	}
-	
+
 	public static ItemStack zombieSkull(int amount) {
 		List<String> lore = new ArrayList<String>();
 
@@ -861,7 +861,7 @@ public class SkullManager {
 		stack.setItemMeta(skull);
 		return stack;
 	}
-	
+
 	public static ItemStack skeletonSkull(int amount) {
 		List<String> lore = new ArrayList<String>();
 
@@ -877,7 +877,7 @@ public class SkullManager {
 		stack.setItemMeta(skull);
 		return stack;
 	}
-	
+
 	public static ItemStack pigZombieSkull(int amount) {
 		List<String> lore = new ArrayList<String>();
 
@@ -893,7 +893,7 @@ public class SkullManager {
 		stack.setItemMeta(skull);
 		return stack;
 	}
-	
+
 	public static ItemStack slimeSkull(int amount) {
 		List<String> lore = new ArrayList<String>();
 
@@ -909,7 +909,7 @@ public class SkullManager {
 		stack.setItemMeta(skull);
 		return stack;
 	}
-	
+
 	public static ItemStack creeperSkull(int amount) {
 		List<String> lore = new ArrayList<String>();
 
@@ -925,7 +925,7 @@ public class SkullManager {
 		stack.setItemMeta(skull);
 		return stack;
 	}
-	
+
 	public static ItemStack pandaSkull(int amount) {
 		List<String> lore2 = new ArrayList<String>();
 
