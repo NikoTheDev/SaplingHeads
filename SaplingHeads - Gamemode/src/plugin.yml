@@ -22,4 +22,5 @@ commands:
     descroiption: Open your skull vault!
   setrank:
     description: Set a players rank!
-    
+  spawners:
+    description: Give players a mob spawner!

@@ -15,6 +15,7 @@ import com.vervedev.saplingheads.commands.SkullVault;
 import com.vervedev.saplingheads.commands.SkullVaultNPC;
 import com.vervedev.saplingheads.commands.Spawn;
 import com.vervedev.saplingheads.commands.SpawnerShopNPC;
+import com.vervedev.saplingheads.commands.Spawners;
 import com.vervedev.saplingheads.listeners.CreatureSpawn;
 import com.vervedev.saplingheads.listeners.EntityDeath;
 import com.vervedev.saplingheads.listeners.InventoryClick;
@@ -292,6 +293,7 @@ public class Main extends JavaPlugin {
 		new SkullVault(this);
 		new SetRank(this);
 		new SpawnerShopNPC(this);
+		new Spawners(this);
 	}
 	
 	public void registerListeners() {
