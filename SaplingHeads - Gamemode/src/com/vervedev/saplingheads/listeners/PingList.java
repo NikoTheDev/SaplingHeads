@@ -1,14 +1,11 @@
 package com.vervedev.saplingheads.listeners;
 
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.server.ServerListPingEvent;
 
 import com.vervedev.saplingheads.Main;
-import com.vervedev.saplingheads.ui.BuyUI;
 import com.vervedev.saplingheads.utils.Utils;
 
 public class PingList implements Listener {

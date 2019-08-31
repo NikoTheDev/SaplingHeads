@@ -7,7 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
 import com.vervedev.saplingheads.Main;
-import com.vervedev.saplingheads.ui.BuyUI;
+import com.vervedev.saplingheads.ui.donatorshop.BuyUI;
 
 public class CommandPreProcess implements Listener {
 	

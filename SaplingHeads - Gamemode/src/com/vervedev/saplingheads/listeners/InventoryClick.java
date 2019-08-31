@@ -9,6 +9,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import com.vervedev.saplingheads.Main;
 import com.vervedev.saplingheads.ui.RankupUI;
 import com.vervedev.saplingheads.ui.SkullVaultUI;
+import com.vervedev.saplingheads.ui.donatorshop.BuyUI;
 
 public class InventoryClick implements Listener {
 
@@ -30,6 +31,9 @@ public class InventoryClick implements Listener {
 			e.setCancelled(true);
 			RankupUI.clicked((Player) e.getWhoClicked(), e.getSlot(), e.getCurrentItem(), e.getInventory());
 		} else if (title.equals(SkullVaultUI.inventory_name)) {
+			e.setCancelled(true);
+			SkullVaultUI.clicked((Player) e.getWhoClicked(), e.getSlot(), e.getCurrentItem(), e.getInventory());
+		} else if (title.equals(BuyUI.inventory_name)) {
 			e.setCancelled(true);
 			SkullVaultUI.clicked((Player) e.getWhoClicked(), e.getSlot(), e.getCurrentItem(), e.getInventory());
 		}

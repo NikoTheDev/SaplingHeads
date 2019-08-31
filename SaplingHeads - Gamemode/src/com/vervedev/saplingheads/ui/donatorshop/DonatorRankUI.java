@@ -1,4 +1,4 @@
-package com.vervedev.saplingheads.ui;
+package com.vervedev.saplingheads.ui.donatorshop;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -8,27 +8,29 @@ import org.bukkit.inventory.ItemStack;
 
 import com.vervedev.saplingheads.utils.Utils;
 
-public class BuyUI {
+public class DonatorRankUI {
 
 	public static Inventory inv;
 	public static String inventory_name;
 	public static int inv_rows = 1 * 9;
 
 	public static void initialize() {
-		inventory_name = Utils.chat("&c&lSapling Shop");
+		inventory_name = Utils.chat("&6&lDonator Ranks");
 
 		inv = Bukkit.createInventory(null, inv_rows);
 	}
 
 	/*
-	 * S S S S S S S S S
+	 * X X X X X X X X X
+	 * X E H C L L+ X X X
+	 * X X X X X X X X X
 	 */
 
 	public static Inventory GUI(Player p) {
 
 		Inventory toReturn = Bukkit.createInventory(null, inv_rows, inventory_name);
 
-		Utils.createItemHead(inv, p.getName(), 1, 4, "&6&lDonator Ranks",
+		Utils.createItemHead(inv, p.getName(), 1, 4, "&",
 				"&7View all the donator ranks that &a&lSaplingMC", "&7has to offer!");
 
 		Utils.createItem(inv, "TRIPWIRE_HOOK", 1, 6, "&a&lCrate Keys",
