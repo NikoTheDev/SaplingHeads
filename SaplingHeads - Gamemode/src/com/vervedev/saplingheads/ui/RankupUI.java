@@ -6,6 +6,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import com.vervedev.saplingheads.Main;
 import com.vervedev.saplingheads.managers.RankManager;
 import com.vervedev.saplingheads.utils.Utils;
 
@@ -14,6 +15,14 @@ public class RankupUI {
 	public static Inventory inv;
 	public static String inventory_name;
 	public static int inv_rows = 6 * 9;
+	
+	private Main plugin;
+	
+	public RankupUI(Main plugin) {
+		this.plugin = plugin;
+		
+		initialize();
+	}
 
 	public static void initialize() {
 		inventory_name = Utils.chat("&2&lRankup Menu");

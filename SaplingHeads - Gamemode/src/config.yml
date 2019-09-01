@@ -2,6 +2,16 @@ server_motd: "                      &aSaplingMC &e(1.14.4)           \n         
 spawner_configuration:
   panda_owner_skull_drop_percent: 1
 messages:
+  donorshop:
+    ranks:
+      elite_website_link: "https://pixelhost.org"
+      hero_website_link: "https://pixelhost.org"
+      champion_website_link: "https://pixelhost.org"
+      legend_website_link: "https://pixelhost.org"
+      legend_plus_website_link: "https://pixelhost.org"
+    crates:
+      standard_link: "https://pixelhost.org"
+    website_link: "https://saplingmc.com"
   spawn:
     set_spawn_message: "&a&lSaplingMC &8> &7You have successfully &eset spawn&7!"
     spawn_message: "&8(&a*&8) &7You have teleported to &6server spawn&7!"

@@ -5,6 +5,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import com.vervedev.saplingheads.Main;
 import com.vervedev.saplingheads.managers.RankManager;
 import com.vervedev.saplingheads.managers.SkullManager;
 import com.vervedev.saplingheads.utils.Utils;
@@ -15,6 +16,14 @@ public class SkullVaultUI {
 	public static String inventory_name;
 	public static int inv_rows = 6 * 9;
 
+	private Main plugin;
+	
+	public SkullVaultUI(Main plugin) {
+		this.plugin = plugin;
+		
+		initialize();
+	}
+	
 	public static void initialize() {
 		inventory_name = Utils.chat("&6&lSkull Vault");
 

@@ -30,6 +30,7 @@ import com.vervedev.saplingheads.managers.SpawnerManager;
 import com.vervedev.saplingheads.ui.RankupUI;
 import com.vervedev.saplingheads.ui.SkullVaultUI;
 import com.vervedev.saplingheads.ui.donatorshop.BuyUI;
+import com.vervedev.saplingheads.ui.donatorshop.CrateKeyUI;
 import com.vervedev.saplingheads.ui.donatorshop.DonatorRankUI;
 
 import net.milkbowl.vault.economy.Economy;
@@ -283,9 +284,6 @@ public class Main extends JavaPlugin {
 		}
 	}
 	
-	/*
-	 * Save Currency
-	 */
 	
 	public void registerCommands() {
 		new Rankup(this);
@@ -308,10 +306,17 @@ public class Main extends JavaPlugin {
 	}
 	
 	public void registerUI() {
-		RankupUI.initialize();
-		SkullVaultUI.initialize();
-		BuyUI.initialize();
-		DonatorRankUI.initialize();
+		new RankupUI(this);
+		new SkullVaultUI(this);
+		/*
+		 * DonatorShopUI Start
+		 */
+		new BuyUI(this);
+		new DonatorRankUI(this);
+		new CrateKeyUI(this);
+		/*
+		 * DonatorShopUI End
+		 */
 	}
 	
 	public void registerManagers() {
