@@ -20,8 +20,6 @@ public class SkullVaultUI {
 	
 	public SkullVaultUI(Main plugin) {
 		this.plugin = plugin;
-		
-		initialize();
 	}
 	
 	public static void initialize() {

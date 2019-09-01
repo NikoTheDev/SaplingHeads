@@ -17,30 +17,9 @@ public class CrateKeyUI {
 
 	private static Main plugin;
 
-	private static String standardMessage = "\n&8&m----------------------------------------&r\n\n&7If you would like to purchase a &9&lStandard Key&7, click the following link:\n&9"
-			+ plugin.getConfig().getString("messages.donorshop.crates.standard_website_link")
-			+ "\n\n&8&m----------------------------------------&r\n\n";
-
-	private static String premiumMessage = "\n&8&m----------------------------------------&r\n\n&7If you would like to purchase a &e&lPremium Key&7, click the following link:\n&a"
-			+ plugin.getConfig().getString("messages.donorshop.crates.premium_website_link")
-			+ "\n\n&8&m----------------------------------------&r\n\n";
-
-	private static String enchantedMessage = "\n&8&m----------------------------------------&r\n\n&7If you would like to purchase a &5&lEnchanted Key&7, click the following link:\n&9"
-			+ plugin.getConfig().getString("messages.donorshop.crates.enchanted_website_link")
-			+ "\n\n&8&m----------------------------------------&r\n\n";
-
-	private static String magmaMessage = "\n&8&m----------------------------------------&r\n\n&7If you would like to purchase a &c&lMagma Key&7, click the following link:\n&e"
-			+ plugin.getConfig().getString("messages.donorshop.crates.magma_website_link")
-			+ "\n\n&8&m----------------------------------------&r\n\n";
-
-	private static String websiteMessage = "\n&8&m----------------------------------------&r\n\n&7If you would like to viw our &6Full Website, click the following link:\n&6"
-			+ plugin.getConfig().getString("messages.website_link")
-			+ "\n\n&8&m----------------------------------------&r\n\n";
-
 	public CrateKeyUI(Main plugin) {
 		this.plugin = plugin;
 
-		initialize();
 	}
 
 	public static void initialize() {
@@ -53,17 +32,13 @@ public class CrateKeyUI {
 
 		Inventory toReturn = Bukkit.createInventory(null, inv_rows, inventory_name);
 
-		Utils.createItemHead(inv, "TRIPWIRE_HOOK", 1, 12, "&9&lStandard Key",
-				"&7Description Coming Soon!");
+		Utils.createItem(inv, "TRIPWIRE_HOOK", 1, 12, "&9&lStandard Key", "&7Description Coming Soon!");
 
-		Utils.createItemHead(inv, "TRIPWIRE_HOOK", 1, 13, "&e&lPremium Key",
-				"&7Description Coming Soon!");
+		Utils.createItem(inv, "TRIPWIRE_HOOK", 1, 13, "&e&lPremium Key", "&7Description Coming Soon!");
 
-		Utils.createItemHead(inv, "TRIPWIRE_HOOK", 1, 14, "&5&lEnchanted Key",
-				"&7Description Coming Soon!");
+		Utils.createItem(inv, "TRIPWIRE_HOOK", 1, 14, "&5&lEnchanted Key", "&7Description Coming Soon!");
 
-		Utils.createItemHead(inv, "TRIPWIRE_HOOK", 1, 15, "&c&lMagma Key",
-				"&7Description Coming Soon!");
+		Utils.createItem(inv, "TRIPWIRE_HOOK", 1, 15, "&c&lMagma Key", "&7Description Coming Soon!");
 
 		Utils.createItem(inv, "RED_STAINED_GLASS_PANE", 1, 31, "&c&lClose Menu",
 				"&7&eClick &7this button to close the menu!");
@@ -79,6 +54,25 @@ public class CrateKeyUI {
 	}
 
 	public static void clicked(Player p, int slot, ItemStack clicked, Inventory inv) {
+		String standardMessage = "\n&8&m----------------------------------------&r\n\n&7If you would like to purchase a &9&lStandard Key&7, click the following link:\n&9"
+				+ plugin.getConfig().getString("messages.donorshop.crates.standard_website_link")
+				+ "\n\n&8&m----------------------------------------&r\n\n";
+
+		String premiumMessage = "\n&8&m----------------------------------------&r\n\n&7If you would like to purchase a &e&lPremium Key&7, click the following link:\n&a"
+				+ plugin.getConfig().getString("messages.donorshop.crates.premium_website_link")
+				+ "\n\n&8&m----------------------------------------&r\n\n";
+
+		String enchantedMessage = "\n&8&m----------------------------------------&r\n\n&7If you would like to purchase a &5&lEnchanted Key&7, click the following link:\n&9"
+				+ plugin.getConfig().getString("messages.donorshop.crates.enchanted_website_link")
+				+ "\n\n&8&m----------------------------------------&r\n\n";
+
+		String magmaMessage = "\n&8&m----------------------------------------&r\n\n&7If you would like to purchase a &c&lMagma Key&7, click the following link:\n&e"
+				+ plugin.getConfig().getString("messages.donorshop.crates.magma_website_link")
+				+ "\n\n&8&m----------------------------------------&r\n\n";
+
+		String websiteMessage = "\n&8&m----------------------------------------&r\n\n&7If you would like to viw our &6Full Website, click the following link:\n&6"
+				+ plugin.getConfig().getString("messages.website_link")
+				+ "\n\n&8&m----------------------------------------&r\n\n";
 		if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName()).equalsIgnoreCase("(Elite) " + p.getName())) {
 			p.closeInventory();
 			p.sendMessage(Utils.chat(standardMessage));

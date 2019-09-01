@@ -20,8 +20,6 @@ public class RankupUI {
 	
 	public RankupUI(Main plugin) {
 		this.plugin = plugin;
-		
-		initialize();
 	}
 
 	public static void initialize() {

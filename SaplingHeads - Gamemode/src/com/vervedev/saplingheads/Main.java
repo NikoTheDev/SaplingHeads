@@ -314,6 +314,11 @@ public class Main extends JavaPlugin {
 		new BuyUI(this);
 		new DonatorRankUI(this);
 		new CrateKeyUI(this);
+		RankupUI.initialize();
+		SkullVaultUI.initialize();
+		BuyUI.initialize();
+		CrateKeyUI.initialize();
+		DonatorRankUI.initialize();
 		/*
 		 * DonatorShopUI End
 		 */
