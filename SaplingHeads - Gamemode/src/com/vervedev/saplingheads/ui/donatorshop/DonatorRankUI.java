@@ -21,21 +21,20 @@ public class DonatorRankUI {
 	}
 
 	/*
-	 * X X X X X X X X X
-	 * X E H C L L+ X X X
-	 * X X X X X X X X X
+	 * X X X X X X X X X X E H C L L+ X X X X X X X X X X X X
 	 */
 
 	public static Inventory GUI(Player p) {
 
 		Inventory toReturn = Bukkit.createInventory(null, inv_rows, inventory_name);
 
-		Utils.createItemHead(inv, p.getName(), 1, 4, "&",
-				"&7View all the donator ranks that &a&lSaplingMC", "&7has to offer!");
+		Utils.createItemHead(inv, p.getName(), 1, 4, "&8(&2Elite&8) &a" + p.getName(),
+				"&7You may purchase this rank in our shop! &eClick",
+				"&7to recieve a link to this Rank on our &2Shop&7!");
 
-		Utils.createItem(inv, "TRIPWIRE_HOOK", 1, 6, "&a&lCrate Keys",
-				"&7Purchase &6crate keys &7for a chance to win",
-				"&7tons of amazing prizes such as: &eRanks&7, &eCash&7, &eSpawners&7,", "&ePerks &7and much more!");
+		Utils.createItem(inv, "TRIPWIRE_HOOK", 1, 6, "&8(&aHero&8) &a" + p.getName(),
+				"&7You may purchase this rank in our shop! &eClick",
+				"&7to recieve a link to this Rank on our &aShop&7!");
 
 		toReturn.setContents(inv.getContents());
 		return toReturn;
