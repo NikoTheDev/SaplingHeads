@@ -8,6 +8,7 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.vervedev.saplingheads.commands.RankCheck;
 import com.vervedev.saplingheads.commands.Rankup;
 import com.vervedev.saplingheads.commands.SetRank;
 import com.vervedev.saplingheads.commands.SetSpawn;
@@ -23,6 +24,7 @@ import com.vervedev.saplingheads.listeners.InventoryClick;
 import com.vervedev.saplingheads.listeners.NPCClick;
 import com.vervedev.saplingheads.listeners.PingList;
 import com.vervedev.saplingheads.managers.CraftingManager;
+import com.vervedev.saplingheads.managers.DonationManager;
 import com.vervedev.saplingheads.managers.PlayerManager;
 import com.vervedev.saplingheads.managers.RankManager;
 import com.vervedev.saplingheads.managers.SkullManager;
@@ -294,6 +296,7 @@ public class Main extends JavaPlugin {
 		new SetRank(this);
 		new SpawnerShopNPC(this);
 		new Spawners(this);
+		new RankCheck(this);
 	}
 	
 	public void registerListeners() {
@@ -330,5 +333,6 @@ public class Main extends JavaPlugin {
 		new SpawnerManager(this);
 		new PlayerManager(this);
 		new CraftingManager(this);
+		new DonationManager(this);
 	}
 }

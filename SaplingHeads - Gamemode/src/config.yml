@@ -10,7 +10,10 @@ messages:
       legend_website_link: "https://pixelhost.org"
       legend_plus_website_link: "https://pixelhost.org"
     crates:
-      standard_link: "https://pixelhost.org"
+      standard_website_link: "https://pixelhost.org"
+      premium_website_link: "https://pixelhost.org"
+      enchanted_website_link: ""
+      magma_website_link: ""
     website_link: "https://saplingmcshop.buycraft.net"
   spawn:
     set_spawn_message: "&a&lSaplingMC &8> &7You have successfully &eset spawn&7!"

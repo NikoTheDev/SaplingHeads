@@ -1247,7 +1247,7 @@ public class RankManager {
 		Firework fw = (Firework) loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
 		FireworkMeta fwm = fw.getFireworkMeta();
 
-		fwm.setPower(1);
+		fwm.setPower(velocity);
 
 		if (colour.equalsIgnoreCase("white")) {
 			fwm.addEffect(FireworkEffect.builder().withColor(Color.WHITE).flicker(true).build());
@@ -1265,6 +1265,8 @@ public class RankManager {
 			fwm.addEffect(FireworkEffect.builder().withColor(Color.RED).flicker(true).build());
 		} else if (colour.equalsIgnoreCase("aqua")) {
 			fwm.addEffect(FireworkEffect.builder().withColor(Color.AQUA).flicker(true).build());
+		} else if (colour.equalsIgnoreCase("gold")) {
+			fwm.addEffect(FireworkEffect.builder().withColor(Color.ORANGE).flicker(true).build());
 		}
 		fw.setFireworkMeta(fwm);
 		fw.detonate();

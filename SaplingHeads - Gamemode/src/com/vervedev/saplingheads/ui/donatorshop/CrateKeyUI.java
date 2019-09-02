@@ -23,7 +23,7 @@ public class CrateKeyUI {
 	}
 
 	public static void initialize() {
-		inventory_name = Utils.chat("&6&lDonator Ranks");
+		inventory_name = Utils.chat("&9&lCrate Keys");
 
 		inv = Bukkit.createInventory(null, inv_rows);
 	}
@@ -58,34 +58,34 @@ public class CrateKeyUI {
 				+ plugin.getConfig().getString("messages.donorshop.crates.standard_website_link")
 				+ "\n\n&8&m----------------------------------------&r\n\n";
 
-		String premiumMessage = "\n&8&m----------------------------------------&r\n\n&7If you would like to purchase a &e&lPremium Key&7, click the following link:\n&a"
+		String premiumMessage = "\n&8&m----------------------------------------&r\n\n&7If you would like to purchase a &e&lPremium Key&7, click the following link:\n&e"
 				+ plugin.getConfig().getString("messages.donorshop.crates.premium_website_link")
 				+ "\n\n&8&m----------------------------------------&r\n\n";
 
-		String enchantedMessage = "\n&8&m----------------------------------------&r\n\n&7If you would like to purchase a &5&lEnchanted Key&7, click the following link:\n&9"
+		String enchantedMessage = "\n&8&m----------------------------------------&r\n\n&7If you would like to purchase a &5&lEnchanted Key&7, click the following link:\n&5"
 				+ plugin.getConfig().getString("messages.donorshop.crates.enchanted_website_link")
 				+ "\n\n&8&m----------------------------------------&r\n\n";
 
-		String magmaMessage = "\n&8&m----------------------------------------&r\n\n&7If you would like to purchase a &c&lMagma Key&7, click the following link:\n&e"
+		String magmaMessage = "\n&8&m----------------------------------------&r\n\n&7If you would like to purchase a &c&lMagma Key&7, click the following link:\n&c"
 				+ plugin.getConfig().getString("messages.donorshop.crates.magma_website_link")
 				+ "\n\n&8&m----------------------------------------&r\n\n";
 
 		String websiteMessage = "\n&8&m----------------------------------------&r\n\n&7If you would like to view our &6Full Website, click the following link:\n&6"
 				+ plugin.getConfig().getString("messages.donorshop.website_link")
 				+ "\n\n&8&m----------------------------------------&r\n\n";
-		if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName()).equalsIgnoreCase("(Elite) " + p.getName())) {
+		if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName()).equalsIgnoreCase("Standard Key")) {
 			p.closeInventory();
 			p.sendMessage(Utils.chat(standardMessage));
 		} else if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName())
-				.equalsIgnoreCase("(Hero) " + p.getName())) {
+				.equalsIgnoreCase("Premium Key")) {
 			p.closeInventory();
 			p.sendMessage(Utils.chat(premiumMessage));
 		} else if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName())
-				.equalsIgnoreCase("(Champion) " + p.getName())) {
+				.equalsIgnoreCase("Enchanted Key")) {
 			p.closeInventory();
 			p.sendMessage(Utils.chat(enchantedMessage));
 		} else if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName())
-				.equalsIgnoreCase("(Legend) " + p.getName())) {
+				.equalsIgnoreCase("Magma Key")) {
 			p.closeInventory();
 			p.sendMessage(Utils.chat(magmaMessage));
 		} else if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName()).equalsIgnoreCase("Website Link")) {

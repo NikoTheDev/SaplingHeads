@@ -24,3 +24,7 @@ commands:
     description: Set a players rank!
   spawners:
     description: Give players a mob spawner!
+  bdonation:
+    description: Main donation command for webstore!
+  rankcheck:
+    description: Shop/Crate command to check for valid rank weight!
