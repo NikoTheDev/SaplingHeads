@@ -70,7 +70,7 @@ public class CrateKeyUI {
 				+ plugin.getConfig().getString("messages.donorshop.crates.magma_website_link")
 				+ "\n\n&8&m----------------------------------------&r\n\n";
 
-		String websiteMessage = "\n&8&m----------------------------------------&r\n\n&7If you would like to viw our &6Full Website, click the following link:\n&6"
+		String websiteMessage = "\n&8&m----------------------------------------&r\n\n&7If you would like to view our &6Full Website, click the following link:\n&6"
 				+ plugin.getConfig().getString("messages.donorshop.website_link")
 				+ "\n\n&8&m----------------------------------------&r\n\n";
 		if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName()).equalsIgnoreCase("(Elite) " + p.getName())) {

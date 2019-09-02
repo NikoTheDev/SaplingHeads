@@ -31,13 +31,13 @@ public class DonatorRankUI {
 
 		Inventory toReturn = Bukkit.createInventory(null, inv_rows, inventory_name);
 
-		Utils.createItemHead(inv, p.getName(), 1, 12, "&8(&2Elite&8) &a" + p.getName(),
+		Utils.createItemHead(inv, p.getName(), 1, 12, "&8(&2Elite&8) &2" + p.getName(),
 				"&7You may purchase this rank in our shop! &eClick",
 				"&7to recieve a link to this rank on our &2website&7!");
 
 		Utils.createItemHead(inv, p.getName(), 1, 13, "&8(&3Hero&8) &3" + p.getName(),
 				"&7You may purchase this rank in our shop! &eClick",
-				"&7to recieve a link to this rank on our &awebsite&7!");
+				"&7to recieve a link to this rank on our &3website&7!");
 
 		Utils.createItemHead(inv, p.getName(), 1, 14, "&8(&9Champion&8) &9" + p.getName(),
 				"&7You may purchase this rank in our shop! &eClick",
@@ -70,7 +70,7 @@ public class DonatorRankUI {
 				+ plugin.getConfig().getString("messages.donorshop.ranks.elite_website_link")
 				+ "\n\n&8&m----------------------------------------&r\n\n";
 
-		String heroMessage = "\n&8&m----------------------------------------&r\n\n&7If you would like to purchase the &8(&3Hero&8) &aRank&7, click the following link:\n&3"
+		String heroMessage = "\n&8&m----------------------------------------&r\n\n&7If you would like to purchase the &8(&3Hero&8) &3Rank&7, click the following link:\n&3"
 				+ plugin.getConfig().getString("messages.donorshop.ranks.hero_website_link")
 				+ "\n\n&8&m----------------------------------------&r\n\n";
 
@@ -82,11 +82,11 @@ public class DonatorRankUI {
 				+ plugin.getConfig().getString("messages.donorshop.ranks.legend_website_link")
 				+ "\n\n&8&m----------------------------------------&r\n\n";
 
-		String legendPlusMessage = "\n&8&m----------------------------------------&r\n\n&7If you would like to purchase the &8(&eLegend&c+&8) &eRank&7, click the following link:\n&c"
+		String legendPlusMessage = "\n&8&m----------------------------------------&r\n\n&7If you would like to purchase the &8(&eLegend&c+&8) &cRank&7, click the following link:\n&c"
 				+ plugin.getConfig().getString("messages.donorshop.ranks.legend_plus_website_link")
 				+ "\n\n&8&m----------------------------------------&r\n\n";
 
-		String websiteMessage = "\n&8&m----------------------------------------&r\n\n&7If you would like to viw our &6Full Website, click the following link:\n&6"
+		String websiteMessage = "\n&8&m----------------------------------------&r\n\n&7If you would like to view our &6Full Website, click the following link:\n&6"
 				+ plugin.getConfig().getString("messages.donorshop.website_link")
 				+ "\n\n&8&m----------------------------------------&r\n\n";
 		if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName()).equalsIgnoreCase("(Elite) " + p.getName())) {
