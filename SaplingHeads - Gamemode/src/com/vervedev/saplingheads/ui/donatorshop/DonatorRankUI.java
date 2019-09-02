@@ -43,11 +43,11 @@ public class DonatorRankUI {
 				"&7You may purchase this rank in our shop! &eClick",
 				"&7to recieve a link to this rank on our &9website&7!");
 
-		Utils.createItemHead(inv, p.getName(), 1, 15, "&8(&eLegend&8) &9" + p.getName(),
+		Utils.createItemHead(inv, p.getName(), 1, 15, "&8(&eLegend&8) &e" + p.getName(),
 				"&7You may purchase this rank in our shop! &eClick",
 				"&7to recieve a link to this rank on our &ewebsite&7!");
 
-		Utils.createItemHead(inv, p.getName(), 1, 16, "&8(&eLegend&c+&8) &9" + p.getName(),
+		Utils.createItemHead(inv, p.getName(), 1, 16, "&8(&eLegend&c+&8) &c" + p.getName(),
 				"&7You may purchase this rank in our shop! &eClick",
 				"&7to recieve a link to this rank on our &cwebsite&7!");
 
@@ -87,7 +87,7 @@ public class DonatorRankUI {
 				+ "\n\n&8&m----------------------------------------&r\n\n";
 
 		String websiteMessage = "\n&8&m----------------------------------------&r\n\n&7If you would like to viw our &6Full Website, click the following link:\n&6"
-				+ plugin.getConfig().getString("messages.website_link")
+				+ plugin.getConfig().getString("messages.donorshop.website_link")
 				+ "\n\n&8&m----------------------------------------&r\n\n";
 		if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName()).equalsIgnoreCase("(Elite) " + p.getName())) {
 			p.closeInventory();

@@ -11,7 +11,7 @@ messages:
       legend_plus_website_link: "https://pixelhost.org"
     crates:
       standard_link: "https://pixelhost.org"
-    website_link: "https://saplingmc.com"
+    website_link: "https://saplingmcshop.buycraft.net"
   spawn:
     set_spawn_message: "&a&lSaplingMC &8> &7You have successfully &eset spawn&7!"
     spawn_message: "&8(&a*&8) &7You have teleported to &6server spawn&7!"
