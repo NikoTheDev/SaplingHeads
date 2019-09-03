@@ -29,6 +29,7 @@ import com.vervedev.saplingheads.managers.PlayerManager;
 import com.vervedev.saplingheads.managers.RankManager;
 import com.vervedev.saplingheads.managers.SkullManager;
 import com.vervedev.saplingheads.managers.SpawnerManager;
+import com.vervedev.saplingheads.managers.tutorial.TutorialManager;
 import com.vervedev.saplingheads.ui.RankupUI;
 import com.vervedev.saplingheads.ui.SkullVaultUI;
 import com.vervedev.saplingheads.ui.donatorshop.BuyUI;
@@ -334,5 +335,6 @@ public class Main extends JavaPlugin {
 		new PlayerManager(this);
 		new CraftingManager(this);
 		new DonationManager(this);
+		new TutorialManager(this);
 	}
 }

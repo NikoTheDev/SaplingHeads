@@ -28,3 +28,5 @@ commands:
     description: Main donation command for webstore!
   rankcheck:
     description: Shop/Crate command to check for valid rank weight!
+  tutorial:
+    description: Main tutorial command for SaplingMC!
