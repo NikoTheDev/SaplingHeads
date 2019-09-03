@@ -1,5 +1,7 @@
 package com.vervedev.saplingheads.managers;
 
+import java.util.ArrayList;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
@@ -8,22 +10,42 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 
 import com.vervedev.saplingheads.Main;
 import com.vervedev.saplingheads.utils.Utils;
 
-public class DonationManager implements CommandExecutor {
+public class DonationManager implements CommandExecutor, Listener {
 
-	private static Main plugin;
+	public static Main plugin;
 
 	public DonationManager(Main plugin) {
 		this.plugin = plugin;
 
 		plugin.getCommand("bdonation").setExecutor(this);
+		Bukkit.getPluginManager().registerEvents(this, plugin);
+	}
+	
+	public static ArrayList<Player> lightningImmune = new ArrayList<Player>();
+
+	@EventHandler
+	public void onDamage(EntityDamageEvent e) {
+		if (e.getEntity() instanceof Player) {
+			Player p = (Player) e.getEntity();
+			if (e.getCause() == DamageCause.LIGHTNING) {
+				if (lightningImmune.contains(p)) {
+					e.setCancelled(true);
+				}
+			}
+		}
 	}
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+		
 
 		if (sender.hasPermission("saplingheads.broadcastdonation")) {
 			if (args.length == 0) {
@@ -49,14 +71,16 @@ public class DonationManager implements CommandExecutor {
 				Player p = Bukkit.getPlayer(args[0]);
 				OfflinePlayer op = Bukkit.getOfflinePlayer(args[0]);
 				if (p != null) {
+					lightningImmune.add(p);
 					Bukkit.broadcastMessage("");
 					Bukkit.broadcastMessage(Utils.chat(
 							"&a&lDonations &8> &6" + p.getDisplayName() + " &7has purchased the&r" + sb.toString()));
 					Bukkit.broadcastMessage("");
 					processDonation(p);
+					lightningImmune.remove(p);
 					return true;
 				} else {
-					if (op != null && op.hasPlayedBefore()) {
+					if (op != null) {
 						Bukkit.broadcastMessage("");
 						Bukkit.broadcastMessage(Utils.chat(
 								"&a&lDonations &8> &6" + op.getName() + " &7has purchased the&r" + sb.toString()));
@@ -76,36 +100,35 @@ public class DonationManager implements CommandExecutor {
 		return false;
 	}
 
-	private static void processDonation(Player p) {
-
+	public static void processDonation(Player p) {
 		double x = p.getLocation().getX();
 		double y = p.getLocation().getY();
 		double z = p.getLocation().getZ();
 		World world = p.getLocation().getWorld();
 
-		Location l = new Location(world, x, y + 10, z);
+		Location l = new Location(world, x, y + 6, z);
 		p.getLocation().getWorld().strikeLightning(l);
 
 		RankManager.launchFirework(p, 2, "red");
-		
+
 		plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
 			public void run() {
 				RankManager.launchFirework(p, 2, "aqua");
 			}
 		}, 10L);
-		
+
 		plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
 			public void run() {
 				RankManager.launchFirework(p, 2, "gray");
 			}
 		}, 20L);
-		
+
 		plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
 			public void run() {
 				RankManager.launchFirework(p, 2, "green");
 			}
 		}, 30L);
-		
+
 		plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
 			public void run() {
 				RankManager.launchFirework(p, 2, "gold");

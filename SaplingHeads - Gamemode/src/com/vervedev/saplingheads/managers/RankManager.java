@@ -18,6 +18,7 @@ import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.World;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
@@ -1243,7 +1244,12 @@ public class RankManager {
 	}
 
 	public static void launchFirework(Player p, int velocity, String colour) {
-		Location loc = p.getLocation();
+		double x = p.getLocation().getX();
+		double y = p.getLocation().getY();
+		double z = p.getLocation().getZ();
+		World world = p.getLocation().getWorld();
+
+		Location loc = new Location(world, x, y + 6, z);
 		Firework fw = (Firework) loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
 		FireworkMeta fwm = fw.getFireworkMeta();
 

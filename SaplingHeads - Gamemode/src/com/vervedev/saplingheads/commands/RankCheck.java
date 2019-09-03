@@ -43,7 +43,7 @@ public class RankCheck implements CommandExecutor {
 			} else if (args.length == 2) {
 				OfflinePlayer p = Bukkit.getOfflinePlayer(args[0]);
 
-				if (p != null && p.hasPlayedBefore()) {
+				if (p != null) {
 					LuckPermsApi api = LuckPerms.getApi();
 					if (args[1].equalsIgnoreCase("elite")) {
 						if (!api.getUser(p.getName()).getPrimaryGroup().equalsIgnoreCase("Hero")
