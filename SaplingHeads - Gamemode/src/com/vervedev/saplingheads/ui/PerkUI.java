@@ -123,8 +123,6 @@ public class PerkUI {
 		} else if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName())
 				.equalsIgnoreCase("Nocturnal (Disabled)")) {
 			Nocturnal.enableNocturnal(p);
-			p.updateInventory();
-			p.openInventory(PerkUI.GUI(p));
 		} else if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName())
 				.equalsIgnoreCase("Nocturnal (Enabled)")) {
 			Nocturnal.disableNocturnal(p);
