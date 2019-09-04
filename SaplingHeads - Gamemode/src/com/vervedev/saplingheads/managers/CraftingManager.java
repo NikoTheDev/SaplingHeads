@@ -40,24 +40,22 @@ public class CraftingManager implements Listener {
 
 	@EventHandler
 	public void onCraftEvent(PrepareItemCraftEvent e) {
-		
+
 		if (e.getRecipe() == null) {
 			return;
 		}
-		
+
 		if (e.getRecipe().getResult().hasItemMeta() != true) {
 			return;
 		}
 		if (e.getRecipe().getResult().getItemMeta() == null) {
 			return;
 		}
-		
+
 		if (e.getRecipe().getResult() == null) {
 			return;
 		}
-		
-		
-		
+
 		if (ChatColor.stripColor(e.getRecipe().getResult().getItemMeta().getDisplayName()).contains("Spawner")) {
 			ItemStack firstSlot = (ItemStack) e.getInventory().getMatrix()[0];
 			ItemStack secondSlot = (ItemStack) e.getInventory().getMatrix()[1];
@@ -134,7 +132,9 @@ public class CraftingManager implements Listener {
 		chickenSpawner.setIngredient('H', new RecipeChoice.ExactChoice(SkullManager.chickenSkull(64)));
 		chickenSpawner.setIngredient('S', new RecipeChoice.ExactChoice(SpawnerManager.spawnerType("blank")));
 
-		plugin.getServer().addRecipe(chickenSpawner);
+		if (plugin.getServer().getRecipesFor(chickenSpawnerItem) == null) {
+			plugin.getServer().addRecipe(chickenSpawner);
+		}
 	}
 
 	@SuppressWarnings("deprecation")
@@ -149,8 +149,11 @@ public class CraftingManager implements Listener {
 		chickenSpawner.setIngredient('H', new RecipeChoice.ExactChoice(SkullManager.pigSkull(64)));
 		chickenSpawner.setIngredient('S', new RecipeChoice.ExactChoice(SpawnerManager.spawnerType("blank")));
 
-		plugin.getServer().addRecipe(chickenSpawner);
+		if (plugin.getServer().getRecipesFor(chickenSpawnerItem) == null) {
+			plugin.getServer().addRecipe(chickenSpawner);
+		}
 	}
+
 	@SuppressWarnings("deprecation")
 	public void addSheepRecipe() {
 
@@ -163,8 +166,11 @@ public class CraftingManager implements Listener {
 		chickenSpawner.setIngredient('H', new RecipeChoice.ExactChoice(SkullManager.sheepSkull(64)));
 		chickenSpawner.setIngredient('S', new RecipeChoice.ExactChoice(SpawnerManager.spawnerType("blank")));
 
-		plugin.getServer().addRecipe(chickenSpawner);
+		if (plugin.getServer().getRecipesFor(chickenSpawnerItem) == null) {
+			plugin.getServer().addRecipe(chickenSpawner);
+		}
 	}
+
 	@SuppressWarnings("deprecation")
 	public void addCowRecipe() {
 
@@ -177,8 +183,11 @@ public class CraftingManager implements Listener {
 		chickenSpawner.setIngredient('H', new RecipeChoice.ExactChoice(SkullManager.cowSkull(64)));
 		chickenSpawner.setIngredient('S', new RecipeChoice.ExactChoice(SpawnerManager.spawnerType("blank")));
 
-		plugin.getServer().addRecipe(chickenSpawner);
+		if (plugin.getServer().getRecipesFor(chickenSpawnerItem) == null) {
+			plugin.getServer().addRecipe(chickenSpawner);
+		}
 	}
+
 	@SuppressWarnings("deprecation")
 	public void addZombieRecipe() {
 
@@ -191,8 +200,11 @@ public class CraftingManager implements Listener {
 		chickenSpawner.setIngredient('H', new RecipeChoice.ExactChoice(SkullManager.zombieSkull(64)));
 		chickenSpawner.setIngredient('S', new RecipeChoice.ExactChoice(SpawnerManager.spawnerType("blank")));
 
-		plugin.getServer().addRecipe(chickenSpawner);
+		if (plugin.getServer().getRecipesFor(chickenSpawnerItem) == null) {
+			plugin.getServer().addRecipe(chickenSpawner);
+		}
 	}
+
 	@SuppressWarnings("deprecation")
 	public void addSkeletonRecipe() {
 
@@ -205,8 +217,11 @@ public class CraftingManager implements Listener {
 		chickenSpawner.setIngredient('H', new RecipeChoice.ExactChoice(SkullManager.skeletonSkull(64)));
 		chickenSpawner.setIngredient('S', new RecipeChoice.ExactChoice(SpawnerManager.spawnerType("blank")));
 
-		plugin.getServer().addRecipe(chickenSpawner);
+		if (plugin.getServer().getRecipesFor(chickenSpawnerItem) == null) {
+			plugin.getServer().addRecipe(chickenSpawner);
+		}
 	}
+
 	@SuppressWarnings("deprecation")
 	public void addPigZombieRecipe() {
 
@@ -219,8 +234,11 @@ public class CraftingManager implements Listener {
 		chickenSpawner.setIngredient('H', new RecipeChoice.ExactChoice(SkullManager.pigZombieSkull(64)));
 		chickenSpawner.setIngredient('S', new RecipeChoice.ExactChoice(SpawnerManager.spawnerType("blank")));
 
-		plugin.getServer().addRecipe(chickenSpawner);
+		if (plugin.getServer().getRecipesFor(chickenSpawnerItem) == null) {
+			plugin.getServer().addRecipe(chickenSpawner);
+		}
 	}
+
 	@SuppressWarnings("deprecation")
 	public void addSlimeRecipe() {
 
@@ -233,8 +251,11 @@ public class CraftingManager implements Listener {
 		chickenSpawner.setIngredient('H', new RecipeChoice.ExactChoice(SkullManager.slimeSkull(64)));
 		chickenSpawner.setIngredient('S', new RecipeChoice.ExactChoice(SpawnerManager.spawnerType("blank")));
 
-		plugin.getServer().addRecipe(chickenSpawner);
+		if (plugin.getServer().getRecipesFor(chickenSpawnerItem) == null) {
+			plugin.getServer().addRecipe(chickenSpawner);
+		}
 	}
+
 	@SuppressWarnings("deprecation")
 	public void addCreeperRecipe() {
 
@@ -247,8 +268,11 @@ public class CraftingManager implements Listener {
 		chickenSpawner.setIngredient('H', new RecipeChoice.ExactChoice(SkullManager.creeperSkull(64)));
 		chickenSpawner.setIngredient('S', new RecipeChoice.ExactChoice(SpawnerManager.spawnerType("blank")));
 
-		plugin.getServer().addRecipe(chickenSpawner);
+		if (plugin.getServer().getRecipesFor(chickenSpawnerItem) == null) {
+			plugin.getServer().addRecipe(chickenSpawner);
+		}
 	}
+
 	@SuppressWarnings("deprecation")
 	public void addPandaRecipe() {
 
@@ -261,6 +285,8 @@ public class CraftingManager implements Listener {
 		chickenSpawner.setIngredient('H', new RecipeChoice.ExactChoice(SkullManager.pandaSkull(64)));
 		chickenSpawner.setIngredient('S', new RecipeChoice.ExactChoice(SpawnerManager.spawnerType("blank")));
 
-		plugin.getServer().addRecipe(chickenSpawner);
+		if (plugin.getServer().getRecipesFor(chickenSpawnerItem) == null) {
+			plugin.getServer().addRecipe(chickenSpawner);
+		}
 	}
 }

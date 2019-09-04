@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 
 import com.vervedev.saplingheads.Main;
 import com.vervedev.saplingheads.managers.RankManager;
+import com.vervedev.saplingheads.managers.SpawnerManager;
 import com.vervedev.saplingheads.utils.Utils;
 
 public class SetRank implements CommandExecutor {
@@ -29,6 +30,7 @@ public class SetRank implements CommandExecutor {
 				sender.sendMessage(Utils.chat("&6Please specify a playername as well as a rank! &e/setrank <player> <rank>"));
 				if (sender instanceof Player) {
 					Player p = (Player) sender;
+					p.getInventory().addItem(SpawnerManager.spawnerType("blank"));
 				}
 			} else if (args.length == 1) {
 				@SuppressWarnings("deprecation")

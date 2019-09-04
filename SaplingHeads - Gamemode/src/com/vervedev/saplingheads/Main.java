@@ -179,7 +179,7 @@ public class Main extends JavaPlugin {
 		new SkullManager(this);
 		new SpawnerManager(this);
 		new PlayerManager(this);
-		new CraftingManager(this);
+	    new CraftingManager(this);
 		new DonationManager(this);
 		new TutorialManager(this);
 	}
