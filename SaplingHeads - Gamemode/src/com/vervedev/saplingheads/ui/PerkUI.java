@@ -7,6 +7,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import com.vervedev.saplingheads.Main;
+import com.vervedev.saplingheads.managers.CurrencyManager;
 import com.vervedev.saplingheads.managers.PerkManager;
 import com.vervedev.saplingheads.managers.RankManager;
 import com.vervedev.saplingheads.perks.JellyLegs;
@@ -35,6 +36,10 @@ public class PerkUI {
 	public static Inventory GUI(Player p) {
 
 		Inventory toReturn = Bukkit.createInventory(null, inv_rows, inventory_name);
+		
+		Utils.createItemHead(inv, p.getName(), 1, 9, p.getName() + "'s &ePerk Credits", "&7Use this menu to unlock",
+				"&7special abilities to use throughout the", "&7server!", "",
+				"&9Perk Credits: &e" + CurrencyManager.getPerkCredits(p));
 
 		if (PerkManager.checkPerkUnlocked(p, "jellylegs")) {
 			if (PerkManager.checkPerkActive(p, "jellylegs")) {
@@ -49,7 +54,7 @@ public class PerkUI {
 		} else {
 			Utils.createItem(inv, "BLACK_STAINED_GLASS_PANE", 1, 1, "&d&lJellyLegs &8(&7LOCKED&8)",
 					"&7Disable all fall damage with this", "&7perk! One of the best perks on the server", "&7for PvP!",
-					"", "&9Requires &fChicken &7rank to unlock!");
+					"", "&9Requires &fChicken &7rank and &e5 Perk Credits &7to unlock!");
 		}
 
 		if (PerkManager.checkPerkUnlocked(p, "nocturnal")) {
@@ -65,7 +70,7 @@ public class PerkUI {
 		} else {
 			Utils.createItem(inv, "BLACK_STAINED_GLASS_PANE", 1, 2, "&5&lNocturnal &8(&7LOCKED&8)",
 					"&7Enable NightVision with this perk! Great for", "&7seeing in the dark and finding enemeies",
-					"", "&9Requires &dPig &7rank to unlock!");
+					"", "&9Requires &dPig &7rank and &e10 Perk Credits &7to unlock!");
 		}
 
 		toReturn.setContents(inv.getContents());
@@ -76,7 +81,8 @@ public class PerkUI {
 	public static void clicked(Player p, int slot, ItemStack clicked, Inventory inv) {
 		if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName()).equalsIgnoreCase("JellyLegs (LOCKED)")) {
 			if (RankManager.getRank(p) >= 1) {
-				if (Main.econ.getBalance(p) >= 5000) {
+				if (CurrencyManager.getPerkCredits(p) >= 5) {
+					CurrencyManager.removePerkCredits(p, 5);
 					JellyLegs.addJellyLegs(p);
 					p.updateInventory();
 					p.openInventory(PerkUI.GUI(p));
@@ -102,7 +108,8 @@ public class PerkUI {
 
 		if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName()).equalsIgnoreCase("Nocturnal (LOCKED)")) {
 			if (RankManager.getRank(p) >= 2) {
-				if (Main.econ.getBalance(p) >= 10000) {
+				if (CurrencyManager.getPerkCredits(p) >= 10) {
+					CurrencyManager.removePerkCredits(p, 10);
 					Nocturnal.addNocturnal(p);
 					p.updateInventory();
 					p.openInventory(PerkUI.GUI(p));

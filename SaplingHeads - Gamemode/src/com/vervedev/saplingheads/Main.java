@@ -26,6 +26,7 @@ import com.vervedev.saplingheads.listeners.InventoryClick;
 import com.vervedev.saplingheads.listeners.NPCClick;
 import com.vervedev.saplingheads.listeners.PingList;
 import com.vervedev.saplingheads.managers.CraftingManager;
+import com.vervedev.saplingheads.managers.CurrencyManager;
 import com.vervedev.saplingheads.managers.DonationManager;
 import com.vervedev.saplingheads.managers.PerkManager;
 import com.vervedev.saplingheads.managers.PlayerManager;
@@ -122,6 +123,7 @@ public class Main extends JavaPlugin {
 			SkullManager.saveCreeper(p);
 			SkullManager.savePanda(p);
 			PerkManager.savePerks(p);
+			CurrencyManager.savePerkCredits(p);
 		}
 	}
 
@@ -139,6 +141,7 @@ public class Main extends JavaPlugin {
 			SkullManager.loadCreeper(p);
 			SkullManager.loadPanda(p);
 			PerkManager.loadPerks(p);
+			CurrencyManager.loadPerkCredits(p);
 		}
 	}
 
@@ -173,15 +176,15 @@ public class Main extends JavaPlugin {
 		new BuyUI(this);
 		new DonatorRankUI(this);
 		new CrateKeyUI(this);
-		RankupUI.initialize();
-		SkullVaultUI.initialize();
 		BuyUI.initialize();
 		CrateKeyUI.initialize();
 		DonatorRankUI.initialize();
-		PerkUI.initialize();
 		/*
 		 * DonatorShopUI End
 		 */
+		RankupUI.initialize();
+		SkullVaultUI.initialize();
+		PerkUI.initialize();
 	}
 
 	public void registerManagers() {
@@ -193,6 +196,7 @@ public class Main extends JavaPlugin {
 		new DonationManager(this);
 		new TutorialManager(this);
 		new PerkManager(this);
+		new CurrencyManager(this);
 	}
 	
 	public void registerPerks() {

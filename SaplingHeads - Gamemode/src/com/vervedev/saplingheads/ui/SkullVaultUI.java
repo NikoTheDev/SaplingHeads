@@ -1,11 +1,13 @@
 package com.vervedev.saplingheads.ui;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import com.vervedev.saplingheads.Main;
+import com.vervedev.saplingheads.managers.CurrencyManager;
 import com.vervedev.saplingheads.managers.RankManager;
 import com.vervedev.saplingheads.managers.SkullManager;
 import com.vervedev.saplingheads.utils.Utils;
@@ -17,11 +19,11 @@ public class SkullVaultUI {
 	public static int inv_rows = 6 * 9;
 
 	private Main plugin;
-	
+
 	public SkullVaultUI(Main plugin) {
 		this.plugin = plugin;
 	}
-	
+
 	public static void initialize() {
 		inventory_name = Utils.chat("&6&lSkull Vault");
 
@@ -100,10 +102,19 @@ public class SkullVaultUI {
 		Utils.createItem(inv, "GRAY_STAINED_GLASS_PANE", 1, 53, "&7", "");
 		Utils.createItem(inv, "GRAY_STAINED_GLASS_PANE", 1, 52, "&7", "");
 
+		Utils.createItem(inv, "SUNFLOWER", 1, 51, "&7Convert &aSkulls &7to &9Perk Credits",
+				"&7Convert the following amount of skulls", "&7for &91 Perk Credit&7:", "",
+				"&fChicken Skulls > &eComing Soon", "&dPig Skulls > &eComing Soon", "&7Sheep Skulls > &eComing Soon");
+
 		toReturn.setContents(inv.getContents());
 		return toReturn;
 	}
 
 	public static void clicked(Player p, int slot, ItemStack clicked, Inventory inv) {
+		if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName()).equalsIgnoreCase("Convert Skulls to Perk Credits")) {
+			CurrencyManager.convertSkullsToCredit(p);
+			p.updateInventory();
+			p.openInventory(SkullVaultUI.GUI(p));
+		}
 	}
 }
