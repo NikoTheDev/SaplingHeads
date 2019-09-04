@@ -710,7 +710,7 @@ public class SkullManager {
 		List<String> lore2 = new ArrayList<String>();
 
 		SkullMeta skull2 = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.PLAYER_HEAD);
-		ItemStack stack2 = new ItemStack(Material.PLAYER_HEAD, 1, (short) 3);
+		ItemStack stack2 = new ItemStack(Material.PLAYER_HEAD, 1);
 		skull2.setOwner("can");
 		skull2.setDisplayName(Utils.chat("&f&lPan&7&lda &f&lSkull"));
 		lore2.clear();
@@ -736,7 +736,7 @@ public class SkullManager {
 				List<String> lore = new ArrayList<String>();
 
 				SkullMeta skull = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.PLAYER_HEAD);
-				ItemStack stack = new ItemStack(Material.PLAYER_HEAD, 1, (short) 3);
+				ItemStack stack = new ItemStack(Material.PLAYER_HEAD, 1);
 				skull.setOwner("VerveDev");
 				skull.setDisplayName(Utils
 						.chat("&6&lDeveloper &r&6" + Bukkit.getOfflinePlayer("VerveDev").getName() + "'s &7Skull"));
@@ -751,7 +751,7 @@ public class SkullManager {
 				List<String> lore = new ArrayList<String>();
 
 				SkullMeta skull = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.PLAYER_HEAD);
-				ItemStack stack = new ItemStack(Material.PLAYER_HEAD, 1, (short) 3);
+				ItemStack stack = new ItemStack(Material.PLAYER_HEAD, 1);
 				skull.setOwner("zSmu");
 				skull.setDisplayName(
 						Utils.chat("&c&lOwner &r&c" + Bukkit.getOfflinePlayer("Zsmu").getName() + "'s &7Skull"));
@@ -766,7 +766,7 @@ public class SkullManager {
 				List<String> lore = new ArrayList<String>();
 
 				SkullMeta skull = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.PLAYER_HEAD);
-				ItemStack stack = new ItemStack(Material.PLAYER_HEAD, 1, (short) 3);
+				ItemStack stack = new ItemStack(Material.PLAYER_HEAD, 1);
 				skull.setOwner("Dogs4Chow");
 				skull.setDisplayName(
 						Utils.chat("&c&lOwner &r&c" + Bukkit.getOfflinePlayer("Dogs4Chow").getName() + "'s &7Skull"));
@@ -786,7 +786,7 @@ public class SkullManager {
 		List<String> lore = new ArrayList<String>();
 
 		SkullMeta skull = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.PLAYER_HEAD);
-		ItemStack chickenSkull = new ItemStack(Material.PLAYER_HEAD, amount, (short) 3);
+		ItemStack chickenSkull = new ItemStack(Material.PLAYER_HEAD, amount);
 		skull.setOwner("ThePoup");
 		skull.setDisplayName(Utils.chat("&f&lChicken Skull"));
 		lore.clear();
@@ -802,7 +802,7 @@ public class SkullManager {
 		List<String> lore = new ArrayList<String>();
 
 		SkullMeta skull = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.PLAYER_HEAD);
-		ItemStack stack = new ItemStack(Material.PLAYER_HEAD, amount, (short) 3);
+		ItemStack stack = new ItemStack(Material.PLAYER_HEAD, amount);
 		skull.setOwner("Pig");
 		skull.setDisplayName(Utils.chat("&d&lPig Skull"));
 		lore.clear();
@@ -818,7 +818,7 @@ public class SkullManager {
 		List<String> lore = new ArrayList<String>();
 
 		SkullMeta skull = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.PLAYER_HEAD);
-		ItemStack stack = new ItemStack(Material.PLAYER_HEAD, amount, (short) 3);
+		ItemStack stack = new ItemStack(Material.PLAYER_HEAD, amount);
 		skull.setOwner("mhf_sheep");
 		skull.setDisplayName(Utils.chat("&7&lSheep Skull"));
 		lore.clear();
@@ -834,7 +834,7 @@ public class SkullManager {
 		List<String> lore = new ArrayList<String>();
 
 		SkullMeta skull = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.PLAYER_HEAD);
-		ItemStack stack = new ItemStack(Material.PLAYER_HEAD, amount, (short) 3);
+		ItemStack stack = new ItemStack(Material.PLAYER_HEAD, amount);
 		skull.setOwner("Cow");
 		skull.setDisplayName(Utils.chat("&8&lCow Skull"));
 		lore.clear();
@@ -850,7 +850,7 @@ public class SkullManager {
 		List<String> lore = new ArrayList<String>();
 
 		SkullMeta skull = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.PLAYER_HEAD);
-		ItemStack stack = new ItemStack(Material.PLAYER_HEAD, amount, (short) 3);
+		ItemStack stack = new ItemStack(Material.PLAYER_HEAD, amount);
 		skull.setOwner("zombie");
 		skull.setDisplayName(Utils.chat("&2&lZombie Skull"));
 		lore.clear();
@@ -866,7 +866,7 @@ public class SkullManager {
 		List<String> lore = new ArrayList<String>();
 
 		SkullMeta skull = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.PLAYER_HEAD);
-		ItemStack stack = new ItemStack(Material.PLAYER_HEAD, amount, (short) 3);
+		ItemStack stack = new ItemStack(Material.PLAYER_HEAD, amount);
 		skull.setOwner("skeleton");
 		skull.setDisplayName(Utils.chat("&3&lSkeleton Skull"));
 		lore.clear();
@@ -882,7 +882,7 @@ public class SkullManager {
 		List<String> lore = new ArrayList<String>();
 
 		SkullMeta skull = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.PLAYER_HEAD);
-		ItemStack stack = new ItemStack(Material.PLAYER_HEAD, amount, (short) 3);
+		ItemStack stack = new ItemStack(Material.PLAYER_HEAD, amount);
 		skull.setOwner("pigman");
 		skull.setDisplayName(Utils.chat("&c&lZombie Pigman Skull"));
 		lore.clear();
@@ -898,7 +898,7 @@ public class SkullManager {
 		List<String> lore = new ArrayList<String>();
 
 		SkullMeta skull = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.PLAYER_HEAD);
-		ItemStack stack = new ItemStack(Material.PLAYER_HEAD, amount, (short) 3);
+		ItemStack stack = new ItemStack(Material.PLAYER_HEAD, amount);
 		skull.setOwner("talaknor");
 		skull.setDisplayName(Utils.chat("&a&lSlime Skull"));
 		lore.clear();
@@ -914,7 +914,7 @@ public class SkullManager {
 		List<String> lore = new ArrayList<String>();
 
 		SkullMeta skull = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.PLAYER_HEAD);
-		ItemStack stack = new ItemStack(Material.PLAYER_HEAD, amount, (short) 3);
+		ItemStack stack = new ItemStack(Material.PLAYER_HEAD, amount);
 		skull.setOwner("creeper");
 		skull.setDisplayName(Utils.chat("&a&lCreeper Skull"));
 		lore.clear();
@@ -930,7 +930,7 @@ public class SkullManager {
 		List<String> lore2 = new ArrayList<String>();
 
 		SkullMeta skull2 = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.PLAYER_HEAD);
-		ItemStack stack2 = new ItemStack(Material.PLAYER_HEAD, amount, (short) 3);
+		ItemStack stack2 = new ItemStack(Material.PLAYER_HEAD, amount);
 		skull2.setOwner("can");
 		skull2.setDisplayName(Utils.chat("&f&lPan&7&lda &f&lSkull"));
 		lore2.clear();

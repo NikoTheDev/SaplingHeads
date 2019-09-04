@@ -137,6 +137,7 @@ public class CraftingManager implements Listener {
 		plugin.getServer().addRecipe(chickenSpawner);
 	}
 
+	@SuppressWarnings("deprecation")
 	public void addPigRecipe() {
 
 		ItemStack chickenSpawnerItem = SpawnerManager.spawnerType("pig");
@@ -150,7 +151,7 @@ public class CraftingManager implements Listener {
 
 		plugin.getServer().addRecipe(chickenSpawner);
 	}
-
+	@SuppressWarnings("deprecation")
 	public void addSheepRecipe() {
 
 		ItemStack chickenSpawnerItem = SpawnerManager.spawnerType("sheep");
@@ -164,7 +165,7 @@ public class CraftingManager implements Listener {
 
 		plugin.getServer().addRecipe(chickenSpawner);
 	}
-
+	@SuppressWarnings("deprecation")
 	public void addCowRecipe() {
 
 		ItemStack chickenSpawnerItem = SpawnerManager.spawnerType("cow");
@@ -178,7 +179,7 @@ public class CraftingManager implements Listener {
 
 		plugin.getServer().addRecipe(chickenSpawner);
 	}
-
+	@SuppressWarnings("deprecation")
 	public void addZombieRecipe() {
 
 		ItemStack chickenSpawnerItem = SpawnerManager.spawnerType("zombie");
@@ -192,7 +193,7 @@ public class CraftingManager implements Listener {
 
 		plugin.getServer().addRecipe(chickenSpawner);
 	}
-
+	@SuppressWarnings("deprecation")
 	public void addSkeletonRecipe() {
 
 		ItemStack chickenSpawnerItem = SpawnerManager.spawnerType("skeleton");
@@ -206,7 +207,7 @@ public class CraftingManager implements Listener {
 
 		plugin.getServer().addRecipe(chickenSpawner);
 	}
-
+	@SuppressWarnings("deprecation")
 	public void addPigZombieRecipe() {
 
 		ItemStack chickenSpawnerItem = SpawnerManager.spawnerType("pigzombie");
@@ -220,7 +221,7 @@ public class CraftingManager implements Listener {
 
 		plugin.getServer().addRecipe(chickenSpawner);
 	}
-
+	@SuppressWarnings("deprecation")
 	public void addSlimeRecipe() {
 
 		ItemStack chickenSpawnerItem = SpawnerManager.spawnerType("slime");
@@ -234,7 +235,7 @@ public class CraftingManager implements Listener {
 
 		plugin.getServer().addRecipe(chickenSpawner);
 	}
-
+	@SuppressWarnings("deprecation")
 	public void addCreeperRecipe() {
 
 		ItemStack chickenSpawnerItem = SpawnerManager.spawnerType("creeper");
@@ -248,7 +249,7 @@ public class CraftingManager implements Listener {
 
 		plugin.getServer().addRecipe(chickenSpawner);
 	}
-
+	@SuppressWarnings("deprecation")
 	public void addPandaRecipe() {
 
 		ItemStack chickenSpawnerItem = SpawnerManager.spawnerType("panda");
