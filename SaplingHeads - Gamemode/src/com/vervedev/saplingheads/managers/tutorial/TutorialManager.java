@@ -17,6 +17,7 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -40,14 +41,33 @@ public class TutorialManager implements CommandExecutor, Listener {
 		plugin.getCommand("tutorial").setExecutor(this);
 		Bukkit.getPluginManager().registerEvents(this, plugin);
 	}
-	
+
 	@EventHandler
 	public void onCommand(PlayerCommandPreprocessEvent e) {
 		Player p = e.getPlayer();
-		
+
 		if (tutorial.contains(p)) {
-			e.setCancelled(true);
-			p.sendMessage(Utils.chat("&2&lTutorial &8> &7You are &cunable &7to execute commands while in a tutorial!"));
+			if (!e.getPlayer().isOp()) {
+				e.setCancelled(true);
+				p.sendMessage(
+						Utils.chat("&2&lTutorial &8> &7You are &cunable &7to execute commands while in a tutorial!"));
+			}
+		}
+	}
+
+	@EventHandler
+	public void onPlayerChat(AsyncPlayerChatEvent e) {
+		if (tutorial.contains(e.getPlayer())) {
+			if (!e.getPlayer().isOp()) {
+				e.setCancelled(true);
+			}
+		}
+		for (Player recep : e.getRecipients()) {
+			if (!e.getPlayer().isOp()) {
+				if (tutorial.contains(recep)) {
+					e.getRecipients().remove(recep);
+				}
+			}
 		}
 	}
 
@@ -107,6 +127,9 @@ public class TutorialManager implements CommandExecutor, Listener {
 	}
 
 	public static void startTutorial(Player p) {
+		for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
+			onlinePlayer.hidePlayer(p);
+		}
 		destinationNumber.put(p, 1);
 		tutorial.add(p);
 		new BukkitRunnable() {
@@ -235,18 +258,23 @@ public class TutorialManager implements CommandExecutor, Listener {
 															Bukkit.getWorld(plugin.getConfig()
 																	.getString("tutorial.destinations."
 																			+ destinationNumber.get(p) + ".world")),
-															plugin.getConfig().getDouble(
-																	"tutorial.destinations." + destinationNumber.get(p) + ".x"),
-															plugin.getConfig().getDouble(
-																	"tutorial.destinations." + destinationNumber.get(p) + ".y"),
+															plugin.getConfig()
+																	.getDouble("tutorial.destinations."
+																			+ destinationNumber.get(p) + ".x"),
+															plugin.getConfig()
+																	.getDouble("tutorial.destinations."
+																			+ destinationNumber.get(p) + ".y"),
 															plugin.getConfig().getDouble("tutorial.destinations."
 																	+ destinationNumber.get(p) + ".z"));
-													destination.setYaw(plugin.getConfig().getInt(
-															"tutorial.destinations." + destinationNumber.get(p) + ".yaw"));
-													destination.setPitch(plugin.getConfig().getInt(
-															"tutorial.destinations." + destinationNumber.get(p) + ".pitch"));
-													String tutorialMessage = plugin.getConfig().getString(
-															"tutorial.destinations." + destinationNumber.get(p) + ".message");
+													destination
+															.setYaw(plugin.getConfig().getInt("tutorial.destinations."
+																	+ destinationNumber.get(p) + ".yaw"));
+													destination
+															.setPitch(plugin.getConfig().getInt("tutorial.destinations."
+																	+ destinationNumber.get(p) + ".pitch"));
+													String tutorialMessage = plugin.getConfig()
+															.getString("tutorial.destinations."
+																	+ destinationNumber.get(p) + ".message");
 													p.setWalkSpeed(0);
 													p.setFlySpeed(0);
 													p.setGameMode(GameMode.SPECTATOR);
@@ -295,6 +323,9 @@ public class TutorialManager implements CommandExecutor, Listener {
 		p.setGameMode(GameMode.SURVIVAL);
 		Spawn.sendPlayerToSpawn(p);
 		tutorial.remove(p);
+		for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
+			onlinePlayer.showPlayer(p);
+		}
 	}
 
 	public static void freezeEntity(Entity en) {
@@ -312,6 +343,5 @@ public class TutorialManager implements CommandExecutor, Listener {
 		compound.setByte("NoAI", (byte) 0);
 		nmsEn.f(compound);
 	}
-	
-	
+
 }

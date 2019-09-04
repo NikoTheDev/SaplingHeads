@@ -30,3 +30,5 @@ commands:
     description: Shop/Crate command to check for valid rank weight!
   tutorial:
     description: Main tutorial command for SaplingMC!
+  perks:
+    description: Unlock perks to have special abilities on the server!

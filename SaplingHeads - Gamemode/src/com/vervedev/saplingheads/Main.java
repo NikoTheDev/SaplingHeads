@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.vervedev.saplingheads.commands.PerkCommand;
 import com.vervedev.saplingheads.commands.RankCheck;
 import com.vervedev.saplingheads.commands.Rankup;
 import com.vervedev.saplingheads.commands.SetRank;
@@ -26,11 +27,14 @@ import com.vervedev.saplingheads.listeners.NPCClick;
 import com.vervedev.saplingheads.listeners.PingList;
 import com.vervedev.saplingheads.managers.CraftingManager;
 import com.vervedev.saplingheads.managers.DonationManager;
+import com.vervedev.saplingheads.managers.PerkManager;
 import com.vervedev.saplingheads.managers.PlayerManager;
 import com.vervedev.saplingheads.managers.RankManager;
 import com.vervedev.saplingheads.managers.SkullManager;
 import com.vervedev.saplingheads.managers.SpawnerManager;
 import com.vervedev.saplingheads.managers.tutorial.TutorialManager;
+import com.vervedev.saplingheads.perks.JellyLegs;
+import com.vervedev.saplingheads.ui.PerkUI;
 import com.vervedev.saplingheads.ui.RankupUI;
 import com.vervedev.saplingheads.ui.SkullVaultUI;
 import com.vervedev.saplingheads.ui.donatorshop.BuyUI;
@@ -115,6 +119,7 @@ public class Main extends JavaPlugin {
 			SkullManager.saveSlime(p);
 			SkullManager.saveCreeper(p);
 			SkullManager.savePanda(p);
+			PerkManager.savePerks(p);
 		}
 	}
 
@@ -131,6 +136,7 @@ public class Main extends JavaPlugin {
 			SkullManager.loadSlime(p);
 			SkullManager.loadCreeper(p);
 			SkullManager.loadPanda(p);
+			PerkManager.loadPerks(p);
 		}
 	}
 
@@ -144,6 +150,7 @@ public class Main extends JavaPlugin {
 		new SpawnerShopNPC(this);
 		new Spawners(this);
 		new RankCheck(this);
+		new PerkCommand(this);
 	}
 
 	public void registerListeners() {
@@ -169,6 +176,7 @@ public class Main extends JavaPlugin {
 		BuyUI.initialize();
 		CrateKeyUI.initialize();
 		DonatorRankUI.initialize();
+		PerkUI.initialize();
 		/*
 		 * DonatorShopUI End
 		 */
@@ -182,5 +190,10 @@ public class Main extends JavaPlugin {
 	    new CraftingManager(this);
 		new DonationManager(this);
 		new TutorialManager(this);
+		new PerkManager(this);
+	}
+	
+	public void registerPerks() {
+		new JellyLegs(this);
 	}
 }

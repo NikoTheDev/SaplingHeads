@@ -74,7 +74,7 @@ public class DonationManager implements CommandExecutor, Listener {
 					lightningImmune.add(p);
 					Bukkit.broadcastMessage("");
 					Bukkit.broadcastMessage(Utils.chat(
-							"&a&lDonations &8> &6" + p.getDisplayName() + " &7has purchased the&r" + sb.toString()));
+							"&a&lDonations &8> &6" + p.getDisplayName() + " &7has purchased&r" + sb.toString()));
 					Bukkit.broadcastMessage("");
 					processDonation(p);
 					lightningImmune.remove(p);
@@ -83,7 +83,7 @@ public class DonationManager implements CommandExecutor, Listener {
 					if (op != null) {
 						Bukkit.broadcastMessage("");
 						Bukkit.broadcastMessage(Utils.chat(
-								"&a&lDonations &8> &6" + op.getName() + " &7has purchased the&r" + sb.toString()));
+								"&a&lDonations &8> &6" + op.getName() + " &7has purchased&r" + sb.toString()));
 						Bukkit.broadcastMessage("");
 					} else {
 						sender.sendMessage(Utils

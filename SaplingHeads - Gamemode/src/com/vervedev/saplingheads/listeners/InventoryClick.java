@@ -7,6 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
 import com.vervedev.saplingheads.Main;
+import com.vervedev.saplingheads.ui.PerkUI;
 import com.vervedev.saplingheads.ui.RankupUI;
 import com.vervedev.saplingheads.ui.SkullVaultUI;
 import com.vervedev.saplingheads.ui.donatorshop.BuyUI;
@@ -44,6 +45,9 @@ public class InventoryClick implements Listener {
 		} else if (title.equals(CrateKeyUI.inventory_name)) {
 			e.setCancelled(true);
 			CrateKeyUI.clicked((Player) e.getWhoClicked(), e.getSlot(), e.getCurrentItem(), e.getInventory());
+		} else if (title.equals(PerkUI.inventory_name)) {
+			e.setCancelled(true);
+			PerkUI.clicked((Player) e.getWhoClicked(), e.getSlot(), e.getCurrentItem(), e.getInventory());
 		}
 	}
 }
