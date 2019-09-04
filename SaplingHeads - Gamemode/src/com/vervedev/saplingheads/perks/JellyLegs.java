@@ -43,11 +43,11 @@ public class JellyLegs implements Listener {
 
 	public static void enableJellyLegs(Player p) {
 		PerkManager.perks.put("jellylegs_enabled" + p.getUniqueId().toString(), true);
-		p.sendMessage(Utils.chat("&9&lPerks &8> &7You have successfully &aenabled &dJellyLegs&7!"));
+		p.sendMessage(Utils.chat("&9&lPerks &8> &7You have successfully &aenabled &7the perk &dJellyLegs&7!"));
 	}
 
 	public static void disableJellyLegs(Player p) {
 		PerkManager.perks.remove("jellylegs_enabled" + p.getUniqueId().toString());
-		p.sendMessage(Utils.chat("&9&lPerks &8> &7You have successfully &edisabled &dJellyLegs&7!"));
+		p.sendMessage(Utils.chat("&9&lPerks &8> &7You have successfully &edisabled &7the perk &dJellyLegs&7!"));
 	}
 }

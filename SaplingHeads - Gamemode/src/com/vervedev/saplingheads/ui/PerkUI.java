@@ -10,8 +10,7 @@ import com.vervedev.saplingheads.Main;
 import com.vervedev.saplingheads.managers.PerkManager;
 import com.vervedev.saplingheads.managers.RankManager;
 import com.vervedev.saplingheads.perks.JellyLegs;
-import com.vervedev.saplingheads.ui.donatorshop.CrateKeyUI;
-import com.vervedev.saplingheads.ui.donatorshop.DonatorRankUI;
+import com.vervedev.saplingheads.perks.Nocturnal;
 import com.vervedev.saplingheads.utils.Utils;
 
 public class PerkUI {
@@ -40,17 +39,33 @@ public class PerkUI {
 		if (PerkManager.checkPerkUnlocked(p, "jellylegs")) {
 			if (PerkManager.checkPerkActive(p, "jellylegs")) {
 				Utils.createItem(inv, "GREEN_STAINED_GLASS_PANE", 1, 1, "&d&lJellyLegs &8(&aEnabled&8)",
-						"&7Disable all fall damage with this perk!", "&eOne of the best perks on the server",
-						"&efor PvP!", "", "&aCurrently Activated &8(&7Click to &cDisable&8)");
+						"&7Disable all fall damage with this", "&7perk! One of the best perks on the server",
+						"&7for PvP!", "", "&aCurrently Activated &8(&7Click to &cDisable&8)");
 			} else {
 				Utils.createItem(inv, "YELLOW_STAINED_GLASS_PANE", 1, 1, "&d&lJellyLegs &8(&eDisabled&8)",
-						"&7Disable all fall damage with this perk!", "&eOne of the best perks on the server",
-						"&efor PvP!", "", "&aCurrently Disabled &8(&7Click to &aEnable&8)");
+						"&7Disable all fall damage with this", "&7perk! One of the best perks on the server",
+						"&7for PvP!", "", "&cCurrently Disabled &8(&7Click to &aEnable&8)");
 			}
 		} else {
 			Utils.createItem(inv, "BLACK_STAINED_GLASS_PANE", 1, 1, "&d&lJellyLegs &8(&7LOCKED&8)",
-					"&7Disable all fall damage with this perk!", "&eOne of the best perks on the server", "&efor PvP!",
+					"&7Disable all fall damage with this", "&7perk! One of the best perks on the server", "&7for PvP!",
 					"", "&9Requires &fChicken &7rank to unlock!");
+		}
+
+		if (PerkManager.checkPerkUnlocked(p, "nocturnal")) {
+			if (PerkManager.checkPerkActive(p, "nocturnal")) {
+				Utils.createItem(inv, "GREEN_STAINED_GLASS_PANE", 1, 2, "&5&lNocturnal &8(&aEnabled&8)",
+						"&7Enable NightVision with this perk! Great for", "&7seeing in the dark and finding enemeies",
+						"", "&aCurrently Activated &8(&7Click to &cDisable&8)");
+			} else {
+				Utils.createItem(inv, "YELLOW_STAINED_GLASS_PANE", 1, 2, "&5&lNocturnal &8(&eDisabled&8)",
+						"&7Enable NightVision with this perk! Great for", "&7seeing in the dark and finding enemeies",
+						"", "&cCurrently Disabled &8(&7Click to &aEnable&8)");
+			}
+		} else {
+			Utils.createItem(inv, "BLACK_STAINED_GLASS_PANE", 1, 2, "&5&lNocturnal &8(&7LOCKED&8)",
+					"&7Enable NightVision with this perk! Great for", "&7seeing in the dark and finding enemeies",
+					"", "&9Requires &dPig &7rank to unlock!");
 		}
 
 		toReturn.setContents(inv.getContents());
@@ -81,6 +96,31 @@ public class PerkUI {
 		} else if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName())
 				.equalsIgnoreCase("JellyLegs (Enabled)")) {
 			JellyLegs.disableJellyLegs(p);
+			p.updateInventory();
+			p.openInventory(PerkUI.GUI(p));
+		}
+
+		if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName()).equalsIgnoreCase("Nocturnal (LOCKED)")) {
+			if (RankManager.getRank(p) >= 2) {
+				if (Main.econ.getBalance(p) >= 10000) {
+					Nocturnal.addNocturnal(p);
+					p.updateInventory();
+					p.openInventory(PerkUI.GUI(p));
+				} else {
+					p.sendMessage(Utils.chat(
+							"&9&lPerks &8> &7You do not have sufficent &9Perk Credits &7to unlock this &eperk&7!"));
+				}
+			} else {
+				p.sendMessage(Utils.chat("&9&lPerks &8> &7You must have &d&lPig &7unlocked to purchase this perk!"));
+			}
+		} else if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName())
+				.equalsIgnoreCase("Nocturnal (Disabled)")) {
+			Nocturnal.enableNocturnal(p);
+			p.updateInventory();
+			p.openInventory(PerkUI.GUI(p));
+		} else if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName())
+				.equalsIgnoreCase("Nocturnal (Enabled)")) {
+			Nocturnal.disableNocturnal(p);
 			p.updateInventory();
 			p.openInventory(PerkUI.GUI(p));
 		}

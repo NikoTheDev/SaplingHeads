@@ -34,6 +34,7 @@ import com.vervedev.saplingheads.managers.SkullManager;
 import com.vervedev.saplingheads.managers.SpawnerManager;
 import com.vervedev.saplingheads.managers.tutorial.TutorialManager;
 import com.vervedev.saplingheads.perks.JellyLegs;
+import com.vervedev.saplingheads.perks.Nocturnal;
 import com.vervedev.saplingheads.ui.PerkUI;
 import com.vervedev.saplingheads.ui.RankupUI;
 import com.vervedev.saplingheads.ui.SkullVaultUI;
@@ -196,5 +197,6 @@ public class Main extends JavaPlugin {
 	
 	public void registerPerks() {
 		new JellyLegs(this);
+		new Nocturnal(this);
 	}
 }
