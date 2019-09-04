@@ -6,7 +6,10 @@ import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -192,5 +195,22 @@ public class Utils {
 		stack.setItemMeta(skull);
 		inv.setItem(invSlot - 1, stack);
 		return stack;
+	}
+	
+	public static Location getRandomLocation(Player p, World w, int minValue, int maxValue, int yaw, int pitch) {
+		while (true) { 
+			int xk = (int) (Math.random() * minValue + 1);
+			int yk = (int) (Math.random() * maxValue + 1);
+			int x = xk;
+			int z = yk;
+			int y = w.getHighestBlockYAt(x, z) + 1;
+			Block highest = w.getBlockAt(x, y - 2, z);
+			if (highest.getType() != Material.WATER) {
+				Location l = new Location(w, x, y, z);
+				l.setYaw(yaw);
+				l.setPitch(pitch);
+				return l;
+			}
+		}
 	}
 }

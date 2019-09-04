@@ -6,18 +6,25 @@ import java.util.HashMap;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.craftbukkit.v1_14_R1.entity.CraftEntity;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import com.vervedev.saplingheads.Main;
 import com.vervedev.saplingheads.commands.Spawn;
 import com.vervedev.saplingheads.utils.Utils;
+
+import net.minecraft.server.v1_14_R1.NBTTagCompound;
 
 public class TutorialManager implements CommandExecutor, Listener {
 
@@ -25,13 +32,23 @@ public class TutorialManager implements CommandExecutor, Listener {
 
 	private static HashMap<Player, Integer> destinationNumber = new HashMap<Player, Integer>();
 
-	private static ArrayList<Player> inTutorial = new ArrayList<Player>();
+	public static ArrayList<Player> tutorial = new ArrayList<Player>();
 
 	public TutorialManager(Main plugin) {
 		this.plugin = plugin;
 
 		plugin.getCommand("tutorial").setExecutor(this);
 		Bukkit.getPluginManager().registerEvents(this, plugin);
+	}
+	
+	@EventHandler
+	public void onCommand(PlayerCommandPreprocessEvent e) {
+		Player p = e.getPlayer();
+		
+		if (tutorial.contains(p)) {
+			e.setCancelled(true);
+			p.sendMessage(Utils.chat("&2&lTutorial &8> &7You are &cunable &7to execute commands while in a tutorial!"));
+		}
 	}
 
 	@Override
@@ -90,44 +107,49 @@ public class TutorialManager implements CommandExecutor, Listener {
 	}
 
 	public static void startTutorial(Player p) {
-
-		p.setWalkSpeed(0);
-		p.setFlySpeed(0);
 		destinationNumber.put(p, 1);
-
-		p.setGameMode(GameMode.SPECTATOR);
-
+		tutorial.add(p);
 		new BukkitRunnable() {
 			@Override
 			public void run() {
 				if (plugin.getConfig()
 						.getConfigurationSection("tutorial.destinations." + destinationNumber.get(p)) != null) {
-					Location destination = new Location(
-							Bukkit.getWorld(plugin.getConfig()
-									.getString("tutorial.destinations." + destinationNumber.get(p) + ".world")),
-							plugin.getConfig().getDouble("tutorial.destinations." + destinationNumber.get(p) + ".x"),
-							plugin.getConfig().getDouble("tutorial.destinations." + destinationNumber.get(p) + ".y"),
-							plugin.getConfig().getDouble("tutorial.destinations." + destinationNumber.get(p) + ".z"));
-					destination.setYaw(
-							plugin.getConfig().getInt("tutorial.destinations." + destinationNumber.get(p) + ".yaw"));
-					destination.setPitch(
-							plugin.getConfig().getInt("tutorial.destinations." + destinationNumber.get(p) + ".pitch"));
-					String tutorialMessage = plugin.getConfig()
-							.getString("tutorial.destinations." + destinationNumber.get(p) + ".message");
-					p.teleport(destination);
-					int oldDesitnation = destinationNumber.get(p);
-					int newDesitnation = oldDesitnation + 1;
-					destinationNumber.put(p, newDesitnation);
-					p.sendMessage("");
-					p.sendMessage(Utils.chat(tutorialMessage));
-					p.sendMessage("");
+					if (destinationNumber.get(p) != 5) {
+						Location destination = new Location(
+								Bukkit.getWorld(plugin.getConfig()
+										.getString("tutorial.destinations." + destinationNumber.get(p) + ".world")),
+								plugin.getConfig()
+										.getDouble("tutorial.destinations." + destinationNumber.get(p) + ".x"),
+								plugin.getConfig()
+										.getDouble("tutorial.destinations." + destinationNumber.get(p) + ".y"),
+								plugin.getConfig()
+										.getDouble("tutorial.destinations." + destinationNumber.get(p) + ".z"));
+						destination.setYaw(plugin.getConfig()
+								.getInt("tutorial.destinations." + destinationNumber.get(p) + ".yaw"));
+						destination.setPitch(plugin.getConfig()
+								.getInt("tutorial.destinations." + destinationNumber.get(p) + ".pitch"));
+						String tutorialMessage = plugin.getConfig()
+								.getString("tutorial.destinations." + destinationNumber.get(p) + ".message");
+						p.setWalkSpeed(0);
+						p.setFlySpeed(0);
+						p.setGameMode(GameMode.SPECTATOR);
+						p.teleport(destination);
+						p.setWalkSpeed(0);
+						p.setFlySpeed(0);
+						p.setGameMode(GameMode.SPECTATOR);
+						p.sendMessage("");
+						p.sendMessage(Utils.chat(tutorialMessage));
+						p.sendMessage("");
+						int oldDesitnation = destinationNumber.get(p);
+						int newDesitnation = oldDesitnation + 1;
+						destinationNumber.put(p, newDesitnation);
+					} else {
+						cancel();
+						showSkullDropTutorial(p);
+					}
 				} else {
 					cancel();
-					destinationNumber.remove(p);
-					p.setWalkSpeed(0.2F);
-					p.setFlySpeed(0.2F);
-					p.setGameMode(GameMode.SURVIVAL);
-					Spawn.sendPlayerToSpawn(p);
+
 				}
 			}
 		}.runTaskTimer(plugin, 0L, 140L);
@@ -167,4 +189,129 @@ public class TutorialManager implements CommandExecutor, Listener {
 			p.sendMessage("");
 		}
 	}
+
+	public static void showSkullDropTutorial(Player p) {
+		p.setGameMode(GameMode.SPECTATOR);
+		p.setWalkSpeed(0);
+		p.setFlySpeed(0);
+		p.setGameMode(GameMode.SPECTATOR);
+		p.teleport(Utils.getRandomLocation(p, Bukkit.getWorld("flatshops"), -250, 250, -90, 6));
+		p.setWalkSpeed(0);
+		p.setFlySpeed(0);
+		p.setGameMode(GameMode.SPECTATOR);
+
+		String tutorialMessage = plugin.getConfig()
+				.getString("tutorial.destinations." + destinationNumber.get(p) + ".message");
+		String tutorialMessage2 = plugin.getConfig()
+				.getString("tutorial.destinations." + destinationNumber.get(p) + ".message2");
+
+		plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+			public void run() {
+				p.sendMessage("");
+				p.sendMessage(Utils.chat(tutorialMessage));
+				p.sendMessage("");
+				plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+					public void run() {
+						Location entitylocation = new Location(p.getLocation().getWorld(), (p.getLocation().getX() + 5),
+								4, p.getLocation().getZ());
+						spawnLivingEntity(p, EntityType.PANDA, entitylocation, p.getLocation().getWorld(),
+								"Tutorial Mob");
+						plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+							public void run() {
+								p.sendMessage("");
+								p.sendMessage(Utils.chat(tutorialMessage2));
+								p.sendMessage("");
+								int oldDesitnation = destinationNumber.get(p);
+								int newDesitnation = oldDesitnation + 1;
+								destinationNumber.put(p, newDesitnation);
+								plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+									public void run() {
+										new BukkitRunnable() {
+											@Override
+											public void run() {
+												if (plugin.getConfig().getConfigurationSection(
+														"tutorial.destinations." + destinationNumber.get(p)) != null) {
+													Location destination = new Location(
+															Bukkit.getWorld(plugin.getConfig()
+																	.getString("tutorial.destinations."
+																			+ destinationNumber.get(p) + ".world")),
+															plugin.getConfig().getDouble(
+																	"tutorial.destinations." + destinationNumber.get(p) + ".x"),
+															plugin.getConfig().getDouble(
+																	"tutorial.destinations." + destinationNumber.get(p) + ".y"),
+															plugin.getConfig().getDouble("tutorial.destinations."
+																	+ destinationNumber.get(p) + ".z"));
+													destination.setYaw(plugin.getConfig().getInt(
+															"tutorial.destinations." + destinationNumber.get(p) + ".yaw"));
+													destination.setPitch(plugin.getConfig().getInt(
+															"tutorial.destinations." + destinationNumber.get(p) + ".pitch"));
+													String tutorialMessage = plugin.getConfig().getString(
+															"tutorial.destinations." + destinationNumber.get(p) + ".message");
+													p.setWalkSpeed(0);
+													p.setFlySpeed(0);
+													p.setGameMode(GameMode.SPECTATOR);
+													p.teleport(destination);
+													p.setWalkSpeed(0);
+													p.setFlySpeed(0);
+													p.setGameMode(GameMode.SPECTATOR);
+													int oldDesitnation = destinationNumber.get(p);
+													int newDesitnation = oldDesitnation + 1;
+													destinationNumber.put(p, newDesitnation);
+													p.sendMessage("");
+													p.sendMessage(Utils.chat(tutorialMessage));
+													p.sendMessage("");
+												} else {
+													cancel();
+													stopTutorial(p);
+												}
+											}
+										}.runTaskTimer(plugin, 80L, 140L);
+									}
+								}, 40L);
+							}
+						}, 100L);
+					}
+				}, 40L);
+			}
+		}, 20L);
+	}
+
+	public static void spawnLivingEntity(Player p, EntityType mobType, Location location, World w, String customName) {
+
+		LivingEntity entity = (LivingEntity) w.spawnEntity(location, mobType);
+		entity.setCustomName(Utils.chat(customName));
+		freezeEntity(entity);
+		plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+			public void run() {
+				entity.setHealth(0);
+			}
+		}, 80L);
+	}
+
+	public static void stopTutorial(Player p) {
+		destinationNumber.remove(p);
+		p.setWalkSpeed(0.2F);
+		p.setFlySpeed(0.2F);
+		p.setGameMode(GameMode.SURVIVAL);
+		Spawn.sendPlayerToSpawn(p);
+		tutorial.remove(p);
+	}
+
+	public static void freezeEntity(Entity en) {
+		net.minecraft.server.v1_14_R1.Entity nmsEn = ((CraftEntity) en).getHandle();
+		NBTTagCompound compound = new NBTTagCompound();
+		nmsEn.c(compound);
+		compound.setByte("NoAI", (byte) 1);
+		nmsEn.f(compound);
+	}
+
+	public void unfreezeEntity(Entity en) {
+		net.minecraft.server.v1_14_R1.Entity nmsEn = ((CraftEntity) en).getHandle();
+		NBTTagCompound compound = new NBTTagCompound();
+		nmsEn.c(compound);
+		compound.setByte("NoAI", (byte) 0);
+		nmsEn.f(compound);
+	}
+	
+	
 }

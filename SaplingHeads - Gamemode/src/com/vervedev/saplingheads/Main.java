@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -44,25 +45,15 @@ public class Main extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-		saveDefaultConfig();	
+		saveDefaultConfig();
 		try {
-			loadRanks();
-			loadChickens();
-			loadPigs();
-			loadSheeps();
-			loadCows();
-			loadZombies();
-			loadSkeletons();
-			loadPigZombies();
-			loadSlimes();
-			loadCreepers();
-			loadPandas();
+			loadFiles();
 		} catch (ClassNotFoundException | IOException e) {
 			e.printStackTrace();
 		}
 		if (!setupEconomy()) {
-			getLogger().severe(
-					String.format("[SaplingHeads] - Disabled due to no Vault dependency found!", getDescription().getName()));
+			getLogger().severe(String.format("[SaplingHeads] - Disabled due to no Vault dependency found!",
+					getDescription().getName()));
 			getServer().getPluginManager().disablePlugin(this);
 			return;
 		}
@@ -83,19 +74,15 @@ public class Main extends JavaPlugin {
 	@Override
 	public void onDisable() {
 		try {
-			saveRanks();
-			saveChickens();
-			savePigs();
-			saveSheeps();
-			saveCows();
-			saveZombies();
-			saveSkeletons();
-			savePigZombies();
-			saveSlimes();
-			saveCreepers();
-			savePandas();
+			saveFiles();
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+
+		for (Player p : Bukkit.getOnlinePlayers()) {
+			if (TutorialManager.tutorial.contains(p)) {
+				TutorialManager.stopTutorial(p);
+			}
 		}
 	}
 
@@ -110,184 +97,43 @@ public class Main extends JavaPlugin {
 		econ = rsp.getProvider();
 		return econ != null;
 	}
-	
+
 	/*
 	 * Save Ranks
 	 */
-	
-	public void saveRanks() throws FileNotFoundException, IOException {
+
+	public void saveFiles() throws FileNotFoundException, IOException {
 		for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
 			RankManager.saveRanks(p);
-		}
-	}
-	
-	public void loadRanks() throws FileNotFoundException, ClassNotFoundException, IOException {
-		for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
-			RankManager.loadRanks(p);
-		}
-	}
-	
-	/*
-	 * Save Chicken Skulls
-	 */
-	
-	public void saveChickens() throws FileNotFoundException, IOException {
-		for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
 			SkullManager.saveChickens(p);
-		}
-	}
-	
-	public void loadChickens() throws FileNotFoundException, ClassNotFoundException, IOException {
-		for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
-			SkullManager.loadChickens(p);
-		}
-	}
-	
-	/*
-	 * Save Pig Skulls
-	 */
-	
-	public void savePigs() throws FileNotFoundException, IOException {
-		for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
 			SkullManager.savePig(p);
-		}
-	}
-	
-	public void loadPigs() throws FileNotFoundException, ClassNotFoundException, IOException {
-		for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
-			SkullManager.loadPig(p);
-		}
-	}
-	
-	/*
-	 * Save Sheep Skulls
-	 */
-	
-	public void saveSheeps() throws FileNotFoundException, IOException {
-		for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
 			SkullManager.saveSheep(p);
-		}
-	}
-	
-	public void loadSheeps() throws FileNotFoundException, ClassNotFoundException, IOException {
-		for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
-			SkullManager.loadSheep(p);
-		}
-	}
-	
-	/*
-	 * Save Cow Skulls
-	 */
-	
-	public void saveCows() throws FileNotFoundException, IOException {
-		for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
 			SkullManager.saveCow(p);
-		}
-	}
-	
-	public void loadCows() throws FileNotFoundException, ClassNotFoundException, IOException {
-		for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
-			SkullManager.loadCow(p);
-		}
-	}
-	
-	/*
-	 * Save Zombie Skulls
-	 */
-	
-	public void saveZombies() throws FileNotFoundException, IOException {
-		for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
 			SkullManager.saveZombie(p);
-		}
-	}
-	
-	public void loadZombies() throws FileNotFoundException, ClassNotFoundException, IOException {
-		for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
-			SkullManager.loadZombie(p);
-		}
-	}
-	
-	/*
-	 * Save Skeleton Skulls
-	 */
-	
-	public void saveSkeletons() throws FileNotFoundException, IOException {
-		for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
 			SkullManager.saveSkeleton(p);
-		}
-	}
-	
-	public void loadSkeletons() throws FileNotFoundException, ClassNotFoundException, IOException {
-		for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
-			SkullManager.loadSkeleton(p);
-		}
-	}
-	
-	/*
-	 * Save Zombie Pigman Skulls
-	 */
-	
-	public void savePigZombies() throws FileNotFoundException, IOException {
-		for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
 			SkullManager.savePigZombie(p);
-		}
-	}
-	
-	public void loadPigZombies() throws FileNotFoundException, ClassNotFoundException, IOException {
-		for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
-			SkullManager.loadPigZombie(p);
-		}
-	}
-	
-	/*
-	 * Save Slime Skulls
-	 */
-	
-	public void saveSlimes() throws FileNotFoundException, IOException {
-		for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
 			SkullManager.saveSlime(p);
-		}
-	}
-	
-	public void loadSlimes() throws FileNotFoundException, ClassNotFoundException, IOException {
-		for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
-			SkullManager.loadSlime(p);
-		}
-	}
-	
-	/*
-	 * Save Creeper Skulls
-	 */
-	
-	public void saveCreepers() throws FileNotFoundException, IOException {
-		for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
 			SkullManager.saveCreeper(p);
-		}
-	}
-	
-	public void loadCreepers() throws FileNotFoundException, ClassNotFoundException, IOException {
-		for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
-			SkullManager.loadCreeper(p);
-		}
-	}
-	
-	/*
-	 * Save Panda Skulls
-	 */
-	
-	public void savePandas() throws FileNotFoundException, IOException {
-		for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
 			SkullManager.savePanda(p);
 		}
 	}
-	
-	public void loadPandas() throws FileNotFoundException, ClassNotFoundException, IOException {
+
+	public void loadFiles() throws FileNotFoundException, ClassNotFoundException, IOException {
 		for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
+			RankManager.loadRanks(p);
+			SkullManager.loadChickens(p);
+			SkullManager.loadPig(p);
+			SkullManager.loadSheep(p);
+			SkullManager.loadCow(p);
+			SkullManager.loadZombie(p);
+			SkullManager.loadSkeleton(p);
+			SkullManager.loadPigZombie(p);
+			SkullManager.loadSlime(p);
+			SkullManager.loadCreeper(p);
 			SkullManager.loadPanda(p);
 		}
 	}
-	
-	
+
 	public void registerCommands() {
 		new Rankup(this);
 		new SkullVaultNPC(this);
@@ -299,7 +145,7 @@ public class Main extends JavaPlugin {
 		new Spawners(this);
 		new RankCheck(this);
 	}
-	
+
 	public void registerListeners() {
 		new CreatureSpawn(this);
 		new EntityDeath(this);
@@ -308,7 +154,7 @@ public class Main extends JavaPlugin {
 		new CommandPreProcess(this);
 		new PingList(this);
 	}
-	
+
 	public void registerUI() {
 		new RankupUI(this);
 		new SkullVaultUI(this);
@@ -327,7 +173,7 @@ public class Main extends JavaPlugin {
 		 * DonatorShopUI End
 		 */
 	}
-	
+
 	public void registerManagers() {
 		new RankManager(this);
 		new SkullManager(this);
