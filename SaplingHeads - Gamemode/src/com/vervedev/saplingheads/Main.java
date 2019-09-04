@@ -72,6 +72,7 @@ public class Main extends JavaPlugin {
 		registerUI();
 		registerCommands();
 		registerListeners();
+		registerPerks();
 		SpawnerShopNPC.loadHolograms();
 	}
 

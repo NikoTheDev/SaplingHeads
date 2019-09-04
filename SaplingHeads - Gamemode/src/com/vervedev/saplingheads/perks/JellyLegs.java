@@ -3,6 +3,7 @@ package com.vervedev.saplingheads.perks;
 import java.util.ArrayList;
 
 import org.bukkit.Bukkit;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -14,10 +15,8 @@ import com.vervedev.saplingheads.managers.PerkManager;
 import com.vervedev.saplingheads.utils.Utils;
 
 public class JellyLegs implements Listener {
-	
-	private static ArrayList<String> perks = new ArrayList<String>();
 
-	private Main plugin;
+	public Main plugin;
 
 	public JellyLegs(Main plugin) {
 		this.plugin = plugin;
@@ -27,11 +26,10 @@ public class JellyLegs implements Listener {
 
 	@EventHandler
 	public void onDamage(EntityDamageEvent e) {
-		if (e.getEntity() instanceof Player) {
+		if (e.getEntity().getType() == EntityType.PLAYER) {
 			if (e.getCause() == DamageCause.FALL) {
 				Player p = (Player) e.getEntity();
-				String uuid = p.getUniqueId().toString();
-				if (PerkManager.perks.get(uuid).contains("jellylegs_enabled")) {
+				if (PerkManager.checkPerkActive(p, "jellylegs")) {
 					e.setCancelled(true);
 				}
 			}
@@ -39,11 +37,17 @@ public class JellyLegs implements Listener {
 	}
 
 	public static void addJellyLegs(Player p) {
-		PerkManager.perks.put(p.getUniqueId().toString(), perks);
-		p.sendMessage(Utils.chat("&9&lPerks &8> &7You have &asuccessfully &7unlocked the &dJellyLegs Perk&7!"));
+		PerkManager.perks.put("jellylegs" + p.getUniqueId().toString(), true);
+		p.sendMessage(Utils.chat("&9&lPerks &8> &7You have successfully &aunlocked &7the &dJellyLegs Perk&7!"));
 	}
 
-	public static void removeJellyLegs(Player p) {
-		PerkManager.perks.get(p.getUniqueId().toString()).remove("jellylegs_enabled");
+	public static void enableJellyLegs(Player p) {
+		PerkManager.perks.put("jellylegs_enabled" + p.getUniqueId().toString(), true);
+		p.sendMessage(Utils.chat("&9&lPerks &8> &7You have successfully &aenabled &dJellyLegs&7!"));
+	}
+
+	public static void disableJellyLegs(Player p) {
+		PerkManager.perks.remove("jellylegs_enabled" + p.getUniqueId().toString());
+		p.sendMessage(Utils.chat("&9&lPerks &8> &7You have successfully &edisabled &dJellyLegs&7!"));
 	}
 }

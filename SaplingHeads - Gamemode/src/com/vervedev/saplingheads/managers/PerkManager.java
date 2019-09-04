@@ -25,7 +25,7 @@ public class PerkManager {
 		this.plugin = plugin;
 	}
 
-	public static HashMap<String, ArrayList<String>> perks = new HashMap<String, ArrayList<String>>();
+	public static HashMap<String, Boolean> perks = new HashMap<String, Boolean>();
 
 	/*
 	 * Perk Data
@@ -62,7 +62,7 @@ public class PerkManager {
 
 		if (!(readObject instanceof HashMap))
 			throw new IOException("Data is not a hashmap");
-		perks = (HashMap<String, ArrayList<String>>) readObject;
+		perks = (HashMap<String, Boolean>) readObject;
 		// Prints out everything in the map.
 		for (String key : perks.keySet()) {
 			perks.put(key, perks.get(key));
@@ -71,10 +71,10 @@ public class PerkManager {
 
 	public static boolean checkPerkUnlocked(Player p, String perk) {
 		String uuid = p.getUniqueId().toString();
-		if (perks.get(p.getUniqueId().toString()) == null) {
+		if (perks.get(perk + p.getUniqueId().toString()) == null) {
 			return false;
 		}
-		if (perks.get(uuid).contains(perk)) {
+		if (perks.get(perk + uuid) == true) {
 			return true;
 		} else {
 			return false;
@@ -83,10 +83,10 @@ public class PerkManager {
 
 	public static boolean checkPerkActive(Player p, String perk) {
 		String uuid = p.getUniqueId().toString();
-		if (perks.get(p.getUniqueId().toString()) == null) {
+		if (perks.get(perk + "_enabled" + uuid) == null) {
 			return false;
 		}
-		if (perks.get(uuid).contains(perk + "_enabled")) {
+		if (perks.get(perk + "_enabled" + uuid) == true) {
 			return true;
 		} else {
 			return false;
