@@ -113,8 +113,6 @@ public class SkullVaultUI {
 	public static void clicked(Player p, int slot, ItemStack clicked, Inventory inv) {
 		if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName()).equalsIgnoreCase("Convert Skulls to Perk Credits")) {
 			CurrencyManager.convertSkullsToCredit(p);
-			p.updateInventory();
-			p.openInventory(SkullVaultUI.GUI(p));
 		}
 	}
 }

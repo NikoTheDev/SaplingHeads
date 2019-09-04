@@ -15,7 +15,7 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
 import com.vervedev.saplingheads.Main;
-import com.vervedev.saplingheads.ui.PerkUI;
+import com.vervedev.saplingheads.ui.SkullVaultUI;
 import com.vervedev.saplingheads.utils.Utils;
 
 public class CurrencyManager {
@@ -118,7 +118,7 @@ public class CurrencyManager {
 			CurrencyManager.addPerkCredits(p, 1);
 			p.sendMessage(Utils.chat("&9&lPerks &8> &7You have successfully converted &6skulls &7for &91 Perk Credit&7!"));
 			p.updateInventory();
-			p.openInventory(PerkUI.GUI(p));
+			p.openInventory(SkullVaultUI.GUI(p));
 		} else {
 			p.sendMessage(Utils.chat("&a&lSaplingMC &8> &7You &cdo not &7have sufficient skulls to convert into &9Perk Credits&7!"));
 		}
