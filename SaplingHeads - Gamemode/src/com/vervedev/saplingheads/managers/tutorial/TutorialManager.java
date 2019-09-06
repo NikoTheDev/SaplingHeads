@@ -130,6 +130,9 @@ public class TutorialManager implements CommandExecutor, Listener {
 		for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
 			onlinePlayer.hidePlayer(p);
 		}
+		p.setWalkSpeed(0);
+		p.setFlySpeed(0);
+		p.setGameMode(GameMode.SPECTATOR);
 		destinationNumber.put(p, 1);
 		tutorial.add(p);
 		new BukkitRunnable() {
@@ -153,13 +156,13 @@ public class TutorialManager implements CommandExecutor, Listener {
 								.getInt("tutorial.destinations." + destinationNumber.get(p) + ".pitch"));
 						String tutorialMessage = plugin.getConfig()
 								.getString("tutorial.destinations." + destinationNumber.get(p) + ".message");
-						p.setWalkSpeed(0);
-						p.setFlySpeed(0);
-						p.setGameMode(GameMode.SPECTATOR);
+						
+						
+						
 						p.teleport(destination);
-						p.setWalkSpeed(0);
-						p.setFlySpeed(0);
-						p.setGameMode(GameMode.SPECTATOR);
+						
+						
+						
 						p.sendMessage("");
 						p.sendMessage(Utils.chat(tutorialMessage));
 						p.sendMessage("");
@@ -214,14 +217,14 @@ public class TutorialManager implements CommandExecutor, Listener {
 	}
 
 	public static void showSkullDropTutorial(Player p) {
-		p.setGameMode(GameMode.SPECTATOR);
-		p.setWalkSpeed(0);
-		p.setFlySpeed(0);
-		p.setGameMode(GameMode.SPECTATOR);
+		
+		
+		
+		
 		p.teleport(Utils.getRandomLocation(p, Bukkit.getWorld("flatshops"), -250, 250, -90, 6));
-		p.setWalkSpeed(0);
-		p.setFlySpeed(0);
-		p.setGameMode(GameMode.SPECTATOR);
+		
+		
+		
 
 		String tutorialMessage = plugin.getConfig()
 				.getString("tutorial.destinations." + destinationNumber.get(p) + ".message");
@@ -275,13 +278,13 @@ public class TutorialManager implements CommandExecutor, Listener {
 													String tutorialMessage = plugin.getConfig()
 															.getString("tutorial.destinations."
 																	+ destinationNumber.get(p) + ".message");
-													p.setWalkSpeed(0);
-													p.setFlySpeed(0);
-													p.setGameMode(GameMode.SPECTATOR);
+													
+													
+													
 													p.teleport(destination);
-													p.setWalkSpeed(0);
-													p.setFlySpeed(0);
-													p.setGameMode(GameMode.SPECTATOR);
+													
+													
+													
 													int oldDesitnation = destinationNumber.get(p);
 													int newDesitnation = oldDesitnation + 1;
 													destinationNumber.put(p, newDesitnation);
@@ -317,6 +320,7 @@ public class TutorialManager implements CommandExecutor, Listener {
 	}
 
 	public static void stopTutorial(Player p) {
+		p.setGameMode(GameMode.SURVIVAL);
 		destinationNumber.remove(p);
 		p.setWalkSpeed(0.2F);
 		p.setFlySpeed(0.2F);

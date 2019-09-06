@@ -1249,7 +1249,7 @@ public class RankManager {
 		double z = p.getLocation().getZ();
 		World world = p.getLocation().getWorld();
 
-		Location loc = new Location(world, x, y + 4, z);
+		Location loc = new Location(world, x, y + 5, z);
 		Firework fw = (Firework) loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
 		FireworkMeta fwm = fw.getFireworkMeta();
 
