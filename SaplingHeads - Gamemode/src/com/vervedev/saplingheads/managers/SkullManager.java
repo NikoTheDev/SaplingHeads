@@ -721,7 +721,7 @@ public class SkullManager {
 		stack2.setItemMeta(skull2);
 
 		int minInt2 = 1;
-		int maxInt2 = 100;
+		int maxInt2 = 500;
 		Random random2 = new Random();
 		int randomInt2 = random2.nextInt((maxInt2 - minInt2) + 1) + minInt2;
 

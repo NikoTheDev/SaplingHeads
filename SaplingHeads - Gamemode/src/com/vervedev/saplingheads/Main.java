@@ -42,6 +42,7 @@ import com.vervedev.saplingheads.ui.SkullVaultUI;
 import com.vervedev.saplingheads.ui.donatorshop.BuyUI;
 import com.vervedev.saplingheads.ui.donatorshop.CrateKeyUI;
 import com.vervedev.saplingheads.ui.donatorshop.DonatorRankUI;
+import com.vervedev.saplingheads.utils.Utils;
 
 import net.milkbowl.vault.economy.Economy;
 
@@ -52,11 +53,13 @@ public class Main extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		saveDefaultConfig();
+		
 		try {
 			loadFiles();
 		} catch (ClassNotFoundException | IOException e) {
 			e.printStackTrace();
 		}
+		
 		if (!setupEconomy()) {
 			getLogger().severe(String.format("[SaplingHeads] - Disabled due to no Vault dependency found!",
 					getDescription().getName()));
@@ -70,16 +73,20 @@ public class Main extends JavaPlugin {
 			this.setEnabled(false);
 			return;
 		}
+		
 		registerManagers();
 		registerUI();
 		registerCommands();
 		registerListeners();
 		registerPerks();
 		SpawnerShopNPC.loadHolograms();
+		Utils.saveAllPlayerData();
 	}
+	
 
 	@Override
 	public void onDisable() {
+		
 		try {
 			saveFiles();
 		} catch (IOException e) {
@@ -104,6 +111,12 @@ public class Main extends JavaPlugin {
 		econ = rsp.getProvider();
 		return econ != null;
 	}
+	
+    public void sendOnlineStatus() {
+    }
+    
+    public void sendOfflineStatus() {
+    }
 
 	/*
 	 * Save Ranks
@@ -188,17 +201,18 @@ public class Main extends JavaPlugin {
 	}
 
 	public void registerManagers() {
+		new Utils(this);
 		new RankManager(this);
 		new SkullManager(this);
 		new SpawnerManager(this);
 		new PlayerManager(this);
-	    new CraftingManager(this);
+		new CraftingManager(this);
 		new DonationManager(this);
 		new TutorialManager(this);
 		new PerkManager(this);
 		new CurrencyManager(this);
 	}
-	
+
 	public void registerPerks() {
 		new JellyLegs(this);
 		new Nocturnal(this);
