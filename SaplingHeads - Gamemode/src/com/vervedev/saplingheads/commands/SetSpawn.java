@@ -15,7 +15,7 @@ public class SetSpawn implements CommandExecutor {
 	public SetSpawn(Main plugin) {
 		this.plugin = plugin;
 		
-		plugin.getCommand("setspawn").setExecutor(this);
+		plugin.getCommand("setspawntwo").setExecutor(this);
 	}
 	
 	@Override

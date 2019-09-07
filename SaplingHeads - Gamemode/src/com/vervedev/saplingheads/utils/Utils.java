@@ -250,20 +250,23 @@ public class Utils {
 	
 	public static void resetSeasonStatus() {
 		for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
-			RankManager.setRank(p, 0);
-			SkullManager.removeChickenSkull(p, SkullManager.getChickenSkullAmount(p));
-			SkullManager.removePigSkull(p, SkullManager.getPigSkullAmount(p));
-			SkullManager.removeSheepSkull(p, SkullManager.getSheepSkullAmount(p));
-			SkullManager.removeCowSkull(p, SkullManager.getCowSkullAmount(p));
-			SkullManager.removeZombieSkull(p, SkullManager.getZombieSkullAmount(p));
-			SkullManager.removeSkeletonSkull(p, SkullManager.getSkeletonSkullAmount(p));
-			SkullManager.removeSlimeSkull(p, SkullManager.getSlimeSkullAmount(p));
-			SkullManager.removeCreeperSkull(p, SkullManager.getCreeperSkullAmount(p));
-			SkullManager.removePandaSkull(p, SkullManager.getPandaSkullAmount(p));
-			CurrencyManager.removePerkCredits(p, CurrencyManager.getPerkCredits(p));
-			PerkManager.removePerk(p, "JellyLegs");
-			PerkManager.removePerk(p, "Nocturnal");
-			Bukkit.broadcastMessage("deleted" + p.getName());
+			RankManager.ranks.remove(p.getUniqueId().toString());
+			CurrencyManager.perkCredits.remove(p.getUniqueId().toString());
+			SkullManager.chicken.remove(p.getUniqueId().toString() + "chicken");
+			SkullManager.pig.remove(p.getUniqueId().toString() + "pig");
+			SkullManager.sheep.remove(p.getUniqueId().toString() + "sheep");
+			SkullManager.cow.remove(p.getUniqueId().toString() + "cow");
+			SkullManager.zombie.remove(p.getUniqueId().toString() + "zombie");
+			SkullManager.skeleton.remove(p.getUniqueId().toString() + "skeleton");
+			SkullManager.zpigman.remove(p.getUniqueId().toString() + "pigzombie");
+			SkullManager.slime.remove(p.getUniqueId().toString() + "slime");
+			SkullManager.creeper.remove(p.getUniqueId().toString() + "creeper");
+			SkullManager.panda.remove(p.getUniqueId().toString() + "panda");
+			PerkManager.perks.remove(p.getUniqueId() + "JellyLegs");
+			PerkManager.perks.remove(p.getUniqueId() + "JellyLegs_Enabled");
+			PerkManager.perks.remove(p.getUniqueId() + "Nocturnal");
+			PerkManager.perks.remove(p.getUniqueId() + "Nocturnal_Enabled");
+			Bukkit.broadcastMessage("removed" + p.getName());
 		}
 	}
 

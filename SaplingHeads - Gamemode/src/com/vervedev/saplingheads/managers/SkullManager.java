@@ -51,47 +51,47 @@ public class SkullManager {
 	public static void saveSkullFiles(OfflinePlayer p) throws FileNotFoundException, IOException {
 
 		// Creates the output stream, specify the correct file
-		File file = new File("SaplingData/skulldata.dat");
+		File file = new File("SaplingData/skulls.dat");
 		ObjectOutputStream output = new ObjectOutputStream(new GZIPOutputStream(new FileOutputStream(file)));
 
-		if (chicken.get(p.getUniqueId().toString()) != null) {
-			chicken.put(p.getUniqueId().toString(), chicken.get(p.getUniqueId().toString()));
+		if (chicken.get(p.getUniqueId().toString() + "chicken") != null) {
+			chicken.put(p.getUniqueId().toString() + "chicken", chicken.get(p.getUniqueId().toString() + "chicken"));
 		}
 		
-		if (pig.get(p.getUniqueId().toString()) != null) {
-			pig.put(p.getUniqueId().toString(), pig.get(p.getUniqueId().toString()));
+		if (pig.get(p.getUniqueId().toString() + "pig") != null) {
+			pig.put(p.getUniqueId().toString() + "pig", pig.get(p.getUniqueId().toString() + "pig"));
 		}
 		
-		if (sheep.get(p.getUniqueId().toString()) != null) {
-			sheep.put(p.getUniqueId().toString(), sheep.get(p.getUniqueId().toString()));
+		if (sheep.get(p.getUniqueId().toString() + "sheep") != null) {
+			sheep.put(p.getUniqueId().toString() + "sheep", sheep.get(p.getUniqueId().toString() + "sheep"));
 		}
 		
-		if (cow.get(p.getUniqueId().toString()) != null) {
-			cow.put(p.getUniqueId().toString(), cow.get(p.getUniqueId().toString()));
+		if (cow.get(p.getUniqueId().toString() + "cow") != null) {
+			cow.put(p.getUniqueId().toString() + "cow", cow.get(p.getUniqueId().toString() + "cow"));
 		}
 		
-		if (zombie.get(p.getUniqueId().toString()) != null) {
-			zombie.put(p.getUniqueId().toString(), zombie.get(p.getUniqueId().toString()));
+		if (zombie.get(p.getUniqueId().toString() + "sheep") != null) {
+			zombie.put(p.getUniqueId().toString() + "sheep", zombie.get(p.getUniqueId().toString() + "sheep"));
 		}
 
-		if (skeleton.get(p.getUniqueId().toString()) != null) {
-			skeleton.put(p.getUniqueId().toString(), skeleton.get(p.getUniqueId().toString()));
+		if (skeleton.get(p.getUniqueId().toString() + "skeleton") != null) {
+			skeleton.put(p.getUniqueId().toString() + "skeleton", skeleton.get(p.getUniqueId().toString() + "skeleton"));
 		}
 		
-		if (zpigman.get(p.getUniqueId().toString()) != null) {
-			zpigman.put(p.getUniqueId().toString(), zpigman.get(p.getUniqueId().toString()));
+		if (zpigman.get(p.getUniqueId().toString() + "pigzombie") != null) {
+			zpigman.put(p.getUniqueId().toString() + "pigzombie", zpigman.get(p.getUniqueId().toString() + "pigzombie"));
 		}
 		
-		if (slime.get(p.getUniqueId().toString()) != null) {
-			slime.put(p.getUniqueId().toString(), slime.get(p.getUniqueId().toString()));
+		if (slime.get(p.getUniqueId().toString() + "slime") != null) {
+			slime.put(p.getUniqueId().toString() + "slime", slime.get(p.getUniqueId().toString() + "slime"));
 		}
 		
-		if (creeper.get(p.getUniqueId().toString()) != null) {
-			creeper.put(p.getUniqueId().toString(), creeper.get(p.getUniqueId().toString()));
+		if (creeper.get(p.getUniqueId().toString() + "creeper") != null) {
+			creeper.put(p.getUniqueId().toString() + "creeper", creeper.get(p.getUniqueId().toString() + "creeper"));
 		}
 		
-		if (panda.get(p.getUniqueId().toString()) != null) {
-			panda.put(p.getUniqueId().toString(), panda.get(p.getUniqueId().toString()));
+		if (panda.get(p.getUniqueId().toString() + "panda") != null) {
+			panda.put(p.getUniqueId().toString() + "panda", panda.get(p.getUniqueId().toString() + "panda"));
 		}
 		
 		try {
@@ -116,7 +116,7 @@ public class SkullManager {
 	@SuppressWarnings("unchecked")
 	public static void loadSkullFiles(OfflinePlayer p) throws FileNotFoundException, IOException, ClassNotFoundException {
 		// Create the input stream
-		File file = new File("SaplingData/skulldata.dat");
+		File file = new File("SaplingData/skulls.dat");
 		ObjectInputStream input = new ObjectInputStream(new GZIPInputStream(new FileInputStream(file)));
 		// Reads the first object in
 		Object readObject = input.readObject();
@@ -148,10 +148,10 @@ public class SkullManager {
 			cow.put(key, cow.get(key));
 		}
 		
-		pig = (HashMap<String, Integer>) readObject;
+		zombie = (HashMap<String, Integer>) readObject;
 		// Prints out everything in the map.
-		for (String key : pig.keySet()) {
-			pig.put(key, pig.get(key));
+		for (String key : zombie.keySet()) {
+			zombie.put(key, zombie.get(key));
 		}
 		
 		skeleton = (HashMap<String, Integer>) readObject;
@@ -186,26 +186,26 @@ public class SkullManager {
 	}
 
 	public static int getChickenSkullAmount(OfflinePlayer p) {
-		if (chicken.get(p.getUniqueId().toString()) != null) {
-			return chicken.get(p.getUniqueId().toString());
+		if (chicken.get(p.getUniqueId().toString() + "chicken") != null) {
+			return chicken.get(p.getUniqueId().toString() + "chicken");
 		} else {
 			return 0;
 		}
 	}
 
 	public static void addChickenSkull(OfflinePlayer p, int amount) {
-		if (chicken.get(p.getUniqueId().toString()) != null) {
-			chicken.put(p.getUniqueId().toString(), chicken.get(p.getUniqueId().toString()) + amount);
+		if (chicken.get(p.getUniqueId().toString() + "chicken") != null) {
+			chicken.put(p.getUniqueId().toString() + "chicken", chicken.get(p.getUniqueId().toString() + "chicken") + amount);
 		} else {
-			chicken.put(p.getUniqueId().toString(), amount);
+			chicken.put(p.getUniqueId().toString() + "chicken", amount);
 		}
 	}
 
 	public static void removeChickenSkull(OfflinePlayer p, int amount) {
-		if (chicken.get(p.getUniqueId().toString()) != null) {
-			chicken.put(p.getUniqueId().toString(), chicken.get(p.getUniqueId().toString()) - amount);
+		if (chicken.get(p.getUniqueId().toString() + "chicken") != null) {
+			chicken.put(p.getUniqueId().toString() + "chicken", chicken.get(p.getUniqueId().toString() + "chicken") - amount);
 		} else {
-			chicken.put(p.getUniqueId().toString(), amount);
+			chicken.put(p.getUniqueId().toString() + "chicken", amount);
 		}
 	}
 
@@ -214,26 +214,26 @@ public class SkullManager {
 	 */
 
 	public static int getPigSkullAmount(OfflinePlayer p) {
-		if (pig.get(p.getUniqueId().toString()) != null) {
-			return pig.get(p.getUniqueId().toString());
+		if (pig.get(p.getUniqueId().toString() + "pig") != null) {
+			return pig.get(p.getUniqueId().toString() + "pig");
 		} else {
 			return 0;
 		}
 	}
 
 	public static void addPigSkull(OfflinePlayer p, int amount) {
-		if (pig.get(p.getUniqueId().toString()) != null) {
-			pig.put(p.getUniqueId().toString(), pig.get(p.getUniqueId().toString()) + amount);
+		if (pig.get(p.getUniqueId().toString() + "pig") != null) {
+			pig.put(p.getUniqueId().toString() + "pig", pig.get(p.getUniqueId().toString() + "pig") + amount);
 		} else {
-			pig.put(p.getUniqueId().toString(), amount);
+			pig.put(p.getUniqueId().toString() + "pig", amount);
 		}
 	}
 
 	public static void removePigSkull(OfflinePlayer p, int amount) {
-		if (pig.get(p.getUniqueId().toString()) != null) {
-			pig.put(p.getUniqueId().toString(), pig.get(p.getUniqueId().toString()) - amount);
+		if (pig.get(p.getUniqueId().toString() + "pig") != null) {
+			pig.put(p.getUniqueId().toString() + "pig", pig.get(p.getUniqueId().toString() + "pig") - amount);
 		} else {
-			pig.put(p.getUniqueId().toString(), amount);
+			pig.put(p.getUniqueId().toString() + "pig", amount);
 		}
 	}
 
@@ -242,26 +242,26 @@ public class SkullManager {
 	 */
 
 	public static int getSheepSkullAmount(OfflinePlayer p) {
-		if (sheep.get(p.getUniqueId().toString()) != null) {
-			return sheep.get(p.getUniqueId().toString());
+		if (sheep.get(p.getUniqueId().toString() + "sheep") != null) {
+			return sheep.get(p.getUniqueId().toString() + "sheep");
 		} else {
 			return 0;
 		}
 	}
 
 	public static void addSheepSkull(OfflinePlayer p, int amount) {
-		if (sheep.get(p.getUniqueId().toString()) != null) {
-			sheep.put(p.getUniqueId().toString(), sheep.get(p.getUniqueId().toString()) + amount);
+		if (sheep.get(p.getUniqueId().toString() + "sheep") != null) {
+			sheep.put(p.getUniqueId().toString() + "sheep", sheep.get(p.getUniqueId().toString() + "sheep") + amount);
 		} else {
-			sheep.put(p.getUniqueId().toString(), amount);
+			sheep.put(p.getUniqueId().toString() + "sheep", amount);
 		}
 	}
 
 	public static void removeSheepSkull(OfflinePlayer p, int amount) {
-		if (sheep.get(p.getUniqueId().toString()) != null) {
-			sheep.put(p.getUniqueId().toString(), sheep.get(p.getUniqueId().toString()) - amount);
+		if (sheep.get(p.getUniqueId().toString() + "sheep") != null) {
+			sheep.put(p.getUniqueId().toString() + "sheep", sheep.get(p.getUniqueId().toString() + "sheep") - amount);
 		} else {
-			sheep.put(p.getUniqueId().toString(), amount);
+			sheep.put(p.getUniqueId().toString() + "sheep", amount);
 		}
 	}
 
@@ -270,26 +270,26 @@ public class SkullManager {
 	 */
 
 	public static int getCowSkullAmount(OfflinePlayer p) {
-		if (cow.get(p.getUniqueId().toString()) != null) {
-			return cow.get(p.getUniqueId().toString());
+		if (cow.get(p.getUniqueId().toString() + "cow") != null) {
+			return cow.get(p.getUniqueId().toString() + "cow");
 		} else {
 			return 0;
 		}
 	}
 
 	public static void addCowSkull(OfflinePlayer p, int amount) {
-		if (cow.get(p.getUniqueId().toString()) != null) {
-			cow.put(p.getUniqueId().toString(), cow.get(p.getUniqueId().toString()) + amount);
+		if (cow.get(p.getUniqueId().toString() + "cow") != null) {
+			cow.put(p.getUniqueId().toString() + "cow", cow.get(p.getUniqueId().toString() + "cow") + amount);
 		} else {
-			cow.put(p.getUniqueId().toString(), amount);
+			cow.put(p.getUniqueId().toString() + "cow", amount);
 		}
 	}
 
 	public static void removeCowSkull(OfflinePlayer p, int amount) {
-		if (cow.get(p.getUniqueId().toString()) != null) {
-			cow.put(p.getUniqueId().toString(), cow.get(p.getUniqueId().toString()) - amount);
+		if (cow.get(p.getUniqueId().toString() + "cow") != null) {
+			cow.put(p.getUniqueId().toString() + "cow", cow.get(p.getUniqueId().toString() + "cow") - amount);
 		} else {
-			cow.put(p.getUniqueId().toString(), amount);
+			cow.put(p.getUniqueId().toString() + "cow", amount);
 		}
 	}
 
@@ -298,26 +298,26 @@ public class SkullManager {
 	 */
 
 	public static int getZombieSkullAmount(OfflinePlayer p) {
-		if (zombie.get(p.getUniqueId().toString()) != null) {
-			return zombie.get(p.getUniqueId().toString());
+		if (zombie.get(p.getUniqueId().toString() + "zombie") != null) {
+			return zombie.get(p.getUniqueId().toString() + "zombie");
 		} else {
 			return 0;
 		}
 	}
 
 	public static void addZombieSkull(OfflinePlayer p, int amount) {
-		if (zombie.get(p.getUniqueId().toString()) != null) {
-			zombie.put(p.getUniqueId().toString(), zombie.get(p.getUniqueId().toString()) + amount);
+		if (zombie.get(p.getUniqueId().toString() + "zombie") != null) {
+			zombie.put(p.getUniqueId().toString() + "zombie", zombie.get(p.getUniqueId().toString() + "zombie") + amount);
 		} else {
-			zombie.put(p.getUniqueId().toString(), amount);
+			zombie.put(p.getUniqueId().toString() + "zombie", amount);
 		}
 	}
 
 	public static void removeZombieSkull(OfflinePlayer p, int amount) {
-		if (zombie.get(p.getUniqueId().toString()) != null) {
-			zombie.put(p.getUniqueId().toString(), zombie.get(p.getUniqueId().toString()) - amount);
+		if (zombie.get(p.getUniqueId().toString() + "zombie") != null) {
+			zombie.put(p.getUniqueId().toString() + "zombie", zombie.get(p.getUniqueId().toString() + "zombie") - amount);
 		} else {
-			zombie.put(p.getUniqueId().toString(), amount);
+			zombie.put(p.getUniqueId().toString() + "zombie", amount);
 		}
 	}
 
@@ -326,26 +326,26 @@ public class SkullManager {
 	 */
 
 	public static int getSkeletonSkullAmount(OfflinePlayer p) {
-		if (skeleton.get(p.getUniqueId().toString()) != null) {
-			return skeleton.get(p.getUniqueId().toString());
+		if (skeleton.get(p.getUniqueId().toString() + "skeleton") != null) {
+			return skeleton.get(p.getUniqueId().toString() + "skeleton");
 		} else {
 			return 0;
 		}
 	}
 
 	public static void addSkeletonSkull(OfflinePlayer p, int amount) {
-		if (skeleton.get(p.getUniqueId().toString()) != null) {
-			skeleton.put(p.getUniqueId().toString(), skeleton.get(p.getUniqueId().toString()) + amount);
+		if (skeleton.get(p.getUniqueId().toString() + "skeleton") != null) {
+			skeleton.put(p.getUniqueId().toString() + "skeleton", skeleton.get(p.getUniqueId().toString() + "skeleton") + amount);
 		} else {
-			skeleton.put(p.getUniqueId().toString(), amount);
+			skeleton.put(p.getUniqueId().toString() + "skeleton", amount);
 		}
 	}
 
 	public static void removeSkeletonSkull(OfflinePlayer p, int amount) {
-		if (skeleton.get(p.getUniqueId().toString()) != null) {
-			skeleton.put(p.getUniqueId().toString(), skeleton.get(p.getUniqueId().toString()) - amount);
+		if (skeleton.get(p.getUniqueId().toString() + "skeleton") != null) {
+			skeleton.put(p.getUniqueId().toString() + "skeleton", skeleton.get(p.getUniqueId().toString() + "skeleton") - amount);
 		} else {
-			skeleton.put(p.getUniqueId().toString(), amount);
+			skeleton.put(p.getUniqueId().toString() + "skeleton", amount);
 		}
 	}
 
@@ -354,26 +354,26 @@ public class SkullManager {
 	 */
 
 	public static int getPigZombieSkullAmount(OfflinePlayer p) {
-		if (zpigman.get(p.getUniqueId().toString()) != null) {
-			return zpigman.get(p.getUniqueId().toString());
+		if (zpigman.get(p.getUniqueId().toString() + "pigzombie") != null) {
+			return zpigman.get(p.getUniqueId().toString() + "pigzombie");
 		} else {
 			return 0;
 		}
 	}
 
 	public static void addPigZombieSkull(OfflinePlayer p, int amount) {
-		if (zpigman.get(p.getUniqueId().toString()) != null) {
-			zpigman.put(p.getUniqueId().toString(), zpigman.get(p.getUniqueId().toString()) + amount);
+		if (zpigman.get(p.getUniqueId().toString() + "pigzombie") != null) {
+			zpigman.put(p.getUniqueId().toString() + "pigzombie", zpigman.get(p.getUniqueId().toString() + "pigzombie") + amount);
 		} else {
-			zpigman.put(p.getUniqueId().toString(), amount);
+			zpigman.put(p.getUniqueId().toString() + "pigzombie", amount);
 		}
 	}
 
 	public static void removePigZombieSkull(OfflinePlayer p, int amount) {
-		if (zpigman.get(p.getUniqueId().toString()) != null) {
-			zpigman.put(p.getUniqueId().toString(), zpigman.get(p.getUniqueId().toString()) - amount);
+		if (zpigman.get(p.getUniqueId().toString() + "pigzombie") != null) {
+			zpigman.put(p.getUniqueId().toString() + "pigzombie", zpigman.get(p.getUniqueId().toString() + "pigzombie") - amount);
 		} else {
-			zpigman.put(p.getUniqueId().toString(), amount);
+			zpigman.put(p.getUniqueId().toString() + "pigzombie", amount);
 		}
 	}
 
@@ -382,26 +382,26 @@ public class SkullManager {
 	 */
 
 	public static int getSlimeSkullAmount(OfflinePlayer p) {
-		if (slime.get(p.getUniqueId().toString()) != null) {
-			return slime.get(p.getUniqueId().toString());
+		if (slime.get(p.getUniqueId().toString() + "slime") != null) {
+			return slime.get(p.getUniqueId().toString() + "slime");
 		} else {
 			return 0;
 		}
 	}
 
 	public static void addSlimeSkull(OfflinePlayer p, int amount) {
-		if (slime.get(p.getUniqueId().toString()) != null) {
-			slime.put(p.getUniqueId().toString(), slime.get(p.getUniqueId().toString()) + amount);
+		if (slime.get(p.getUniqueId().toString() + "slime") != null) {
+			slime.put(p.getUniqueId().toString() + "slime", slime.get(p.getUniqueId().toString() + "slime") + amount);
 		} else {
-			slime.put(p.getUniqueId().toString(), amount);
+			slime.put(p.getUniqueId().toString() + "slime", amount);
 		}
 	}
 
 	public static void removeSlimeSkull(OfflinePlayer p, int amount) {
-		if (slime.get(p.getUniqueId().toString()) != null) {
-			slime.put(p.getUniqueId().toString(), slime.get(p.getUniqueId().toString()) - amount);
+		if (slime.get(p.getUniqueId().toString() + "slime") != null) {
+			slime.put(p.getUniqueId().toString() + "slime", slime.get(p.getUniqueId().toString() + "slime") - amount);
 		} else {
-			slime.put(p.getUniqueId().toString(), amount);
+			slime.put(p.getUniqueId().toString() + "slime", amount);
 		}
 	}
 
@@ -410,26 +410,26 @@ public class SkullManager {
 	 */
 
 	public static int getCreeperSkullAmount(OfflinePlayer p) {
-		if (creeper.get(p.getUniqueId().toString()) != null) {
-			return creeper.get(p.getUniqueId().toString());
+		if (creeper.get(p.getUniqueId().toString() + "creeper") != null) {
+			return creeper.get(p.getUniqueId().toString() + "creeper");
 		} else {
 			return 0;
 		}
 	}
 
 	public static void addCreeperSkull(OfflinePlayer p, int amount) {
-		if (creeper.get(p.getUniqueId().toString()) != null) {
-			creeper.put(p.getUniqueId().toString(), creeper.get(p.getUniqueId().toString()) + amount);
+		if (creeper.get(p.getUniqueId().toString() + "creeper") != null) {
+			creeper.put(p.getUniqueId().toString() + "creeper", creeper.get(p.getUniqueId().toString() + "creeper") + amount);
 		} else {
-			creeper.put(p.getUniqueId().toString(), amount);
+			creeper.put(p.getUniqueId().toString() + "creeper", amount);
 		}
 	}
 
 	public static void removeCreeperSkull(OfflinePlayer p, int amount) {
-		if (creeper.get(p.getUniqueId().toString()) != null) {
-			creeper.put(p.getUniqueId().toString(), creeper.get(p.getUniqueId().toString()) - amount);
+		if (creeper.get(p.getUniqueId().toString() + "creeper") != null) {
+			creeper.put(p.getUniqueId().toString() + "creeper", creeper.get(p.getUniqueId().toString() + "creeper") - amount);
 		} else {
-			creeper.put(p.getUniqueId().toString(), amount);
+			creeper.put(p.getUniqueId().toString() + "creeper", amount);
 		}
 	}
 
@@ -438,26 +438,26 @@ public class SkullManager {
 	 */
 
 	public static int getPandaSkullAmount(OfflinePlayer p) {
-		if (panda.get(p.getUniqueId().toString()) != null) {
-			return panda.get(p.getUniqueId().toString());
+		if (panda.get(p.getUniqueId().toString() + "panda") != null) {
+			return panda.get(p.getUniqueId().toString() + "panda");
 		} else {
 			return 0;
 		}
 	}
 
 	public static void addPandaSkull(OfflinePlayer p, int amount) {
-		if (panda.get(p.getUniqueId().toString()) != null) {
-			panda.put(p.getUniqueId().toString(), panda.get(p.getUniqueId().toString()) + amount);
+		if (panda.get(p.getUniqueId().toString() + "panda") != null) {
+			panda.put(p.getUniqueId().toString() + "panda", panda.get(p.getUniqueId().toString() + "panda") + amount);
 		} else {
-			panda.put(p.getUniqueId().toString(), amount);
+			panda.put(p.getUniqueId().toString() + "panda", amount);
 		}
 	}
 
 	public static void removePandaSkull(OfflinePlayer p, int amount) {
-		if (panda.get(p.getUniqueId().toString()) != null) {
-			panda.put(p.getUniqueId().toString(), panda.get(p.getUniqueId().toString()) - amount);
+		if (panda.get(p.getUniqueId().toString() + "panda") != null) {
+			panda.put(p.getUniqueId().toString() + "panda", panda.get(p.getUniqueId().toString() + "panda") - amount);
 		} else {
-			panda.put(p.getUniqueId().toString(), amount);
+			panda.put(p.getUniqueId().toString() + "panda", amount);
 		}
 	}
 

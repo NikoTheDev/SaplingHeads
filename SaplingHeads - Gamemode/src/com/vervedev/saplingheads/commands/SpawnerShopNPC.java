@@ -241,9 +241,9 @@ public class SpawnerShopNPC implements CommandExecutor {
 			hologram.appendTextLine(Utils.chat("&a&lCreeper Spawner"));
 			hologram.insertTextLine(1, Utils
 					.chat("&7Right Click &8(&e$" + formatter.format(SpawnerManager.getCreeperSpawnerPrice()) + "&8)"));
-			saveHologram(p, ChatColor.stripColor(hologram.getLine(0).toString()), "&a&lCreeoer Spawner",
+			saveHologram(p, ChatColor.stripColor(hologram.getLine(0).toString()), "&a&lCreeper Spawner",
 					"&7Right Click &8(&e$" + formatter.format(SpawnerManager.getCreeperSpawnerPrice()) + "&8)",
-					y + 2.8);
+					y + 2.35);
 			p.sendMessage(Utils.chat("&a&lSaplingMC &8> &7You have successfully placed a &a&lCreeper NPC&7!"));
 		} else if (spawnerType.equalsIgnoreCase("panda")) {
 			Hologram hologram = HologramsAPI.createHologram(plugin, slimehologramLocation);

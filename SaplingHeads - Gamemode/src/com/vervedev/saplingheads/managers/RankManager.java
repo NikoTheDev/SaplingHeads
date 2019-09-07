@@ -41,7 +41,7 @@ public class RankManager {
 	public static void saveRanks(OfflinePlayer p) throws FileNotFoundException, IOException {
 
 		// Creates the output stream, specify the correct file
-		File file = new File("SaplingData/skulldata.dat");
+		File file = new File("SaplingData/ranks.dat");
 		ObjectOutputStream output = new ObjectOutputStream(new GZIPOutputStream(new FileOutputStream(file)));
 
 		if (ranks.get(p.getUniqueId().toString()) != null) {
@@ -64,7 +64,7 @@ public class RankManager {
 	@SuppressWarnings("unchecked")
 	public static void loadRanks(OfflinePlayer p) throws FileNotFoundException, IOException, ClassNotFoundException {
 		// Create the input stream
-		File file = new File("SaplingData/skulldata.dat");
+		File file = new File("SaplingData/ranks.dat");
 		ObjectInputStream input = new ObjectInputStream(new GZIPInputStream(new FileInputStream(file)));
 		// Reads the first object in
 		Object readObject = input.readObject();

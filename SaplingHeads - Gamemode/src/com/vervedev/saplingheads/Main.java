@@ -19,6 +19,7 @@ import com.vervedev.saplingheads.commands.SkullVaultNPC;
 import com.vervedev.saplingheads.commands.Spawn;
 import com.vervedev.saplingheads.commands.SpawnerShopNPC;
 import com.vervedev.saplingheads.commands.Spawners;
+import com.vervedev.saplingheads.leaderboards.LeaderboardCommand;
 import com.vervedev.saplingheads.listeners.CommandPreProcess;
 import com.vervedev.saplingheads.listeners.CreatureSpawn;
 import com.vervedev.saplingheads.listeners.EntityDeath;
@@ -80,7 +81,6 @@ public class Main extends JavaPlugin {
 		registerListeners();
 		registerPerks();
 		SpawnerShopNPC.loadHolograms();
-		Utils.saveAllPlayerData();
 	}
 	
 
@@ -140,6 +140,7 @@ public class Main extends JavaPlugin {
 	}
 
 	public void registerCommands() {
+		new LeaderboardCommand(this);
 		new Rankup(this);
 		new SkullVaultNPC(this);
 		new SetSpawn(this);

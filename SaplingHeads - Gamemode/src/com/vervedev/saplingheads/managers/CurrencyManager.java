@@ -35,11 +35,11 @@ public class CurrencyManager {
 	public static void savePerkCredits(OfflinePlayer p) throws FileNotFoundException, IOException {
 
 		// Creates the output stream, specify the correct file
-		File file = new File("SaplingData/skulldata.dat");
+		File file = new File("SaplingData/perkcredits.dat");
 		ObjectOutputStream output = new ObjectOutputStream(new GZIPOutputStream(new FileOutputStream(file)));
 
-		if (perkCredits.get(p.getUniqueId().toString()) != null) {
-			perkCredits.put(p.getUniqueId().toString(), perkCredits.get(p.getUniqueId().toString()));
+		if (perkCredits.get(p.getUniqueId().toString() + "perkcredits") != null) {
+			perkCredits.put(p.getUniqueId().toString() + "perkcredits", perkCredits.get(p.getUniqueId().toString() + "perkcredits"));
 		}
 
 		try {
@@ -56,7 +56,7 @@ public class CurrencyManager {
 	public static void loadPerkCredits(OfflinePlayer p)
 			throws FileNotFoundException, IOException, ClassNotFoundException {
 		// Create the input stream
-		File file = new File("SaplingData/skulldata.dat");
+		File file = new File("SaplingData/perkcredits.dat");
 		ObjectInputStream input = new ObjectInputStream(new GZIPInputStream(new FileInputStream(file)));
 		// Reads the first object in
 		Object readObject = input.readObject();
@@ -72,18 +72,18 @@ public class CurrencyManager {
 	}
 
 	public static int getPerkCredits(OfflinePlayer p) {
-		if (perkCredits.get(p.getUniqueId().toString()) == null) {
+		if (perkCredits.get(p.getUniqueId().toString() + "perkcredits") == null) {
 			return 0;
 		}
-		return perkCredits.get(p.getUniqueId().toString());
+		return perkCredits.get(p.getUniqueId().toString() + "perkcredits");
 	}
 
 	public static void addPerkCredits(Player p, int amount) {
-		perkCredits.put(p.getUniqueId().toString(), getPerkCredits(p) + amount);
+		perkCredits.put(p.getUniqueId().toString() + "perkcredits", getPerkCredits(p) + amount);
 	}
 
 	public static void removePerkCredits(OfflinePlayer p, int amount) {
-		perkCredits.put(p.getUniqueId().toString(), getPerkCredits(p) - amount);
+		perkCredits.put(p.getUniqueId().toString() + "perkcredits", getPerkCredits(p) - amount);
 	}
 
 	public static void convertSkullsToCredit(Player p) {

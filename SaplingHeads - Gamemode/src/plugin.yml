@@ -11,9 +11,7 @@ commands:
     description: Open the rankup menu!
   setvaultnpc:
     description: Set the main NPC for the Skull vault!
-  spawn:
-    description: Teleport to the server spawn
-  setspawn:
+  setspawntwo:
     description: Set the main server spawn point!
   spawnershopnpc:
     description: Place a main spawner npc!
@@ -32,3 +30,5 @@ commands:
     description: Main tutorial command for SaplingMC!
   perks:
     description: Unlock perks to have special abilities on the server!
+  leaderboard:
+    description: View the prizes associated with the leaderboard rewards!

@@ -12,7 +12,7 @@ import com.vervedev.saplingheads.utils.Utils;
 public class Nocturnal {
 
 	public Main plugin;
-	
+
 	private static String perkname = "nocturnal";
 
 	public Nocturnal(Main plugin) {
@@ -36,11 +36,14 @@ public class Nocturnal {
 		p.removePotionEffect(PotionEffectType.NIGHT_VISION);
 		p.sendMessage(Utils.chat("&9&lPerks &8> &7You have successfully &edisabled &7the perk &5Nocturnal&7!"));
 	}
-	
+
 	public void enableNocturnalReload() {
 		for (Player onlinePlayers : Bukkit.getOnlinePlayers()) {
-			if (PerkManager.checkPerkActive(onlinePlayers, "nocturnal") == true) {
-				onlinePlayers.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, Integer.MAX_VALUE, 1), true);
+			if (PerkManager.checkPerkUnlocked(onlinePlayers, "Nocturnal")) {
+				if (PerkManager.checkPerkActive(onlinePlayers, "nocturnal") == true) {
+					onlinePlayers.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, Integer.MAX_VALUE, 1),
+							true);
+				}
 			}
 		}
 	}
