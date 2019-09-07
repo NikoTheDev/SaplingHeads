@@ -86,7 +86,6 @@ public class Main extends JavaPlugin {
 
 	@Override
 	public void onDisable() {
-		Utils.resetSeasonStatus();
 		try {
 			saveFiles();
 		} catch (IOException e) {
@@ -125,16 +124,7 @@ public class Main extends JavaPlugin {
 	public void saveFiles() throws FileNotFoundException, IOException {
 		for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
 			RankManager.saveRanks(p);
-			SkullManager.saveChickens(p);
-			SkullManager.savePig(p);
-			SkullManager.saveSheep(p);
-			SkullManager.saveCow(p);
-			SkullManager.saveZombie(p);
-			SkullManager.saveSkeleton(p);
-			SkullManager.savePigZombie(p);
-			SkullManager.saveSlime(p);
-			SkullManager.saveCreeper(p);
-			SkullManager.savePanda(p);
+			SkullManager.saveSkullFiles(p);
 			PerkManager.savePerks(p);
 			CurrencyManager.savePerkCredits(p);
 		}
@@ -143,16 +133,7 @@ public class Main extends JavaPlugin {
 	public void loadFiles() throws FileNotFoundException, ClassNotFoundException, IOException {
 		for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
 			RankManager.loadRanks(p);
-			SkullManager.loadChickens(p);
-			SkullManager.loadPig(p);
-			SkullManager.loadSheep(p);
-			SkullManager.loadCow(p);
-			SkullManager.loadZombie(p);
-			SkullManager.loadSkeleton(p);
-			SkullManager.loadPigZombie(p);
-			SkullManager.loadSlime(p);
-			SkullManager.loadCreeper(p);
-			SkullManager.loadPanda(p);
+			SkullManager.loadSkullFiles(p);
 			PerkManager.loadPerks(p);
 			CurrencyManager.loadPerkCredits(p);
 		}

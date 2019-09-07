@@ -32,24 +32,19 @@ public class DonatorRankUI {
 		Inventory toReturn = Bukkit.createInventory(null, inv_rows, inventory_name);
 
 		Utils.createItemHead(inv, p.getName(), 1, 12, "&8(&2Elite&8) &2" + p.getName(),
-				"&7You may purchase this rank in our shop! &eClick",
-				"&7to recieve a link to this rank on our &2website&7!");
+				"&7You may purchase this &a$10 &7rank in our","&7shop! &eClick &7to recieve a link to this rank on", "&7our &2website&7!");
 
 		Utils.createItemHead(inv, p.getName(), 1, 13, "&8(&3Hero&8) &3" + p.getName(),
-				"&7You may purchase this rank in our shop! &eClick",
-				"&7to recieve a link to this rank on our &3website&7!");
+				"&7You may purchase this &a$25 &7rank in our","&7shop! &eClick &7to recieve a link to this rank on", "&7our &3website&7!");
 
 		Utils.createItemHead(inv, p.getName(), 1, 14, "&8(&9Champion&8) &9" + p.getName(),
-				"&7You may purchase this rank in our shop! &eClick",
-				"&7to recieve a link to this rank on our &9website&7!");
+				"&7You may purchase this &a$50 &7rank in our","&7shop! &eClick &7to recieve a link to this rank on", "&7our &9website&7!");
 
 		Utils.createItemHead(inv, p.getName(), 1, 15, "&8(&eLegend&8) &e" + p.getName(),
-				"&7You may purchase this rank in our shop! &eClick",
-				"&7to recieve a link to this rank on our &ewebsite&7!");
+				"&7You may purchase this &a$100 &7rank in our","&7shop! &eClick &7to recieve a link to this rank on", "&7our &ewebsite&7!");
 
 		Utils.createItemHead(inv, p.getName(), 1, 16, "&8(&eLegend&c+&8) &c" + p.getName(),
-				"&7You may purchase this rank in our shop! &eClick",
-				"&7to recieve a link to this rank on our &cwebsite&7!");
+				"&7You may purchase this &a$150 &7rank in our","&7shop! &eClick &7to recieve a link to this rank on", "&7our &cwebsite&7!");
 
 		Utils.createItem(inv, "RED_STAINED_GLASS_PANE", 1, 31, "&c&lClose Menu",
 				"&7&eClick &7this button to close the menu!");

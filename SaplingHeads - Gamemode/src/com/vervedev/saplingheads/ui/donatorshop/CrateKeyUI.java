@@ -32,13 +32,17 @@ public class CrateKeyUI {
 
 		Inventory toReturn = Bukkit.createInventory(null, inv_rows, inventory_name);
 
-		Utils.createItem(inv, "TRIPWIRE_HOOK", 1, 12, "&9&lStandard Key", "&7Description Coming Soon!");
+		Utils.createItem(inv, "TRIPWIRE_HOOK", 1, 12, "&9&lStandard Key", "&7This crate key is only &a$1.99&7! Perfect",
+				"&7for testing your luck multiple times!", "", "&eVisit &6/warp crates &eto view available prizes!");
 
-		Utils.createItem(inv, "TRIPWIRE_HOOK", 1, 13, "&e&lPremium Key", "&7Description Coming Soon!");
+		Utils.createItem(inv, "TRIPWIRE_HOOK", 1, 13, "&e&lPremium Key", "&7This crate key is only &a$4.99&7! This crate",
+				"&7has amazing prizes for the price!", "", "&eVisit &6/warp crates &eto view available prizes!");
 
-		Utils.createItem(inv, "TRIPWIRE_HOOK", 1, 14, "&5&lEnchanted Key", "&7Description Coming Soon!");
+		Utils.createItem(inv, "TRIPWIRE_HOOK", 1, 14, "&5&lEnchanted Key", "&7This crate key is only &a$7.99&7! Win some",
+				"&7of the best prizes on the server!", "", "&eVisit &6/warp crates &eto view available prizes!");
 
-		Utils.createItem(inv, "TRIPWIRE_HOOK", 1, 15, "&c&lMagma Key", "&7Description Coming Soon!");
+		Utils.createItem(inv, "TRIPWIRE_HOOK", 1, 15, "&c&lMagma Key", "&7This crate key is only &a$9.99&7! This crate",
+				"&7offers the best of the best prizes!", "", "&eVisit &6/warp crates &eto view available prizes!");
 
 		Utils.createItem(inv, "RED_STAINED_GLASS_PANE", 1, 31, "&c&lClose Menu",
 				"&7&eClick &7this button to close the menu!");
@@ -76,16 +80,13 @@ public class CrateKeyUI {
 		if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName()).equalsIgnoreCase("Standard Key")) {
 			p.closeInventory();
 			p.sendMessage(Utils.chat(standardMessage));
-		} else if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName())
-				.equalsIgnoreCase("Premium Key")) {
+		} else if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName()).equalsIgnoreCase("Premium Key")) {
 			p.closeInventory();
 			p.sendMessage(Utils.chat(premiumMessage));
-		} else if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName())
-				.equalsIgnoreCase("Enchanted Key")) {
+		} else if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName()).equalsIgnoreCase("Enchanted Key")) {
 			p.closeInventory();
 			p.sendMessage(Utils.chat(enchantedMessage));
-		} else if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName())
-				.equalsIgnoreCase("Magma Key")) {
+		} else if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName()).equalsIgnoreCase("Magma Key")) {
 			p.closeInventory();
 			p.sendMessage(Utils.chat(magmaMessage));
 		} else if (ChatColor.stripColor(clicked.getItemMeta().getDisplayName()).equalsIgnoreCase("Website Link")) {

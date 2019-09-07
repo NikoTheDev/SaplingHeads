@@ -81,18 +81,6 @@ messages:
     panda: "&f&lPan&7&lda &f&lSpawner &8> &7You have successfully purchased this spawner for &f$<amount>"
     no_funds: "&a&lSaplingMC &8> &7You do &cnot &7have enough &6funds &7to make this spawner purchase!"
     low_rank: "&6&lSpawners &8> &7You are &cnot &7the required rank to purchase this spawner! &7You must have <needed_rank> &7unlocked! &7You may check if you are eligible with &e/rankup&7!"
-
-skulls_to_credits:
-  chickenSkulls: 50
-  pigSkulls: 0
-  sheepSkulls: 0
-  cowSkulls: 0
-  zombieSkulls: 0
-  skeletonSkulls: 0
-  pigzombieSkulls: 0
-  slimeSkulls: 0
-  creeperSkulls: 0
-  pandaSkulls: 0
 Spawner_Item_Blacklist:
   items:
     - "DIAMOND_PICKAXE"

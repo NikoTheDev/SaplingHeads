@@ -35,7 +35,7 @@ public class CurrencyManager {
 	public static void savePerkCredits(OfflinePlayer p) throws FileNotFoundException, IOException {
 
 		// Creates the output stream, specify the correct file
-		File file = new File("SaplingData/perkCredits.dat");
+		File file = new File("SaplingData/skulldata.dat");
 		ObjectOutputStream output = new ObjectOutputStream(new GZIPOutputStream(new FileOutputStream(file)));
 
 		if (perkCredits.get(p.getUniqueId().toString()) != null) {
@@ -53,9 +53,10 @@ public class CurrencyManager {
 	}
 
 	@SuppressWarnings("unchecked")
-	public static void loadPerkCredits(OfflinePlayer p) throws FileNotFoundException, IOException, ClassNotFoundException {
+	public static void loadPerkCredits(OfflinePlayer p)
+			throws FileNotFoundException, IOException, ClassNotFoundException {
 		// Create the input stream
-		File file = new File("SaplingData/perkCredits.dat");
+		File file = new File("SaplingData/skulldata.dat");
 		ObjectInputStream input = new ObjectInputStream(new GZIPInputStream(new FileInputStream(file)));
 		// Reads the first object in
 		Object readObject = input.readObject();
@@ -86,16 +87,16 @@ public class CurrencyManager {
 	}
 
 	public static void convertSkullsToCredit(Player p) {
-		int chickenSkulls = plugin.getConfig().getInt("skulls_to_credits.chickenSkulls");
-		int pigSkulls = plugin.getConfig().getInt("skulls_to_credits.pigSkulls");
-		int sheepSkulls = plugin.getConfig().getInt("skulls_to_credits.sheepSkulls");
-		int cowSkulls = plugin.getConfig().getInt("skulls_to_credits.cowSkulls");
-		int zombieSkulls = plugin.getConfig().getInt("skulls_to_credits.zombieSkulls");
-		int skeletonSkulls = plugin.getConfig().getInt("skulls_to_credits.skeletonSkulls");
-		int pigzombieSkulls = plugin.getConfig().getInt("skulls_to_credits.pigzombieSkulls");
-		int slimeSkulls = plugin.getConfig().getInt("skulls_to_credits.slimeSkulls");
-		int creeperSkulls = plugin.getConfig().getInt("skulls_to_credits.creeperSkulls");
-		int pandaSkulls = plugin.getConfig().getInt("skulls_to_credits.pandaSkulls");
+		int chickenSkulls = 1;
+		int pigSkulls = 0;
+		int sheepSkulls = 0;
+		int cowSkulls = 0;
+		int zombieSkulls = 0;
+		int skeletonSkulls = 0;
+		int pigzombieSkulls = 0;
+		int slimeSkulls = 0;
+		int creeperSkulls = 0;
+		int pandaSkulls = 0;
 
 		if (SkullManager.getChickenSkullAmount(p) >= chickenSkulls && SkullManager.getPigSkullAmount(p) >= pigSkulls
 				&& SkullManager.getSheepSkullAmount(p) >= sheepSkulls && SkullManager.getCowSkullAmount(p) >= cowSkulls
@@ -105,22 +106,44 @@ public class CurrencyManager {
 				&& SkullManager.getSlimeSkullAmount(p) >= slimeSkulls
 				&& SkullManager.getCreeperSkullAmount(p) >= creeperSkulls
 				&& SkullManager.getPandaSkullAmount(p) >= pandaSkulls) {
-			SkullManager.removeChickenSkull(p, chickenSkulls);
-			SkullManager.removePigSkull(p, pigSkulls);
-			SkullManager.removeSheepSkull(p, sheepSkulls);
-			SkullManager.removeCowSkull(p, cowSkulls);
-			SkullManager.removeZombieSkull(p, zombieSkulls);
-			SkullManager.removeSkeletonSkull(p, skeletonSkulls);
-			SkullManager.removePigZombieSkull(p, pigzombieSkulls);
-			SkullManager.removeSlimeSkull(p, slimeSkulls);
-			SkullManager.removeCreeperSkull(p, creeperSkulls);
-			SkullManager.removePandaSkull(p, pandaSkulls);
+			if (chickenSkulls > 0) {
+				SkullManager.removeChickenSkull(p, chickenSkulls);
+			}
+			if (pigSkulls > 0) {
+				SkullManager.removePigSkull(p, pigSkulls);
+			}
+			if (sheepSkulls > 0) {
+				SkullManager.removeSheepSkull(p, sheepSkulls);
+			}
+			if (cowSkulls > 0) {
+				SkullManager.removeCowSkull(p, cowSkulls);
+			}
+			if (zombieSkulls > 0) {
+				SkullManager.removeZombieSkull(p, zombieSkulls);
+			}
+			if (skeletonSkulls > 0) {
+				SkullManager.removeSkeletonSkull(p, skeletonSkulls);
+			}
+			if (pigzombieSkulls > 0) {
+				SkullManager.removePigZombieSkull(p, pigzombieSkulls);
+			}
+			if (slimeSkulls > 0) {
+				SkullManager.removeSlimeSkull(p, slimeSkulls);
+			}
+			if (creeperSkulls > 0) {
+				SkullManager.removeCreeperSkull(p, creeperSkulls);
+			}
+			if (pandaSkulls > 0) {
+				SkullManager.removePandaSkull(p, pandaSkulls);
+			}
 			CurrencyManager.addPerkCredits(p, 1);
-			p.sendMessage(Utils.chat("&9&lPerks &8> &7You have successfully converted &6skulls &7for &91 Perk Credit&7!"));
-			p.updateInventory();
+			p.sendMessage(
+					Utils.chat("&9&lPerks &8> &7You have successfully converted &6skulls &7for &91 Perk Credit&7!"));
 			p.openInventory(SkullVaultUI.GUI(p));
+			p.updateInventory();
 		} else {
-			p.sendMessage(Utils.chat("&a&lSaplingMC &8> &7You &cdo not &7have sufficient skulls to convert into &9Perk Credits&7!"));
+			p.sendMessage(Utils.chat(
+					"&a&lSaplingMC &8> &7You &cdo not &7have sufficient skulls to convert into &9Perk Credits&7!"));
 		}
 	}
 }

@@ -274,16 +274,7 @@ public class Utils {
 				try {
 					for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
 						RankManager.saveRanks(p);
-						SkullManager.saveChickens(p);
-						SkullManager.savePig(p);
-						SkullManager.saveSheep(p);
-						SkullManager.saveCow(p);
-						SkullManager.saveZombie(p);
-						SkullManager.saveSkeleton(p);
-						SkullManager.savePigZombie(p);
-						SkullManager.saveSlime(p);
-						SkullManager.saveCreeper(p);
-						SkullManager.savePanda(p);
+						SkullManager.saveSkullFiles(p);
 						PerkManager.savePerks(p);
 						CurrencyManager.savePerkCredits(p);
 					}

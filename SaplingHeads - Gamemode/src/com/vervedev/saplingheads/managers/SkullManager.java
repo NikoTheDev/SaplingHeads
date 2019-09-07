@@ -48,19 +48,64 @@ public class SkullManager {
 	 * Chicken Data
 	 */
 
-	public static void saveChickens(OfflinePlayer p) throws FileNotFoundException, IOException {
+	public static void saveSkullFiles(OfflinePlayer p) throws FileNotFoundException, IOException {
 
 		// Creates the output stream, specify the correct file
-		File file = new File("SaplingData/chicken.dat");
+		File file = new File("SaplingData/skulldata.dat");
 		ObjectOutputStream output = new ObjectOutputStream(new GZIPOutputStream(new FileOutputStream(file)));
 
 		if (chicken.get(p.getUniqueId().toString()) != null) {
 			chicken.put(p.getUniqueId().toString(), chicken.get(p.getUniqueId().toString()));
 		}
+		
+		if (pig.get(p.getUniqueId().toString()) != null) {
+			pig.put(p.getUniqueId().toString(), pig.get(p.getUniqueId().toString()));
+		}
+		
+		if (sheep.get(p.getUniqueId().toString()) != null) {
+			sheep.put(p.getUniqueId().toString(), sheep.get(p.getUniqueId().toString()));
+		}
+		
+		if (cow.get(p.getUniqueId().toString()) != null) {
+			cow.put(p.getUniqueId().toString(), cow.get(p.getUniqueId().toString()));
+		}
+		
+		if (zombie.get(p.getUniqueId().toString()) != null) {
+			zombie.put(p.getUniqueId().toString(), zombie.get(p.getUniqueId().toString()));
+		}
 
+		if (skeleton.get(p.getUniqueId().toString()) != null) {
+			skeleton.put(p.getUniqueId().toString(), skeleton.get(p.getUniqueId().toString()));
+		}
+		
+		if (zpigman.get(p.getUniqueId().toString()) != null) {
+			zpigman.put(p.getUniqueId().toString(), zpigman.get(p.getUniqueId().toString()));
+		}
+		
+		if (slime.get(p.getUniqueId().toString()) != null) {
+			slime.put(p.getUniqueId().toString(), slime.get(p.getUniqueId().toString()));
+		}
+		
+		if (creeper.get(p.getUniqueId().toString()) != null) {
+			creeper.put(p.getUniqueId().toString(), creeper.get(p.getUniqueId().toString()));
+		}
+		
+		if (panda.get(p.getUniqueId().toString()) != null) {
+			panda.put(p.getUniqueId().toString(), panda.get(p.getUniqueId().toString()));
+		}
+		
 		try {
 			// Write the map to the output stream, then close
 			output.writeObject(chicken);
+			output.writeObject(pig);
+			output.writeObject(sheep);
+			output.writeObject(cow);
+			output.writeObject(zombie);
+			output.writeObject(skeleton);
+			output.writeObject(zpigman);
+			output.writeObject(slime);
+			output.writeObject(creeper);
+			output.writeObject(panda);
 			output.flush();
 			output.close();
 		} catch (IOException ioe) {
@@ -69,9 +114,9 @@ public class SkullManager {
 	}
 
 	@SuppressWarnings("unchecked")
-	public static void loadChickens(OfflinePlayer p) throws FileNotFoundException, IOException, ClassNotFoundException {
+	public static void loadSkullFiles(OfflinePlayer p) throws FileNotFoundException, IOException, ClassNotFoundException {
 		// Create the input stream
-		File file = new File("SaplingData/chicken.dat");
+		File file = new File("SaplingData/skulldata.dat");
 		ObjectInputStream input = new ObjectInputStream(new GZIPInputStream(new FileInputStream(file)));
 		// Reads the first object in
 		Object readObject = input.readObject();
@@ -83,6 +128,60 @@ public class SkullManager {
 		// Prints out everything in the map.
 		for (String key : chicken.keySet()) {
 			chicken.put(key, chicken.get(key));
+		}
+		
+		pig = (HashMap<String, Integer>) readObject;
+		// Prints out everything in the map.
+		for (String key : pig.keySet()) {
+			pig.put(key, pig.get(key));
+		}
+		
+		sheep = (HashMap<String, Integer>) readObject;
+		// Prints out everything in the map.
+		for (String key : sheep.keySet()) {
+			sheep.put(key, sheep.get(key));
+		}
+		
+		cow = (HashMap<String, Integer>) readObject;
+		// Prints out everything in the map.
+		for (String key : cow.keySet()) {
+			cow.put(key, cow.get(key));
+		}
+		
+		pig = (HashMap<String, Integer>) readObject;
+		// Prints out everything in the map.
+		for (String key : pig.keySet()) {
+			pig.put(key, pig.get(key));
+		}
+		
+		skeleton = (HashMap<String, Integer>) readObject;
+		// Prints out everything in the map.
+		for (String key : skeleton.keySet()) {
+			skeleton.put(key, skeleton.get(key));
+		}
+		
+		zpigman = (HashMap<String, Integer>) readObject;
+		// Prints out everything in the map.
+		for (String key : zpigman.keySet()) {
+			zpigman.put(key, zpigman.get(key));
+		}
+		
+		slime = (HashMap<String, Integer>) readObject;
+		// Prints out everything in the map.
+		for (String key : slime.keySet()) {
+			slime.put(key, slime.get(key));
+		}
+		
+		creeper = (HashMap<String, Integer>) readObject;
+		// Prints out everything in the map.
+		for (String key : creeper.keySet()) {
+			creeper.put(key, creeper.get(key));
+		}
+		
+		panda = (HashMap<String, Integer>) readObject;
+		// Prints out everything in the map.
+		for (String key : panda.keySet()) {
+			panda.put(key, panda.get(key));
 		}
 	}
 
@@ -114,44 +213,6 @@ public class SkullManager {
 	 * Pig Data
 	 */
 
-	public static void savePig(OfflinePlayer p) throws FileNotFoundException, IOException {
-
-		// Creates the output stream, specify the correct file
-		File file = new File("SaplingData/pig.dat");
-		ObjectOutputStream output = new ObjectOutputStream(new GZIPOutputStream(new FileOutputStream(file)));
-
-		if (pig.get(p.getUniqueId().toString()) != null) {
-			pig.put(p.getUniqueId().toString(), pig.get(p.getUniqueId().toString()));
-		}
-
-		try {
-			// Write the map to the output stream, then close
-			output.writeObject(pig);
-			output.flush();
-			output.close();
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-		}
-	}
-
-	@SuppressWarnings("unchecked")
-	public static void loadPig(OfflinePlayer p) throws FileNotFoundException, IOException, ClassNotFoundException {
-		// Create the input stream
-		File file = new File("SaplingData/pig.dat");
-		ObjectInputStream input = new ObjectInputStream(new GZIPInputStream(new FileInputStream(file)));
-		// Reads the first object in
-		Object readObject = input.readObject();
-		input.close();
-
-		if (!(readObject instanceof HashMap))
-			throw new IOException("Data is not a hashmap");
-		pig = (HashMap<String, Integer>) readObject;
-		// Prints out everything in the map.
-		for (String key : pig.keySet()) {
-			pig.put(key, pig.get(key));
-		}
-	}
-
 	public static int getPigSkullAmount(OfflinePlayer p) {
 		if (pig.get(p.getUniqueId().toString()) != null) {
 			return pig.get(p.getUniqueId().toString());
@@ -179,44 +240,6 @@ public class SkullManager {
 	/*
 	 * Sheep Data
 	 */
-
-	public static void saveSheep(OfflinePlayer p) throws FileNotFoundException, IOException {
-
-		// Creates the output stream, specify the correct file
-		File file = new File("SaplingData/sheep.dat");
-		ObjectOutputStream output = new ObjectOutputStream(new GZIPOutputStream(new FileOutputStream(file)));
-
-		if (sheep.get(p.getUniqueId().toString()) != null) {
-			sheep.put(p.getUniqueId().toString(), sheep.get(p.getUniqueId().toString()));
-		}
-
-		try {
-			// Write the map to the output stream, then close
-			output.writeObject(sheep);
-			output.flush();
-			output.close();
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-		}
-	}
-
-	@SuppressWarnings("unchecked")
-	public static void loadSheep(OfflinePlayer p) throws FileNotFoundException, IOException, ClassNotFoundException {
-		// Create the input stream
-		File file = new File("SaplingData/sheep.dat");
-		ObjectInputStream input = new ObjectInputStream(new GZIPInputStream(new FileInputStream(file)));
-		// Reads the first object in
-		Object readObject = input.readObject();
-		input.close();
-
-		if (!(readObject instanceof HashMap))
-			throw new IOException("Data is not a hashmap");
-		sheep = (HashMap<String, Integer>) readObject;
-		// Prints out everything in the map.
-		for (String key : sheep.keySet()) {
-			sheep.put(key, sheep.get(key));
-		}
-	}
 
 	public static int getSheepSkullAmount(OfflinePlayer p) {
 		if (sheep.get(p.getUniqueId().toString()) != null) {
@@ -246,44 +269,6 @@ public class SkullManager {
 	 * Cow Data
 	 */
 
-	public static void saveCow(OfflinePlayer p) throws FileNotFoundException, IOException {
-
-		// Creates the output stream, specify the correct file
-		File file = new File("SaplingData/cow.dat");
-		ObjectOutputStream output = new ObjectOutputStream(new GZIPOutputStream(new FileOutputStream(file)));
-
-		if (cow.get(p.getUniqueId().toString()) != null) {
-			cow.put(p.getUniqueId().toString(), cow.get(p.getUniqueId().toString()));
-		}
-
-		try {
-			// Write the map to the output stream, then close
-			output.writeObject(cow);
-			output.flush();
-			output.close();
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-		}
-	}
-
-	@SuppressWarnings("unchecked")
-	public static void loadCow(OfflinePlayer p) throws FileNotFoundException, IOException, ClassNotFoundException {
-		// Create the input stream
-		File file = new File("SaplingData/cow.dat");
-		ObjectInputStream input = new ObjectInputStream(new GZIPInputStream(new FileInputStream(file)));
-		// Reads the first object in
-		Object readObject = input.readObject();
-		input.close();
-
-		if (!(readObject instanceof HashMap))
-			throw new IOException("Data is not a hashmap");
-		cow = (HashMap<String, Integer>) readObject;
-		// Prints out everything in the map.
-		for (String key : cow.keySet()) {
-			cow.put(key, cow.get(key));
-		}
-	}
-
 	public static int getCowSkullAmount(OfflinePlayer p) {
 		if (cow.get(p.getUniqueId().toString()) != null) {
 			return cow.get(p.getUniqueId().toString());
@@ -311,46 +296,6 @@ public class SkullManager {
 	/*
 	 * Zombie Data
 	 */
-
-	public static void saveZombie(OfflinePlayer p) throws FileNotFoundException, IOException {
-
-		// Creates the output stream, specify the correct file
-		File file = new File("SaplingData/zombie.dat");
-		ObjectOutputStream output = new ObjectOutputStream(new GZIPOutputStream(new FileOutputStream(file)));
-
-		if (zombie.get(p.getUniqueId().toString()) != null) {
-			zombie.put(p.getUniqueId().toString(), zombie.get(p.getUniqueId().toString()));
-		} else {
-			zombie.put(p.getUniqueId().toString(), 0);
-		}
-
-		try {
-			// Write the map to the output stream, then close
-			output.writeObject(zombie);
-			output.flush();
-			output.close();
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-		}
-	}
-
-	@SuppressWarnings("unchecked")
-	public static void loadZombie(OfflinePlayer p) throws FileNotFoundException, IOException, ClassNotFoundException {
-		// Create the input stream
-		File file = new File("SaplingData/zombie.dat");
-		ObjectInputStream input = new ObjectInputStream(new GZIPInputStream(new FileInputStream(file)));
-		// Reads the first object in
-		Object readObject = input.readObject();
-		input.close();
-
-		if (!(readObject instanceof HashMap))
-			throw new IOException("Data is not a hashmap");
-		zombie = (HashMap<String, Integer>) readObject;
-		// Prints out everything in the map.
-		for (String key : zombie.keySet()) {
-			zombie.put(key, zombie.get(key));
-		}
-	}
 
 	public static int getZombieSkullAmount(OfflinePlayer p) {
 		if (zombie.get(p.getUniqueId().toString()) != null) {
@@ -380,44 +325,6 @@ public class SkullManager {
 	 * Skeleton Data
 	 */
 
-	public static void saveSkeleton(OfflinePlayer p) throws FileNotFoundException, IOException {
-
-		// Creates the output stream, specify the correct file
-		File file = new File("SaplingData/skeleton.dat");
-		ObjectOutputStream output = new ObjectOutputStream(new GZIPOutputStream(new FileOutputStream(file)));
-
-		if (skeleton.get(p.getUniqueId().toString()) != null) {
-			skeleton.put(p.getUniqueId().toString(), skeleton.get(p.getUniqueId().toString()));
-		}
-
-		try {
-			// Write the map to the output stream, then close
-			output.writeObject(skeleton);
-			output.flush();
-			output.close();
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-		}
-	}
-
-	@SuppressWarnings("unchecked")
-	public static void loadSkeleton(OfflinePlayer p) throws FileNotFoundException, IOException, ClassNotFoundException {
-		// Create the input stream
-		File file = new File("SaplingData/skeleton.dat");
-		ObjectInputStream input = new ObjectInputStream(new GZIPInputStream(new FileInputStream(file)));
-		// Reads the first object in
-		Object readObject = input.readObject();
-		input.close();
-
-		if (!(readObject instanceof HashMap))
-			throw new IOException("Data is not a hashmap");
-		skeleton = (HashMap<String, Integer>) readObject;
-		// Prints out everything in the map.
-		for (String key : skeleton.keySet()) {
-			skeleton.put(key, skeleton.get(key));
-		}
-	}
-
 	public static int getSkeletonSkullAmount(OfflinePlayer p) {
 		if (skeleton.get(p.getUniqueId().toString()) != null) {
 			return skeleton.get(p.getUniqueId().toString());
@@ -445,45 +352,6 @@ public class SkullManager {
 	/*
 	 * Zombie Pigman Data
 	 */
-
-	public static void savePigZombie(OfflinePlayer p) throws FileNotFoundException, IOException {
-
-		// Creates the output stream, specify the correct file
-		File file = new File("SaplingData/zpigman.dat");
-		ObjectOutputStream output = new ObjectOutputStream(new GZIPOutputStream(new FileOutputStream(file)));
-
-		if (zpigman.get(p.getUniqueId().toString()) != null) {
-			zpigman.put(p.getUniqueId().toString(), zpigman.get(p.getUniqueId().toString()));
-		}
-
-		try {
-			// Write the map to the output stream, then close
-			output.writeObject(zpigman);
-			output.flush();
-			output.close();
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-		}
-	}
-
-	@SuppressWarnings("unchecked")
-	public static void loadPigZombie(OfflinePlayer p)
-			throws FileNotFoundException, IOException, ClassNotFoundException {
-		// Create the input stream
-		File file = new File("SaplingData/zpigman.dat");
-		ObjectInputStream input = new ObjectInputStream(new GZIPInputStream(new FileInputStream(file)));
-		// Reads the first object in
-		Object readObject = input.readObject();
-		input.close();
-
-		if (!(readObject instanceof HashMap))
-			throw new IOException("Data is not a hashmap");
-		zpigman = (HashMap<String, Integer>) readObject;
-		// Prints out everything in the map.
-		for (String key : zpigman.keySet()) {
-			zpigman.put(key, zpigman.get(key));
-		}
-	}
 
 	public static int getPigZombieSkullAmount(OfflinePlayer p) {
 		if (zpigman.get(p.getUniqueId().toString()) != null) {
@@ -513,44 +381,6 @@ public class SkullManager {
 	 * Slime Data
 	 */
 
-	public static void saveSlime(OfflinePlayer p) throws FileNotFoundException, IOException {
-
-		// Creates the output stream, specify the correct file
-		File file = new File("SaplingData/slime.dat");
-		ObjectOutputStream output = new ObjectOutputStream(new GZIPOutputStream(new FileOutputStream(file)));
-
-		if (slime.get(p.getUniqueId().toString()) != null) {
-			slime.put(p.getUniqueId().toString(), slime.get(p.getUniqueId().toString()));
-		}
-
-		try {
-			// Write the map to the output stream, then close
-			output.writeObject(slime);
-			output.flush();
-			output.close();
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-		}
-	}
-
-	@SuppressWarnings("unchecked")
-	public static void loadSlime(OfflinePlayer p) throws FileNotFoundException, IOException, ClassNotFoundException {
-		// Create the input stream
-		File file = new File("SaplingData/slime.dat");
-		ObjectInputStream input = new ObjectInputStream(new GZIPInputStream(new FileInputStream(file)));
-		// Reads the first object in
-		Object readObject = input.readObject();
-		input.close();
-
-		if (!(readObject instanceof HashMap))
-			throw new IOException("Data is not a hashmap");
-		slime = (HashMap<String, Integer>) readObject;
-		// Prints out everything in the map.
-		for (String key : slime.keySet()) {
-			slime.put(key, slime.get(key));
-		}
-	}
-
 	public static int getSlimeSkullAmount(OfflinePlayer p) {
 		if (slime.get(p.getUniqueId().toString()) != null) {
 			return slime.get(p.getUniqueId().toString());
@@ -579,44 +409,6 @@ public class SkullManager {
 	 * Creeper Data
 	 */
 
-	public static void saveCreeper(OfflinePlayer p) throws FileNotFoundException, IOException {
-
-		// Creates the output stream, specify the correct file
-		File file = new File("SaplingData/creeper.dat");
-		ObjectOutputStream output = new ObjectOutputStream(new GZIPOutputStream(new FileOutputStream(file)));
-
-		if (creeper.get(p.getUniqueId().toString()) != null) {
-			creeper.put(p.getUniqueId().toString(), creeper.get(p.getUniqueId().toString()));
-		}
-
-		try {
-			// Write the map to the output stream, then close
-			output.writeObject(creeper);
-			output.flush();
-			output.close();
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-		}
-	}
-
-	@SuppressWarnings("unchecked")
-	public static void loadCreeper(OfflinePlayer p) throws FileNotFoundException, IOException, ClassNotFoundException {
-		// Create the input stream
-		File file = new File("SaplingData/creeper.dat");
-		ObjectInputStream input = new ObjectInputStream(new GZIPInputStream(new FileInputStream(file)));
-		// Reads the first object in
-		Object readObject = input.readObject();
-		input.close();
-
-		if (!(readObject instanceof HashMap))
-			throw new IOException("Data is not a hashmap");
-		creeper = (HashMap<String, Integer>) readObject;
-		// Prints out everything in the map.
-		for (String key : creeper.keySet()) {
-			creeper.put(key, creeper.get(key));
-		}
-	}
-
 	public static int getCreeperSkullAmount(OfflinePlayer p) {
 		if (creeper.get(p.getUniqueId().toString()) != null) {
 			return creeper.get(p.getUniqueId().toString());
@@ -644,44 +436,6 @@ public class SkullManager {
 	/*
 	 * Panda Data
 	 */
-
-	public static void savePanda(OfflinePlayer p) throws FileNotFoundException, IOException {
-
-		// Creates the output stream, specify the correct file
-		File file = new File("SaplingData/panda.dat");
-		ObjectOutputStream output = new ObjectOutputStream(new GZIPOutputStream(new FileOutputStream(file)));
-
-		if (panda.get(p.getUniqueId().toString()) != null) {
-			panda.put(p.getUniqueId().toString(), panda.get(p.getUniqueId().toString()));
-		}
-
-		try {
-			// Write the map to the output stream, then close
-			output.writeObject(panda);
-			output.flush();
-			output.close();
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-		}
-	}
-
-	@SuppressWarnings("unchecked")
-	public static void loadPanda(OfflinePlayer p) throws FileNotFoundException, IOException, ClassNotFoundException {
-		// Create the input stream
-		File file = new File("SaplingData/panda.dat");
-		ObjectInputStream input = new ObjectInputStream(new GZIPInputStream(new FileInputStream(file)));
-		// Reads the first object in
-		Object readObject = input.readObject();
-		input.close();
-
-		if (!(readObject instanceof HashMap))
-			throw new IOException("Data is not a hashmap");
-		panda = (HashMap<String, Integer>) readObject;
-		// Prints out everything in the map.
-		for (String key : panda.keySet()) {
-			panda.put(key, panda.get(key));
-		}
-	}
 
 	public static int getPandaSkullAmount(OfflinePlayer p) {
 		if (panda.get(p.getUniqueId().toString()) != null) {
