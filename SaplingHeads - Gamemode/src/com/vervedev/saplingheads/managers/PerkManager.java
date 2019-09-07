@@ -7,7 +7,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
@@ -69,9 +68,20 @@ public class PerkManager {
 		}
 	}
 
+	public static void removePerk(OfflinePlayer p, String perk) {
+		String uuid = p.getUniqueId().toString();
+
+		if (perks.get(perk + uuid) != null) {
+			perks.remove(perk + uuid);
+		}
+		if (perks.get(perk + "_enabled" + uuid) != null) {
+			perks.remove(perk + "_enabled" + uuid);
+		}
+	}
+
 	public static boolean checkPerkUnlocked(Player p, String perk) {
 		String uuid = p.getUniqueId().toString();
-		if (perks.get(perk + p.getUniqueId().toString()) == null) {
+		if (perks.get(perk + uuid) == null) {
 			return false;
 		}
 		if (perks.get(perk + uuid) == true) {
@@ -88,8 +98,7 @@ public class PerkManager {
 		}
 		if (perks.get(perk + "_enabled" + uuid) == true) {
 			return true;
-		} else {
-			return false;
 		}
+		return false;
 	}
 }

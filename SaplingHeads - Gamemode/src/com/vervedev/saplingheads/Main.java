@@ -86,7 +86,7 @@ public class Main extends JavaPlugin {
 
 	@Override
 	public void onDisable() {
-		
+		Utils.resetSeasonStatus();
 		try {
 			saveFiles();
 		} catch (IOException e) {

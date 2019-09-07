@@ -70,7 +70,7 @@ public class CurrencyManager {
 		}
 	}
 
-	public static int getPerkCredits(Player p) {
+	public static int getPerkCredits(OfflinePlayer p) {
 		if (perkCredits.get(p.getUniqueId().toString()) == null) {
 			return 0;
 		}
@@ -81,7 +81,7 @@ public class CurrencyManager {
 		perkCredits.put(p.getUniqueId().toString(), getPerkCredits(p) + amount);
 	}
 
-	public static void removePerkCredits(Player p, int amount) {
+	public static void removePerkCredits(OfflinePlayer p, int amount) {
 		perkCredits.put(p.getUniqueId().toString(), getPerkCredits(p) - amount);
 	}
 

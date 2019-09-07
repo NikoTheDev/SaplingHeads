@@ -86,7 +86,7 @@ public class SkullManager {
 		}
 	}
 
-	public static int getChickenSkullAmount(Player p) {
+	public static int getChickenSkullAmount(OfflinePlayer p) {
 		if (chicken.get(p.getUniqueId().toString()) != null) {
 			return chicken.get(p.getUniqueId().toString());
 		} else {
@@ -94,7 +94,7 @@ public class SkullManager {
 		}
 	}
 
-	public static void addChickenSkull(Player p, int amount) {
+	public static void addChickenSkull(OfflinePlayer p, int amount) {
 		if (chicken.get(p.getUniqueId().toString()) != null) {
 			chicken.put(p.getUniqueId().toString(), chicken.get(p.getUniqueId().toString()) + amount);
 		} else {
@@ -102,7 +102,7 @@ public class SkullManager {
 		}
 	}
 
-	public static void removeChickenSkull(Player p, int amount) {
+	public static void removeChickenSkull(OfflinePlayer p, int amount) {
 		if (chicken.get(p.getUniqueId().toString()) != null) {
 			chicken.put(p.getUniqueId().toString(), chicken.get(p.getUniqueId().toString()) - amount);
 		} else {
@@ -152,7 +152,7 @@ public class SkullManager {
 		}
 	}
 
-	public static int getPigSkullAmount(Player p) {
+	public static int getPigSkullAmount(OfflinePlayer p) {
 		if (pig.get(p.getUniqueId().toString()) != null) {
 			return pig.get(p.getUniqueId().toString());
 		} else {
@@ -160,7 +160,7 @@ public class SkullManager {
 		}
 	}
 
-	public static void addPigSkull(Player p, int amount) {
+	public static void addPigSkull(OfflinePlayer p, int amount) {
 		if (pig.get(p.getUniqueId().toString()) != null) {
 			pig.put(p.getUniqueId().toString(), pig.get(p.getUniqueId().toString()) + amount);
 		} else {
@@ -168,7 +168,7 @@ public class SkullManager {
 		}
 	}
 
-	public static void removePigSkull(Player p, int amount) {
+	public static void removePigSkull(OfflinePlayer p, int amount) {
 		if (pig.get(p.getUniqueId().toString()) != null) {
 			pig.put(p.getUniqueId().toString(), pig.get(p.getUniqueId().toString()) - amount);
 		} else {
@@ -218,7 +218,7 @@ public class SkullManager {
 		}
 	}
 
-	public static int getSheepSkullAmount(Player p) {
+	public static int getSheepSkullAmount(OfflinePlayer p) {
 		if (sheep.get(p.getUniqueId().toString()) != null) {
 			return sheep.get(p.getUniqueId().toString());
 		} else {
@@ -226,7 +226,7 @@ public class SkullManager {
 		}
 	}
 
-	public static void addSheepSkull(Player p, int amount) {
+	public static void addSheepSkull(OfflinePlayer p, int amount) {
 		if (sheep.get(p.getUniqueId().toString()) != null) {
 			sheep.put(p.getUniqueId().toString(), sheep.get(p.getUniqueId().toString()) + amount);
 		} else {
@@ -234,7 +234,7 @@ public class SkullManager {
 		}
 	}
 
-	public static void removeSheepSkull(Player p, int amount) {
+	public static void removeSheepSkull(OfflinePlayer p, int amount) {
 		if (sheep.get(p.getUniqueId().toString()) != null) {
 			sheep.put(p.getUniqueId().toString(), sheep.get(p.getUniqueId().toString()) - amount);
 		} else {
@@ -284,7 +284,7 @@ public class SkullManager {
 		}
 	}
 
-	public static int getCowSkullAmount(Player p) {
+	public static int getCowSkullAmount(OfflinePlayer p) {
 		if (cow.get(p.getUniqueId().toString()) != null) {
 			return cow.get(p.getUniqueId().toString());
 		} else {
@@ -292,7 +292,7 @@ public class SkullManager {
 		}
 	}
 
-	public static void addCowSkull(Player p, int amount) {
+	public static void addCowSkull(OfflinePlayer p, int amount) {
 		if (cow.get(p.getUniqueId().toString()) != null) {
 			cow.put(p.getUniqueId().toString(), cow.get(p.getUniqueId().toString()) + amount);
 		} else {
@@ -300,7 +300,7 @@ public class SkullManager {
 		}
 	}
 
-	public static void removeCowSkull(Player p, int amount) {
+	public static void removeCowSkull(OfflinePlayer p, int amount) {
 		if (cow.get(p.getUniqueId().toString()) != null) {
 			cow.put(p.getUniqueId().toString(), cow.get(p.getUniqueId().toString()) - amount);
 		} else {
@@ -320,6 +320,8 @@ public class SkullManager {
 
 		if (zombie.get(p.getUniqueId().toString()) != null) {
 			zombie.put(p.getUniqueId().toString(), zombie.get(p.getUniqueId().toString()));
+		} else {
+			zombie.put(p.getUniqueId().toString(), 0);
 		}
 
 		try {
@@ -350,7 +352,7 @@ public class SkullManager {
 		}
 	}
 
-	public static int getZombieSkullAmount(Player p) {
+	public static int getZombieSkullAmount(OfflinePlayer p) {
 		if (zombie.get(p.getUniqueId().toString()) != null) {
 			return zombie.get(p.getUniqueId().toString());
 		} else {
@@ -358,7 +360,7 @@ public class SkullManager {
 		}
 	}
 
-	public static void addZombieSkull(Player p, int amount) {
+	public static void addZombieSkull(OfflinePlayer p, int amount) {
 		if (zombie.get(p.getUniqueId().toString()) != null) {
 			zombie.put(p.getUniqueId().toString(), zombie.get(p.getUniqueId().toString()) + amount);
 		} else {
@@ -366,7 +368,7 @@ public class SkullManager {
 		}
 	}
 
-	public static void removeZombieSkull(Player p, int amount) {
+	public static void removeZombieSkull(OfflinePlayer p, int amount) {
 		if (zombie.get(p.getUniqueId().toString()) != null) {
 			zombie.put(p.getUniqueId().toString(), zombie.get(p.getUniqueId().toString()) - amount);
 		} else {
@@ -416,7 +418,7 @@ public class SkullManager {
 		}
 	}
 
-	public static int getSkeletonSkullAmount(Player p) {
+	public static int getSkeletonSkullAmount(OfflinePlayer p) {
 		if (skeleton.get(p.getUniqueId().toString()) != null) {
 			return skeleton.get(p.getUniqueId().toString());
 		} else {
@@ -424,7 +426,7 @@ public class SkullManager {
 		}
 	}
 
-	public static void addSkeletonSkull(Player p, int amount) {
+	public static void addSkeletonSkull(OfflinePlayer p, int amount) {
 		if (skeleton.get(p.getUniqueId().toString()) != null) {
 			skeleton.put(p.getUniqueId().toString(), skeleton.get(p.getUniqueId().toString()) + amount);
 		} else {
@@ -432,7 +434,7 @@ public class SkullManager {
 		}
 	}
 
-	public static void removeSkeletonSkull(Player p, int amount) {
+	public static void removeSkeletonSkull(OfflinePlayer p, int amount) {
 		if (skeleton.get(p.getUniqueId().toString()) != null) {
 			skeleton.put(p.getUniqueId().toString(), skeleton.get(p.getUniqueId().toString()) - amount);
 		} else {
@@ -483,7 +485,7 @@ public class SkullManager {
 		}
 	}
 
-	public static int getPigZombieSkullAmount(Player p) {
+	public static int getPigZombieSkullAmount(OfflinePlayer p) {
 		if (zpigman.get(p.getUniqueId().toString()) != null) {
 			return zpigman.get(p.getUniqueId().toString());
 		} else {
@@ -491,7 +493,7 @@ public class SkullManager {
 		}
 	}
 
-	public static void addPigZombieSkull(Player p, int amount) {
+	public static void addPigZombieSkull(OfflinePlayer p, int amount) {
 		if (zpigman.get(p.getUniqueId().toString()) != null) {
 			zpigman.put(p.getUniqueId().toString(), zpigman.get(p.getUniqueId().toString()) + amount);
 		} else {
@@ -499,7 +501,7 @@ public class SkullManager {
 		}
 	}
 
-	public static void removePigZombieSkull(Player p, int amount) {
+	public static void removePigZombieSkull(OfflinePlayer p, int amount) {
 		if (zpigman.get(p.getUniqueId().toString()) != null) {
 			zpigman.put(p.getUniqueId().toString(), zpigman.get(p.getUniqueId().toString()) - amount);
 		} else {
@@ -549,7 +551,7 @@ public class SkullManager {
 		}
 	}
 
-	public static int getSlimeSkullAmount(Player p) {
+	public static int getSlimeSkullAmount(OfflinePlayer p) {
 		if (slime.get(p.getUniqueId().toString()) != null) {
 			return slime.get(p.getUniqueId().toString());
 		} else {
@@ -557,7 +559,7 @@ public class SkullManager {
 		}
 	}
 
-	public static void addSlimeSkull(Player p, int amount) {
+	public static void addSlimeSkull(OfflinePlayer p, int amount) {
 		if (slime.get(p.getUniqueId().toString()) != null) {
 			slime.put(p.getUniqueId().toString(), slime.get(p.getUniqueId().toString()) + amount);
 		} else {
@@ -565,7 +567,7 @@ public class SkullManager {
 		}
 	}
 
-	public static void removeSlimeSkull(Player p, int amount) {
+	public static void removeSlimeSkull(OfflinePlayer p, int amount) {
 		if (slime.get(p.getUniqueId().toString()) != null) {
 			slime.put(p.getUniqueId().toString(), slime.get(p.getUniqueId().toString()) - amount);
 		} else {
@@ -615,7 +617,7 @@ public class SkullManager {
 		}
 	}
 
-	public static int getCreeperSkullAmount(Player p) {
+	public static int getCreeperSkullAmount(OfflinePlayer p) {
 		if (creeper.get(p.getUniqueId().toString()) != null) {
 			return creeper.get(p.getUniqueId().toString());
 		} else {
@@ -623,7 +625,7 @@ public class SkullManager {
 		}
 	}
 
-	public static void addCreeperSkull(Player p, int amount) {
+	public static void addCreeperSkull(OfflinePlayer p, int amount) {
 		if (creeper.get(p.getUniqueId().toString()) != null) {
 			creeper.put(p.getUniqueId().toString(), creeper.get(p.getUniqueId().toString()) + amount);
 		} else {
@@ -631,7 +633,7 @@ public class SkullManager {
 		}
 	}
 
-	public static void removeCreeperSkull(Player p, int amount) {
+	public static void removeCreeperSkull(OfflinePlayer p, int amount) {
 		if (creeper.get(p.getUniqueId().toString()) != null) {
 			creeper.put(p.getUniqueId().toString(), creeper.get(p.getUniqueId().toString()) - amount);
 		} else {
@@ -681,7 +683,7 @@ public class SkullManager {
 		}
 	}
 
-	public static int getPandaSkullAmount(Player p) {
+	public static int getPandaSkullAmount(OfflinePlayer p) {
 		if (panda.get(p.getUniqueId().toString()) != null) {
 			return panda.get(p.getUniqueId().toString());
 		} else {
@@ -689,7 +691,7 @@ public class SkullManager {
 		}
 	}
 
-	public static void addPandaSkull(Player p, int amount) {
+	public static void addPandaSkull(OfflinePlayer p, int amount) {
 		if (panda.get(p.getUniqueId().toString()) != null) {
 			panda.put(p.getUniqueId().toString(), panda.get(p.getUniqueId().toString()) + amount);
 		} else {
@@ -697,7 +699,7 @@ public class SkullManager {
 		}
 	}
 
-	public static void removePandaSkull(Player p, int amount) {
+	public static void removePandaSkull(OfflinePlayer p, int amount) {
 		if (panda.get(p.getUniqueId().toString()) != null) {
 			panda.put(p.getUniqueId().toString(), panda.get(p.getUniqueId().toString()) - amount);
 		} else {

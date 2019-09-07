@@ -39,7 +39,7 @@ public class Nocturnal {
 	
 	public void enableNocturnalReload() {
 		for (Player onlinePlayers : Bukkit.getOnlinePlayers()) {
-			if (PerkManager.checkPerkActive(onlinePlayers, "nocturnal")) {
+			if (PerkManager.checkPerkActive(onlinePlayers, "nocturnal") == true) {
 				onlinePlayers.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, Integer.MAX_VALUE, 1), true);
 			}
 		}

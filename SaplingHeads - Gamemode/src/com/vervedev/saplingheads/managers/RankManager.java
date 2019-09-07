@@ -46,6 +46,8 @@ public class RankManager {
 
 		if (ranks.get(p.getUniqueId().toString()) != null) {
 			ranks.put(p.getUniqueId().toString(), ranks.get(p.getUniqueId().toString()));
+		} else {
+			
 		}
 
 		try {

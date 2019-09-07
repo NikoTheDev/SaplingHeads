@@ -247,6 +247,25 @@ public class Utils {
 			}
 		}
 	}
+	
+	public static void resetSeasonStatus() {
+		for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
+			RankManager.setRank(p, 0);
+			SkullManager.removeChickenSkull(p, SkullManager.getChickenSkullAmount(p));
+			SkullManager.removePigSkull(p, SkullManager.getPigSkullAmount(p));
+			SkullManager.removeSheepSkull(p, SkullManager.getSheepSkullAmount(p));
+			SkullManager.removeCowSkull(p, SkullManager.getCowSkullAmount(p));
+			SkullManager.removeZombieSkull(p, SkullManager.getZombieSkullAmount(p));
+			SkullManager.removeSkeletonSkull(p, SkullManager.getSkeletonSkullAmount(p));
+			SkullManager.removeSlimeSkull(p, SkullManager.getSlimeSkullAmount(p));
+			SkullManager.removeCreeperSkull(p, SkullManager.getCreeperSkullAmount(p));
+			SkullManager.removePandaSkull(p, SkullManager.getPandaSkullAmount(p));
+			CurrencyManager.removePerkCredits(p, CurrencyManager.getPerkCredits(p));
+			PerkManager.removePerk(p, "JellyLegs");
+			PerkManager.removePerk(p, "Nocturnal");
+			Bukkit.broadcastMessage("deleted" + p.getName());
+		}
+	}
 
 	public static void saveAllPlayerData() {
 		new BukkitRunnable() {
