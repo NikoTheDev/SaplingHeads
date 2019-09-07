@@ -130,6 +130,7 @@ public class TutorialManager implements CommandExecutor, Listener {
 		for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
 			onlinePlayer.hidePlayer(p);
 		}
+		Bukkit.getWorld("flatshops").setTime(0);
 		p.setWalkSpeed(0);
 		p.setFlySpeed(0);
 		p.setGameMode(GameMode.SPECTATOR);
@@ -190,8 +191,6 @@ public class TutorialManager implements CommandExecutor, Listener {
 		int yaw = (int) p.getLocation().getYaw();
 		int pitch = (int) p.getLocation().getPitch();
 
-		if (plugin.getConfig().getConfigurationSection("tutorial.destinations." + destinationNumber) == null) {
-
 			plugin.getConfig().set("tutorial.destinations." + destinationNumber + ".x", x);
 			plugin.getConfig().set("tutorial.destinations." + destinationNumber + ".y", y);
 			plugin.getConfig().set("tutorial.destinations." + destinationNumber + ".z", z);
@@ -208,12 +207,6 @@ public class TutorialManager implements CommandExecutor, Listener {
 					.chat("&2&lTutorial &8> &7You have &asuccessfully &7set the spawn point for the destination: &6"
 							+ destinationNumber));
 			p.sendMessage("");
-		} else {
-			p.sendMessage("");
-			p.sendMessage(
-					Utils.chat("&2&lTutorial &8> &7The destination: &6" + destinationNumber + " &calready exists!"));
-			p.sendMessage("");
-		}
 	}
 
 	public static void showSkullDropTutorial(Player p) {

@@ -87,16 +87,16 @@ public class CurrencyManager {
 	}
 
 	public static void convertSkullsToCredit(Player p) {
-		int chickenSkulls = 1;
-		int pigSkulls = 0;
-		int sheepSkulls = 0;
-		int cowSkulls = 0;
-		int zombieSkulls = 0;
-		int skeletonSkulls = 0;
-		int pigzombieSkulls = 0;
-		int slimeSkulls = 0;
-		int creeperSkulls = 0;
-		int pandaSkulls = 0;
+		int chickenSkulls = 200;
+		int pigSkulls = 180;
+		int sheepSkulls = 160;
+		int cowSkulls = 140;
+		int zombieSkulls = 120;
+		int skeletonSkulls = 100;
+		int pigzombieSkulls = 70;
+		int slimeSkulls = 50;
+		int creeperSkulls = 30;
+		int pandaSkulls = 10;
 
 		if (SkullManager.getChickenSkullAmount(p) >= chickenSkulls && SkullManager.getPigSkullAmount(p) >= pigSkulls
 				&& SkullManager.getSheepSkullAmount(p) >= sheepSkulls && SkullManager.getCowSkullAmount(p) >= cowSkulls

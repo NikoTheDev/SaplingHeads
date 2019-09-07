@@ -190,7 +190,7 @@ public class Main extends JavaPlugin {
 		new PlayerManager(this);
 		new CraftingManager(this);
 		new DonationManager(this);
-		new TutorialManager(this);
+		//new TutorialManager(this);
 		new PerkManager(this);
 		new CurrencyManager(this);
 	}

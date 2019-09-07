@@ -24,12 +24,19 @@ public class CreatureSpawn implements Listener {
 	public void onCreatureSpawn(CreatureSpawnEvent e) {
 
 		Entity creature = e.getEntity();
+		
+		if (e.getLocation().getWorld().getName().equalsIgnoreCase("flatshops") || e.getLocation().getWorld().getName().equalsIgnoreCase("worldtest")) {
+			if (e.getSpawnReason() == SpawnReason.NATURAL) {
+				e.setCancelled(true);
+			}
+		}
 
-		if (e.getSpawnReason() == SpawnReason.NATURAL)
+		if (e.getSpawnReason() == SpawnReason.NATURAL) {
 			if (creature.getType() == EntityType.PHANTOM) {
 				e.setCancelled(true);
 			} else if (creature.getType() == EntityType.CREEPER) {
 				e.setCancelled(true);
 			} 
+		}
 	}
 }

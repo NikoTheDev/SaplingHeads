@@ -4,16 +4,16 @@ spawner_configuration:
 messages:
   donorshop:
     ranks:
-      elite_website_link: "https://pixelhost.org"
-      hero_website_link: "https://pixelhost.org"
-      champion_website_link: "https://pixelhost.org"
-      legend_website_link: "https://pixelhost.org"
-      legend_plus_website_link: "https://pixelhost.org"
+      elite_website_link: "https://saplingmcshop.buycraft.net/checkout/packages/add/3464222/single"
+      hero_website_link: "https://saplingmcshop.buycraft.net/checkout/packages/add/3539926/single"
+      champion_website_link: "https://saplingmcshop.buycraft.net/checkout/packages/add/3539928/single"
+      legend_website_link: "https://saplingmcshop.buycraft.net/checkout/packages/add/3539929/single"
+      legend_plus_website_link: "https://saplingmcshop.buycraft.net/checkout/packages/add/3539931/single"
     crates:
-      standard_website_link: "https://pixelhost.org"
-      premium_website_link: "https://pixelhost.org"
-      enchanted_website_link: ""
-      magma_website_link: ""
+      standard_website_link: "https://saplingmcshop.buycraft.net/checkout/packages/add/3539935/single"
+      premium_website_link: "https://saplingmcshop.buycraft.net/checkout/packages/add/3539939/single"
+      enchanted_website_link: "https://saplingmcshop.buycraft.net/checkout/packages/add/3539940/single"
+      magma_website_link: "https://saplingmcshop.buycraft.net/checkout/packages/add/3539942/single"
     website_link: "https://saplingmcshop.buycraft.net"
   spawn:
     set_spawn_message: "&a&lSaplingMC &8> &7You have successfully &eset spawn&7!"

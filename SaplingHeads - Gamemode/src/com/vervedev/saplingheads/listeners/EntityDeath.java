@@ -5,10 +5,12 @@ import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
@@ -24,6 +26,11 @@ public class EntityDeath implements Listener {
 		this.plugin = plugin;
 
 		Bukkit.getPluginManager().registerEvents(this, plugin);
+	}
+	
+	@EventHandler
+	public void onInteract(PlayerInteractEvent e) {
+		Block b = e.getClickedBlock();
 	}
 
 	@EventHandler
