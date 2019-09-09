@@ -143,6 +143,8 @@ public class SpawnerManager implements Listener {
 		Player p = e.getPlayer();
 		if (blockMaterial == Material.SPAWNER) {
 			CreatureSpawner spawner = (CreatureSpawner) block.getState();
+			spawner.setRequiredPlayerRange(30);
+			spawner.update();
 			if (ChatColor.stripColor(p.getItemInHand().getItemMeta().getDisplayName())
 					.equalsIgnoreCase(Utils.chat("Chicken Spawner"))) {
 				if (RankManager.getRank(p) >= 1) {
