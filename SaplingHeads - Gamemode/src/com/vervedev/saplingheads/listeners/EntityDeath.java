@@ -27,10 +27,17 @@ public class EntityDeath implements Listener {
 
 		Bukkit.getPluginManager().registerEvents(this, plugin);
 	}
-	
+
 	@EventHandler
 	public void onInteract(PlayerInteractEvent e) {
-		Block b = e.getClickedBlock();
+		ItemStack b = e.getPlayer().getItemInHand();
+		if (b.getType() == Material.ACACIA_BOAT || b.getType() == Material.BIRCH_BOAT
+				|| b.getType() == Material.DARK_OAK_BOAT || b.getType() == Material.JUNGLE_BOAT
+				|| b.getType() == Material.OAK_BOAT || b.getType() == Material.SPRUCE_BOAT) {
+			e.setCancelled(true);
+			e.getPlayer().sendMessage(Utils.chat("&a&lSaplingMC &8> &eboats &7are currently disabled pending a bug fix!"));
+			return;
+		}
 	}
 
 	@EventHandler
@@ -163,7 +170,8 @@ public class EntityDeath implements Listener {
 			stack.setItemMeta(skull);
 			e.getEntity().getLocation().getWorld().dropItemNaturally(e.getEntity().getLocation(), stack);
 		} else if (e.getEntity().getType() == EntityType.PANDA) {
-			e.getEntity().getLocation().getWorld().dropItemNaturally(e.getEntity().getLocation(), SkullManager.getPandaSkull());
+			e.getEntity().getLocation().getWorld().dropItemNaturally(e.getEntity().getLocation(),
+					SkullManager.getPandaSkull());
 		}
 	}
 }
