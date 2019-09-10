@@ -30,10 +30,6 @@ public class CommandPreProcess implements Listener {
 			p.openInventory(BuyUI.GUI(p));
 		}
 		
-		if (e.getMessage().equalsIgnoreCase("/warp crates") || e.getMessage().equalsIgnoreCase("/warp spawners")) {
-			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "citizens reload");
-		}
-		
 		if (!e.getPlayer().hasPermission("saplingcore.admin")) {
 			if (e.getMessage().equalsIgnoreCase("/plugins") || e.getMessage().equalsIgnoreCase("/pl")
 					|| e.getMessage().equalsIgnoreCase("/bukkit:pl") || e.getMessage().equalsIgnoreCase("/bukkit:pl")

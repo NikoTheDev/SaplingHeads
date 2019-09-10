@@ -270,8 +270,9 @@ public class Utils {
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	public static void saveAllPlayerData() {
-		new BukkitRunnable() {
+		plugin.getServer().getScheduler().scheduleAsyncRepeatingTask(plugin, new Runnable() {
 			@Override
 			public void run() {
 				try {
@@ -290,6 +291,6 @@ public class Utils {
 					e.printStackTrace();
 				}
 			}
-		}.runTaskTimer(plugin, 0L, 900L * 20);
+		}, 0, 18000);
 	}
 }
